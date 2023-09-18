@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,6 +24,37 @@ namespace WebCosmetic
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddSession(
+                options =>
+                {
+                    options.IdleTimeout = TimeSpan.FromDays(30);
+                });
+
+            services.AddAuthorization(
+                options =>
+                {
+                    options.AddPolicy("customerTerm", policy =>
+                    {
+            // đn
+            policy.RequireRole("customer");
+                        policy.RequireAuthenticatedUser();
+
+                    });
+                    options.AddPolicy("staffTerm", policy =>
+                    {
+                        policy.RequireAuthenticatedUser();
+                        policy.RequireRole("admin");
+
+                    });
+                    options.AddPolicy("adminTerm", policy =>
+                    {
+                        policy.RequireAuthenticatedUser();
+                        policy.RequireRole("staff");
+                    });
+                }
+                );
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,19 +70,26 @@ namespace WebCosmetic
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseSession();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseAuthentication();
 
-            app.UseEndpoints(endpoints =>
+            app.UseRouting();
+
+            app.UseEndpoints(endpoint =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoint.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=IndexHome}/{id?}"
+                );
             });
+
         }
     }
 }

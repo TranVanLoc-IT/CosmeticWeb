@@ -1,0 +1,264 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="row bg-info hot-sell shadow p-3 rounded ps-5 pe-5">
+    <div class="container-fluid mx-auto">
+        <div class="float-start w-50">
+            <div class="d-flex justify-content-between" style="max-height: max-content;">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown button
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </div>
+                | 
+                <div><a>Săn Deals Hời</a></div>
+                <div><a>Seabeauty Spa</a></div>
+                <div><a>Hàng mới về</a></div>
+                <div><a>Bán chạy</a></div>
+            </div>
+        </div>
+        <div class="float-end w-50 text-end">
+            <span><a>Tải app <i class="fa fa-mobile text-white"></i></a></span> | <span>Tra cứu đơn hàng</span>
+        </div>
+        <div class="clear-fix">
+        </div>
+    </div>
+
+</div>
+<div class="shadow p-3 mb-5 rounded">
+    <div class="container-fluid mx-auto ps-5 pe-5">
+        <div class="row advert_inventory">
+            <div class="col-12 col-md-8 h-100">
+                <div class="swiper-container bg-success" id="swiper_advert">
+                    <button class="swiper-button-prev"></button>
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                           
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="">
+                                <img class="w-100 h-100" src="~/images/footer/ft-img1.png" />
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="">
+                                <img class="w-100 h-100" src="~/images/footer/ft-img1.png" />
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="">
+                                <img class="w-100 h-100" src="~/images/footer/ft-img1.png" />
+                            </a>
+                        </div>
+                        <!-- Thêm các slide khác nếu cần -->
+                    </div>
+                    <button class="swiper-button-next"></button>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 h-100">
+                <a href="" class="mb-3" >
+                    <img class="h-50 w-100" src="./images/footer/ft-img12.png" />
+                </a>
+                <a href="">
+                    <img class="h-50 w-100" src="./images/footer/ft-img12.png" />
+                </a>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between ps-5 pe-5">
+           
+            <div>
+                <a>
+                    <img src="./images/footer/ft-img10.png" />
+                </a>
+            </div>
+             <div>
+                <a>
+                    <img src="./images/footer/ft-img10.png" />
+                </a>
+            </div>
+            <div>
+                <a>
+                    <img src="./images/footer/ft-img10.png" />
+                </a>
+            </div>
+            <div>
+                <a>
+                    <img src="./images/footer/ft-img10.png" />
+                </a>
+            </div>
+            <div>
+                <a>
+                    <img src="./images/footer/ft-img10.png" />
+                </a>
+            </div>
+            <div>
+                <a>
+                    <img src="./images/footer/ft-img10.png" />
+                </a>
+            </div>
+            <div>
+                <a>
+                    <img src="./images/footer/ft-img10.png" />
+                </a>
+            </div>
+        </div>
+    </div>
+ </div>
+
+<div class="container">
+    <div class="container-fluid mx-auto">
+        <div class="inventory">
+            <div class="title_inventory">
+                <div class="event_sale float-start p-2 w-75">
+                    <div class="d-flex">
+                        <h4 class="text-warning"><i class="fa fa-bolt"></i>ĐANG DIỄN RA | </h4>
+                        &nbsp;
+                        <div>kết thúc trong </div>&nbsp;
+                        <div class="time_sale">
+                            <div class="days"></div><b>:</b>&nbsp;
+                            <div class="hours"></div><b>:</b>&nbsp;
+                            <div class="minutes"></div><b>:</b>&nbsp;
+                            <div class="seconds"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="float-end w-25 text-end">
+                    <button class="btn btn-warning mb-5">Xem tất cả</button>
+                </div>
+                <div class="clearfix">
+
+                </div>
+            </div>
+            <div class="body_inventory">
+                <div class="block_product_list w-100">
+                    <div class="swiper-container bg-success" id="swiper_product">
+                        <button class="swiper-button-next text-dark border-0"></button>
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <ProductCard _current-cost="199.000" _src-img="./images/footer/ft-img10.png" _product-name="Tên sản phẩm" _short-description="Mô tả sản phẩm" _old-cost="300.000" _sale-percent="10" _buyed="1200" _review-percent="70">
+
+                                </ProductCard>
+                            </div>
+                            <div class="swiper-slide">
+                                <ProductCard _current-cost="199.000" _src-img="./images/footer/ft-img10.png" _product-name="Tên sản phẩm" _short-description="Mô tả sản phẩm" _old-cost="300.000" _sale-percent="10" _buyed="1200" _review-percent="70">
+
+                                </ProductCard>
+                            </div>
+                            <div class="swiper-slide">
+                                <ProductCard _current-cost="199.000" _src-img="./images/footer/ft-img10.png" _product-name="Tên sản phẩm" _short-description="Mô tả sản phẩm" _old-cost="300.000" _sale-percent="10" _buyed="1200" _review-percent="70">
+
+                                </ProductCard>
+                            </div>
+                            <div class="swiper-slide">
+                                <ProductCard _current-cost="199.000" _src-img="./images/footer/ft-img10.png" _product-name="Tên sản phẩm" _short-description="Mô tả sản phẩm" _old-cost="300.000" _sale-percent="10" _buyed="1200" _review-percent="70">
+
+                                </ProductCard>
+                            </div>
+                            <div class="swiper-slide">
+                                <ProductCard _current-cost="199.000" _src-img="./images/footer/ft-img10.png" _product-name="Tên sản phẩm" _short-description="Mô tả sản phẩm" _old-cost="300.000" _sale-percent="10" _buyed="1200" _review-percent="70">
+
+                                </ProductCard>
+                            </div>
+                            <div class="swiper-slide">
+                                <ProductCard _current-cost="199.000" _src-img="./images/footer/ft-img10.png" _product-name="Tên sản phẩm" _short-description="Mô tả sản phẩm" _old-cost="300.000" _sale-percent="10" _buyed="1200" _review-percent="70">
+
+                                </ProductCard>
+                            </div>
+                            <div class="swiper-slide">
+                                <ProductCard _current-cost="199.000" _src-img="./images/footer/ft-img10.png" _product-name="Tên sản phẩm" _short-description="Mô tả sản phẩm" _old-cost="300.000" _sale-percent="10" _buyed="1200" _review-percent="70">
+
+                                </ProductCard>
+                            </div>
+                            <div class="swiper-slide">
+                                <ProductCard _current-cost="199.000" _src-img="./images/footer/ft-img10.png" _product-name="Tên sản phẩm" _short-description="Mô tả sản phẩm" _old-cost="300.000" _sale-percent="10" _buyed="1200" _review-percent="70">
+
+                                </ProductCard>
+                            </div>
+                            <div class="swiper-slide">
+                                <ProductCard _current-cost="199.000" _src-img="./images/footer/ft-img10.png" _product-name="Tên sản phẩm" _short-description="Mô tả sản phẩm" _old-cost="300.000" _sale-percent="10" _buyed="1200" _review-percent="70">
+
+                                </ProductCard>
+                            </div>
+                            <div class="swiper-slide">
+                                <ProductCard _current-cost="199.000" _src-img="./images/footer/ft-img10.png" _product-name="Tên sản phẩm" _short-description="Mô tả sản phẩm" _old-cost="300.000" _sale-percent="10" _buyed="1200" _review-percent="70">
+
+                                </ProductCard>
+                            </div>
+                            <div class="swiper-slide">
+                                <ProductCard _current-cost="199.000" _src-img="./images/footer/ft-img10.png" _product-name="Tên sản phẩm" _short-description="Mô tả sản phẩm" _old-cost="300.000" _sale-percent="10" _buyed="1200" _review-percent="70">
+
+                                </ProductCard>
+                            </div>
+                            <div class="swiper-slide">
+                                <ProductCard _current-cost="199.000" _src-img="./images/footer/ft-img10.png" _product-name="Tên sản phẩm" _short-description="Mô tả sản phẩm" _old-cost="300.000" _sale-percent="10" _buyed="1200" _review-percent="70">
+
+                                </ProductCard>
+                            </div>
+                            <!-- Thêm các slide khác nếu cần -->
+                        </div>
+                        <button class="swiper-button-prev"></button>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<button type="button" class="btn" id="chatZoom" data-bs-toggle="tooltip" data-bs-placement="top" title="Chatbox tư vấn !">
+    <i class="far fa-comment-dots fs-2">
+    </i>
+</button>
+<div id="boxChat" class="rounded">
+    <div class="chat_option">
+        <div class="float-start">
+            <a href="tel:1800600"><i class="fa fa-phone text-white"></i></a>
+            &nbsp;
+        </div>
+        <div class="float-end">
+            <a onclick="dropChat()"><i class="close_chatBox fa fa-close"></i></a>
+        </div>
+        <div class="clearfix">
+        </div>
+    </div>
+    <div class="chat_content">
+        <div class="chat_line">
+            <div class="reciever float-start">
+                <span><i class="fa fa-user text-black"></i></span>
+                <p class="text-replied">Xin chào, tôi giúp được gì cho bạn 1</p>
+            </div>
+            <div class="sender float-end my-5">
+                <span><i class="fa fa-user text-black"></i></span>
+                <p class="text-sent"></p>
+            </div>
+            <div class="clearfix">
+            </div>
+        </div>
+        
+    </div>
+    <div class="chat_input">
+        <form class="d-flex" id="chatForm">
+            <input type="text" class="form-control askForChat" class="askForChat" placeholder="Nhập để hỏi" />
+            <button class="btn btn-outline-info" onclick="sendTextChat(this)"><i class="fas fa-paper-plane" aria-hidden="true"></i></button>
+        </form>
+    </div>
+</div>
+<div class="position-fixed bottom-5 end-0 p-3">
+    <div id="informOverSale" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto">Thông báo</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            Sự kiện siêu sale hot đã kết thúc
+        </div>
+    </div>
+</div>
