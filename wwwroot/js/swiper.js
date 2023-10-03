@@ -1,6 +1,7 @@
 ﻿
 const swiperProduct = new Swiper('#swiper_product', {
     direction: 'horizontal',
+    slidesPerView: 'auto',
     calculateHeight: true,
     loop: true,
     autoplay: {
@@ -14,9 +15,16 @@ const swiperProduct = new Swiper('#swiper_product', {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
+    breakpoints: {
+        768: {
+            slidesPerView: 4,
+        },
+        992: {
+            slidesPerView: 5,
+        }
+    },
     speed: 400,
-    spaceBetween: 0,
-    slidesPerView: 5
+    spaceBetween: 0
 });
 const swiperAdvert = new Swiper('#swiper_advert', {
     direction: 'horizontal',

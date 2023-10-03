@@ -1,13 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.IO;
+using WebCosmetic.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity.UI;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Builder;
 
 namespace WebCosmetic
 {
@@ -18,13 +20,38 @@ namespace WebCosmetic
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        public IConfiguration Configuration { get; set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // dotnet aspnet-codegenerator Identity -dc WebCosmetic.Scaffold.QL_COSMETICContext
+            services.AddRazorPages();
+            this.Configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build();
+            services.AddDbContext<WebCosmetic.Scaffold.QL_COSMETICContext>(
+                options =>
+                {
+                    var constring = this.Configuration.GetConnectionString("cosmeticString");
+                    options.UseSqlServer(constring);
+                }   
+                );
+            
+            services.AddIdentity<CosmeticModel, IdentityRole>()
+                .AddEntityFrameworkStores<WebCosmetic.Scaffold.QL_COSMETICContext>().AddDefaultTokenProviders();
             services.AddControllersWithViews();
-
+            // dịch vụ đăng nhập ngoài
+            services.AddAuthentication().AddGoogle(
+                options =>
+                {
+                    var getGoogle = this.Configuration.GetSection("Authentications:Google");
+                    options.ClientId = getGoogle["ClientId"];
+                    options.ClientSecret = getGoogle["ClientSecret"];
+                    options.CallbackPath = "/dang-nhap-bang-google";
+                }
+                );
+            // mail
+            services.Configure<MailSettings>(this.Configuration.GetSection("MailSettings"));
+            services.AddSingleton<IEmailSender, IdentityGmail>();
             services.AddSession(
                 options =>
                 {
@@ -36,8 +63,8 @@ namespace WebCosmetic
                 {
                     options.AddPolicy("customerTerm", policy =>
                     {
-            // đn
-            policy.RequireRole("customer");
+            
+                        policy.RequireRole("customer");
                         policy.RequireAuthenticatedUser();
 
                     });
@@ -54,6 +81,12 @@ namespace WebCosmetic
                     });
                 }
                 );
+            // identity
+            services.ConfigureApplicationCookie(
+                options=>
+                {
+                    options.LoginPath = "/login";
+                });
             services.AddMvc();
         }
 
@@ -77,19 +110,18 @@ namespace WebCosmetic
 
             app.UseRouting();
 
-            app.UseAuthorization();
+
             app.UseAuthentication();
-
-            app.UseRouting();
-
+            app.UseAuthorization();
             app.UseEndpoints(endpoint =>
             {
                 endpoint.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=IndexHome}/{id?}"
                 );
+                // cấu hình xong dịch vụ, muốn dùng được thì phải có MapRazorPages
+                endpoint.MapRazorPages();
             });
-
         }
     }
 }

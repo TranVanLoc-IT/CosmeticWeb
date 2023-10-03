@@ -11,11 +11,11 @@ a{
 }
 .item-header {
     color: white;
+    font-weight: bold;
     .icon-header {
         width: 25%;
-        font-size: 1em;
+        font-size: 1vw;
         height: 6.5vh;
-        font-weight: bold;
         line-height: 6.5vh;
         text-align: center;
         border-radius: 50%;
@@ -23,7 +23,7 @@ a{
         outline-offset: -5px;
     }
     .text-header {
-        font-size: 0.8vw;
+        font-size: 1.1vw;
         margin: 0;
         text-align: left;
     }
@@ -92,7 +92,6 @@ a{
         width: 50px;
         height: 50px;
         padding: 5px;
-        font-size: 2vw;
         z-index: 13;
     }
 

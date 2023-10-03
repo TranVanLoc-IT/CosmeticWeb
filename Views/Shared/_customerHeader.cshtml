@@ -1,5 +1,9 @@
-﻿
-
+﻿@using Microsoft.AspNetCore.Identity
+@using WebCosmetic.Models
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService authService
+@inject SignInManager<CosmeticModel> signIn
+@inject UserManager<CosmeticModel> userManager
 <header>
     <div class="header-hot-deal bg-success">
         <img src="~/images/TopHeaderSale/sale_1.jpg" class="w-100 h-100"/>
@@ -11,15 +15,31 @@
                 <div id="wrapper-menu" class="bg-white">
                     <div id="main_menu">
                         <a class="close-menu fw-bold text-white" onclick="closeMenuBar()">
-                            <i class="fa fa-close"></i>
+                            <i class="fa fa-close fa-2x"></i>
                         </a>
                         <div class="info_login p-3 bg-info">
-                            <i class="fa fa-circle-user text-white fs-3"></i>&nbsp;<span class="fw-bold fs-5">Đăng nhập / Đăng ký</span>
+                            <i class="fa fa-circle-user text-white fs-3"></i>&nbsp;
+                            @if (signIn.IsSignedIn(this.User))
+                            {
+                                <span class="fw-bold fs-5">
+                                    <a asp-page="/Account/Manage" asp-area="Identity">@userManager.GetUserName(this.User)</a>
+                                </span>
+                                <span class="fw-bold fs-5">
+                                    <a asp-area="Identity" asp-page="/Account/Logout">Đăng xuất <i class="fa fa-sign-out text-white fs-3"></i></a>
+                                </span>
+                            }
+                            else
+                            {
+
+                                <span class="fw-bold fs-5">
+                                    <a asp-area="Identity" asp-page="/Account/Login"> Đăng nhập / Đăng ký</a>
+                                </span>
+                            }
                         </div>
                         <div class="block_ct_menu">
                             <div class="menu_list">
                                 <div class="menu-item">
-                                    <a href="" class="fw-bold">Sức khỏe, làm đẹp</a>
+                                    <a href="" class="fw-bold">Sức khỏe, làm đẹp </a>
                                 </div>
                                 <div class="menu-item">
                                     <a href="">Mĩ phẩm High-End</a>
@@ -108,7 +128,8 @@
                             </div>
                         </div>
                     </div>
-                    
+
+
                 </div>
             </div>
             <div id="mask_menu"></div>
@@ -118,40 +139,86 @@
             </button>
             <div class="navbar-collapse collapse row">
                 <ul class="navbar-nav flex-grow-1 d-flex align-items-center">
-                    <li class="nav-item col-1">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    <li class="nav-item col-4">
-                            <form class="d-flex">
-                                <input type="search" class="form-control" placeholder="Sản phẩm sắc đẹp bán chạy, chính hãng" />
-                                <button class="btn btn-warning"><i class="fa fa-search"></i></button>
-                            </form>
-                    </li>
-                    <li class="nav-item col-2" style="margin-left: 20px;">
-                        <a class="item-header">
-                            <div class="icon-header float-start"><i class="fa fa-user float-right"></i></div>
-                            <p class="text-header float-end">Đăng nhập/Đăng kí <br /> Tài khoản &nbsp;<i class="fa fa-sort-down"></i></p>
-                            <div class="clearfix"></div>
-                            <partial name="_accountFormPartial"></partial>
+                    <li class="nav-item col-sm-2 col-xl-1">
+                        <a class="nav-link text-white fw-bold" asp-area="" asp-controller="Home" asp-action="IndexHome">
+                            <img src="~/images/logo/logo_header.png" class="h-100" width="120px" />
                         </a>
                     </li>
-                    <li class="nav-item col-2">
-                        <a class="item-header">
-                            <div class="icon-header float-start"><i class="fa fa-shopping-cart"></i></div>
-                            <p class="text-header float-end">Giỏ Hàng<br /> của bạn &nbsp;<i class="fa fa-sort-down"></i></p>
-                            <div class="clearfix"></div>
-                        </a>
+                    <li class="nav-item col-8 col-sm-5 col-xl-5 mx-3">
+                        <form class="d-flex">
+                            <input type="search" class="form-control" placeholder="Sản phẩm sắc đẹp bán chạy, chính hãng" />
+                            <button class="btn btn-warning"><i class="fa fa-search"></i></button>
+                        </form>
                     </li>
-                    <li class="nav-item col-2">
-                        <a class="item-header">
-                            <div class="icon-header float-start"><i class="fa fa-bullhorn"></i></div>
-                            <p class="text-header float-end">Hỗ trợ/báo cáo<br /> sự cố &nbsp;<i class="fa fa-sort-down"></i></p>
-                            <div class="clearfix"></div>
-                        </a>
-                    </li>
-                    <li class="nav-item col-1">
+                    @if ((await authService.AuthorizeAsync(this.User, "adminTerm")).Succeeded)
+                    {
+                        <li class="nav-item col-1 col-xl-2 d-none d-md-block">
+                            <a class="item-header row" asp-area="Admin">
+                                <div class="icon-header col-xl-4 d-xl-block d-md-none d-none"><i class="fa fa-user float-right"></i></div>
+                                <p class="text-header col-xl-7">Quản lí nhân viên&nbsp;<i class="fa fa-sort-down"></i></p>
+                                <div class="clearfix"></div>
+                            </a>
+                        </li>
+                        <li class="nav-item mx-sm-5 mx-xl-0 col-1 col-xl-2 d-none d-md-block">
+                            <a class="item-header row">
+                                <div class="icon-header col-xl-4 d-xl-block d-md-none d-none"><i class="fa fa-shopping-cart"></i></div>
+                                <p class="text-header col-xl-7">Quản lí Role &nbsp;<i class="fa fa-sort-down"></i></p>
+                            </a>
+                        </li>
+                        <li class="nav-item col-1 col-xl-2 d-none d-md-block">
+                            <a class="item-header row">
+                                <div class="icon-header col-xl-4 d-xl-block d-md-none d-none"><i class="fa fa-bullhorn"></i></div>
+                                <p class="text-header col-xl-7">Quản lí khách hàng &nbsp;<i class="fa fa-sort-down"></i></p>
+                            </a>
+                        </li>
+                    }
+                    else if ((await authService.AuthorizeAsync(this.User, "staffTerm")).Succeeded)
+                    {
+                        <li class="nav-item col-1 col-xl-2 d-none d-md-block">
+                            <a class="item-header row" asp-area="Staffs" asp-page="/Pages/CRUD/index">
+                                <div class="icon-header col-xl-4 d-xl-block d-md-none d-none"><i class="fa fa-user float-right"></i></div>
+                                <p class="text-header col-xl-7">Quản lí sản phẩm &nbsp;<i class="fa fa-sort-down"></i></p>
+                                <div class="clearfix"></div>
+                            </a>
+                        </li>
+                        <li class="nav-item mx-sm-5 mx-xl-0 col-1 col-xl-2 d-none d-md-block">
+                            <a class="item-header row">
+                                <div class="icon-header col-xl-4 d-xl-block d-md-none d-none"><i class="fa fa-shopping-cart"></i></div>
+                                <p class="text-header col-xl-7">Quản lí đơn hàng &nbsp;<i class="fa fa-sort-down"></i></p>
+                            </a>
+                        </li>
+                        <li class="nav-item col-1 col-xl-2 d-none d-md-block">
+                            <a class="item-header row">
+                                <div class="icon-header col-xl-4 d-xl-block d-md-none d-none"><i class="fa fa-bullhorn"></i></div>
+                                <p class="text-header col-xl-7">Thống kê doanh thu &nbsp;<i class="fa fa-sort-down"></i></p>
+                            </a>
+                        </li>
 
-                    </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item col-1 col-xl-2 d-none d-md-block">
+                            <a class="item-header row">
+                                <div class="icon-header col-xl-4 d-xl-block d-md-none d-none"><i class="fa fa-user float-right"></i></div>
+                                <p class="text-header col-xl-7">Đăng nhập/Đăng kí &nbsp;<i class="fa fa-sort-down"></i></p>
+                                <div class="clearfix"></div>
+                                <partial name="_accountFormPartial"></partial>
+                            </a>
+                        </li>
+                        <li class="nav-item mx-sm-5 mx-xl-0 col-1 col-xl-2 d-none d-md-block">
+                            <a class="item-header row">
+                                <div class="icon-header col-xl-4 d-xl-block d-md-none d-none"><i class="fa fa-shopping-cart"></i></div>
+                                <p class="text-header col-xl-7">Giỏ Hàng của bạn &nbsp;<i class="fa fa-sort-down"></i></p>
+                            </a>
+                        </li>
+                        <li class="nav-item col-1 col-xl-2 d-none d-md-block">
+                            <a class="item-header row">
+                                <div class="icon-header col-xl-4 d-xl-block d-md-none d-none"><i class="fa fa-bullhorn"></i></div>
+                                <p class="text-header col-xl-7">Hỗ trợ/báo cáo sự cố &nbsp;<i class="fa fa-sort-down"></i></p>
+                            </a>
+                        </li>
+                    }
+
                 </ul>
             </div>
         </div>

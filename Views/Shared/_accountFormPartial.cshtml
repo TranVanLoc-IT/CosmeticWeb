@@ -21,10 +21,10 @@
     <div class="internal-login">
         <p class="text-center">Hoặc đăng nhập bằng seabeauty.vn</p>
         <div class="internal-link text-center">
-            <a class="btn btn-success">Đăng nhập</a>
+            <a class="btn btn-success" asp-area="Identity" asp-page="/Account/Login">Đăng nhập</a>
         </div>
     </div>
-    <div class="no-account">
-        <p>Bạn chưa có tài khoản? <span><a href="">Dăng ký ngay</a></span></p>
+    <div class="no-account"> 
+        <p>Bạn chưa có tài khoản? <span><a asp-area="Identity" asp-page="/Account/Register">Đăng ký ngay</a></span></p>
     </div>
 </div>
