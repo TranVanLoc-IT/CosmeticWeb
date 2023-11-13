@@ -28,6 +28,17 @@ namespace WebCosmetic.Scaffold
         [Column("tongthanhtoan", TypeName = "money")]
         public decimal? Tongthanhtoan { get; set; }
 
+        [Column("ngaydathang")]
+        [DataType(dataType: DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
+        public DateTime NgayDatHang { get; set; } = DateTime.Now;
+        [Column("ngaygiaohang")]
+        [DataType(dataType: DataType.Date)]
+        [Compare("NgayDatHang", ErrorMessage = "Ngày giao hàng phải lớn hơn ngày đặt")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = false)]
+        public DateTime NgayGiaoHang { get; set; } = DateTime.Now;
+
+
         [ForeignKey(nameof(Mahd))]
         [InverseProperty(nameof(Hoadon.Hoadonvanchuyens))]
         public virtual Hoadon MahdNavigation { get; set; }

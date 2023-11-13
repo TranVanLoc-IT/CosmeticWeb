@@ -1,0 +1,54 @@
+﻿@page
+@model WebCosmetic.Areas_Staffs_Views_CRUD.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Chỉnh sửa sản phẩm @Model.Sanpham.Masp - @Model.Sanpham.Tensp</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Sanpham.Masp" />
+            <div class="form-group">
+                <label asp-for="Sanpham.Tensp" class="control-label"></label>
+                <input asp-for="Sanpham.Tensp" class="form-control" />
+                <span asp-validation-for="Sanpham.Tensp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sanpham.Maloai" class="control-label"></label>
+                <select asp-for="Sanpham.Maloai" class="form-control" asp-items="ViewBag.Maloai"></select>
+                <span asp-validation-for="Sanpham.Maloai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sanpham.Giaban" class="control-label"></label>
+                <input asp-for="Sanpham.Giaban" class="form-control" />
+                <span asp-validation-for="Sanpham.Giaban" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sanpham.Nsx" class="control-label"></label>
+                <input asp-for="Sanpham.Nsx" class="form-control" />
+                <span asp-validation-for="Sanpham.Nsx" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sanpham.Hsd" class="control-label"></label>
+                <input asp-for="Sanpham.Hsd" class="form-control" />
+                <span asp-validation-for="Sanpham.Hsd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Quay về trang quản lí</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

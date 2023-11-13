@@ -1,6 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using WebCosmetic.Models;
+using System.Linq;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Data.SqlClient;
+using System.Data;
+using System;
+
 namespace WebCosmetic.Scaffold
 {
     public partial class QL_COSMETICContext : IdentityDbContext<CosmeticModel>
@@ -13,7 +20,9 @@ namespace WebCosmetic.Scaffold
             : base(options)
         {
         }
-
+        public virtual DbSet<ProductCardModel> ProductCard { get; set; }
+        public virtual DbSet<ProfileRoleResult> ProfileRole { get; set; }
+        public virtual DbSet<ProfileRoleClaimResult> ProfileClaim { get; set; }
         public virtual DbSet<Chitiethoadon> Chitiethoadons { get; set; }
         public virtual DbSet<Congty> Congties { get; set; }
         public virtual DbSet<Cungcap> Cungcaps { get; set; }
@@ -37,11 +46,28 @@ namespace WebCosmetic.Scaffold
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            base.OnConfiguring(optionsBuilder);
+            // thêm dòng này để tương tác
+            optionsBuilder.UseSqlServer(
+                 "Data Source=MSI;Initial Catalog=QL_COSMETIC;Integrated Security=True; trusted_connection = true; encrypt = false"
+                 ); 
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<ProductCardModel>(entity =>
+            {
+                entity.HasNoKey();
+            });
+            modelBuilder.Entity<ProfileRoleResult>(entity =>
+            {
+                entity.HasNoKey();
+            });
+
+            modelBuilder.Entity<ProfileRoleClaimResult>(entity =>
+            {
+                entity.HasNoKey();
+            });
+
             modelBuilder.Entity<Chitiethoadon>(entity =>
             {
                 entity.HasKey(e => new { e.Mahd, e.Masp })
@@ -458,6 +484,44 @@ namespace WebCosmetic.Scaffold
                 {
                     table.SetTableName(tableName.Substring(6));
                 }    
+            }
+            // fluent API
+        }
+        public Khachhang GetUserInfoProcedure(string makh)
+        {
+            // gọi storeprocedure
+            return Set<Khachhang>().FromSqlRaw("exec prc_DisplayCustomerInfo {0}", makh).ToList().FirstOrDefault();
+        }
+        public List<ProfileRoleResult> GetProfileRolesProcedure(string manv)
+        {
+            return Set<ProfileRoleResult>().FromSqlRaw("exec prc_GetProfileRoles {0}", manv).ToList();
+        }
+        public List<ProfileRoleClaimResult> GetProfileRoleClaimsProcedure(string manv)
+        {
+            return Set<ProfileRoleClaimResult>().FromSqlRaw("exec prc_GetProfileRoleClaims {0}", manv).ToList();
+        }
+        public List<ProductCardModel> GetProductCardData()
+        {
+            return Set<ProductCardModel>().FromSqlRaw("exec prc_CollectProductInfo").ToList();
+        }
+        public string GenerateBillCode()
+        {
+            var billCodeOutput = new SqlParameter("@billcode", SqlDbType.Char, 10)
+            {
+                Direction = ParameterDirection.Output
+            };
+
+            string sql = "exec prc_GenerateBillCode 1, @billcode out";
+
+            Database.ExecuteSqlRaw(sql, billCodeOutput);
+
+            if (billCodeOutput.Value != DBNull.Value)
+            {
+                return billCodeOutput.Value.ToString();
+            }
+            else
+            {
+                return null;
             }
         }
     }

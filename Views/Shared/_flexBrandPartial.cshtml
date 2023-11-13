@@ -1,15 +1,35 @@
 ﻿@model List<string>
+@{ 
+    Random randIndex = new Random();
+    List<int> indexed = new List<int>(3);
+    int index = 0;
+}
 
-    <div class="d-inline-flex justify-content-between w-100 h-100 my-2" >
-        <div style="width: 30%">
-            <img src="~/images/footer/ft-img10.png" class="h-100 w-100" />
-        </div>
+<div class="d-inline-flex justify-content-between w-100 h-100 my-2">
+    @if (Model.Count == 2)
+    {
+        foreach (var img in Model)
+        {
+            <div style="width: 47%; height: 15vw" class="mx-1">
+                <img src="~/images/Long_ad/@img" class="h-100 w-100" />
+            </div>
+        }
+    }
+    else
+    {
+        @for (int i = 0; i < 3; i++)
+        {
+            index = randIndex.Next(0, Model.Count - 1);
+            if (!indexed.Contains(index))
+            {
+                <div style="width: 30%; height: 15vw" class="mx-1">
+                    <img src="~/images/Short_ad/@Model[i]" class="h-100 w-100" />
+                </div>
+                indexed.Add(index);
+                continue;
+            }
+            i--;
+        }
+    }
 
-        <div style="width: 30%">
-            <img src="~/images/footer/ft-img10.png" class="h-100 w-100" />
-        </div>
-
-        <div style="width: 30%">
-            <img src="~/images/footer/ft-img10.png" class="h-100 w-100" />
-        </div>
-    </div>
+</div>

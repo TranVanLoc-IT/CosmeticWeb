@@ -1,7 +1,28 @@
-﻿
+﻿@using Newtonsoft.Json
+@using Microsoft.AspNetCore.Identity
+@using System.Text
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService authService
+@inject SignInManager<CosmeticModel> signIn
+@inject UserManager<CosmeticModel> userManager
+@model ProductDetailsModel
+@{
+    var transfer = new DataTransfer();
+    var collectRecommendProduct = transfer.collectRecommendProduct();
+    Random randIndex = new Random();
+
+    var productDataView = ViewData["ProductDataView"] as ProductDataJson;
+    ProductCart.DetailsCart detailsCart = new ProductCart.DetailsCart();
+    detailsCart.tensp = Model.productModel.tensp;
+    detailsCart.masp = Model.productModel.masp;
+    detailsCart.tencongty = Model.productModel.tencongty;
+    detailsCart.giabanmoi = Model.productModel.giabanmoi;
+    detailsCart.giaban = Model.productModel.giaban;
+    string toJson = JsonConvert.SerializeObject(detailsCart);
+}
 <nav class="mx-5 ml-5" aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="/Home/">Home</a></li>
         <li class="breadcrumb-item active" aria-current="page">Library</li>
     </ol>
 </nav>
@@ -29,13 +50,13 @@
                                 </div>
                             </div>
                             <div class="main_pic">
-                                <img src="../sua-duong-da-emulsion.jpg" class="h-100 w-100" alt="">
+                                <img src="~/images/SanPham/@productDataView.imgUrl" class="h-100 w-100" alt="">
                             </div>
                             <div class="clearfix"></div>
                         </div>
                         <div class="real_picture">
                         </div>
-                        <div class="interact_box f-start">
+                        <div class="interact_box f-start mt-2">
                             <div class="fb-like-share">
                                 <span>
                                     <a href=""><i class="fa fa-thumbs-up"></i>Thích</a>
@@ -54,10 +75,9 @@
                     <div class="got_product_side">
                         <div class="product_info_price">
                             <div class="product_name">
-                                <div class="title_brand">Hãng sản xuất</div>
+                                <div class="title_brand">@Model.productModel.tencongty</div>
                                 <h4>
-                                    <span> Chống Nắng La Roche-Posay Kiểm Soát Dầu SPF50+ 50ml</span><br>
-                                    <span> Chống Nắng La Roche-Posay Kiểm Soát Dầu SPF50+ 50ml</span>
+                                    <span> @Model.productModel.tensp</span><br>
                                 </h4>
                             </div>
                             <div class="product_brand">
@@ -68,10 +88,10 @@
                                     <p>
                                         <span>
                                             <i class="fa fa-feedback"></i>
-                                            330 đánh giá |
+                                            @Model.productModel.sophanhoi đánh giá |
                                         </span>
                                         <span>800 hỏi đáp | </span>
-                                        <span>Mã sản phẩm: 32832989</span>
+                                        <span>Mã sản phẩm: @Model.productModel.masp</span>
                                     </p>
                                 </div>
                             </div>
@@ -84,10 +104,10 @@
                                 </div>
                                 <div class="price_info">
                                     <div class="current_price">
-                                        300.000 <span class="text-decoration-underline text-warning">đ</span> (Đã bao gồm VAT)
+                                        @Model.productModel.giaban.ToString("N2") <span class="text-decoration-underline text-warning">đ</span> (Đã bao gồm VAT)
                                     </div>
                                     <div class="origin_price">
-                                        Giá gốc: 500.000đ. Tiết kiệm 200.000đ (40%)
+                                        Giá gốc: @Model.productModel.giabanmoi.ToString("N2") đ. Tiết kiệm @Model.tietKiem đ
                                     </div>
                                 </div>
                             </div>
@@ -100,28 +120,35 @@
                             </div>
                             <div class="item_gift_box">
                                 <div class="gift_info">
-                                    <img src="../sua-duong-da-emulsion.jpg" class="w-25 h-100" alt="">
-                                    <p style="">Mô tả sản phẩm</p>
+                                    <img src="~/images/SanPham/@productDataView.anhQuaTang" class="h-100" style="height: 15%" alt="">
+                                    <p style="">@productDataView.tenQua</p>
                                 </div>
                             </div>
                         </div>
-                        <form action="">
-                            <div class="add_to_cart">
-                                <div class="set_quantity">
-                                    <label for="quantity_buyed">Số lượng mua: </label>
-                                    <input type="number" class="medium-size">
-                                </div>
-                                <div class="buyed_options" style="height: 60px;">
-                                    <div class="store_site btn btn-outline-danger fit-size" style="width: 200px;">
-                                        <i class="fa fa-map"></i> 120/127 cửa hàng còn hàng
-                                        <iframe src="" frameborder="0"></iframe>
-                                    </div>
-                                    <button class="btn btn-success fw-bold"><i class="fa fa-cart-plus"></i>&nbsp;Giỏ hàng</button>
-                                </div>
+                        <div class="add_to_cart">
+                            <div class="set_quantity">
+                                <label for="quantity_buyed">Số lượng mua: </label>
+                                <input type="number" class="medium-size" value="1" min="1" max="10" name="slmua" id="slmua">
                             </div>
-                            <div class="buy_more_promotion_box f-center">
+                            @if (signIn.IsSignedIn(this.User))
+                            {
+
+                                <a id="btnMua" class="text-decoration-none btn btn-success fw-bold mt-3" href="/ShoppingCart/IndexCart?productCartEncode=@Convert.ToBase64String(Encoding.UTF8.GetBytes(toJson))&userid=@userManager.GetUserId(this.User)&slmua=" onclick="addSlMua()"><i class="fa fa-cart-plus"></i>&nbsp;Giỏ hàng</a>
+
+                            }
+                            else
+                            {
+                                <a id="btnMua" class="text-decoration-none btn btn-success fw-bold mt-3" asp-area="Identity" asp-page="/Account/Login"><i class="fa fa-cart-plus"></i>&nbsp;Đăng nhập để mua</a>
+
+                            }
+                        </div>
+                        <div class="buyed_options" style="height: 60px;">
+                            <div class="store_site btn btn-outline-danger fit-size" style="width: 200px;">
+                                <i class="fa fa-map"></i> 120/127 cửa hàng còn hàng
                             </div>
-                        </form>
+                        </div>
+                        <div class="buy_more_promotion_box f-center">
+                        </div>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -143,9 +170,7 @@
                         <div class="main_content_details overflow-hidden-y">
                             <div>
                                 <p>
-                                    <strong>Kem chống nắng giúp bảo vệ da khỏi tia UVB &amp; UVA dài và giảm bóng nhờn La Roche-Posay Anthelios UV Mune 400 Oil Control Gel-Cream 50ml</strong> là kem chống nắng dành cho da dầu phiên bản công thức cải tiến
-                                    mới đến từ&nbsp;<strong><a href="#" target="_blank">thương hiệu dược mỹ phẩm&nbsp;</a><a href="https://hasaki.vn/thuong-hieu/la-roche-posay.html" target="_blank">La Roche-Posay</a></strong>,&nbsp;giúp kiểm soát bóng
-                                    nhờn và bảo vệ da trước tác hại từ ánh nắng &amp; ô nhiễm, ngăn chặn các tác nhân gây lão hóa sớm. Sản phẩm có công thức chống thấm nước thích hợp dùng hằng ngày và cả những hoạt động ngoài trời.
+                                    @Html.Raw(productDataView.thongtin["TieuDe"])
                                 </p>
                                 <p><span>Tia UVA dài được mệnh danh là kẻ thù nguy hiểm nhất với làn da, bởi bước sóng lên đến 380nm-400nm, làm tổn thương những tế bào sâu dưới da. Với cường độ mạnh vào mùa hè, tia UVA dài sẽ gây ra những tác hại lâu dài như thâm nám, lão hóa da. </span></p>
                                 <p>
@@ -162,31 +187,15 @@
                                     </li>
                                 </ul>
                                 <p>&nbsp;</p>
-                                <p style="text-align: center;">
-                                    <img title="Phân biệt kem chống nắng La Roche-Posay phiên bản cũ và mới" src="https://media.hasaki.vn/wysiwyg/HaNguyen3/kem-chong-nang-la-roche-posay-kiem-soat-dau-spf50-50ml-1.jpg" alt="Kem chống nắng La Roche-Posay Anthelios UV Mune 400 Oil Control Gel-Cream phiên bản mới"
-                                         width="800" class="loading" data-was-processed="true">
-                                </p>
-                                <p>&nbsp;</p>
+
                                 <ul>
                                     <li>
                                         <p><strong>La Roche-Posay Anthelios Dry Touch Finish Mattifying Effect:&nbsp;</strong>phiên bản cũ, bao gồm hai mẫu bao bì tiếng Đức và Ý.</p>
                                     </li>
                                 </ul>
-                                <p>&nbsp;</p>
-                                <p style="text-align: center;">
-                                    <img title="Kem chống nắng La Roche-Posay Anthelios Dry Touch Finish Mattifying Effect phiên bản cũ" src="https://media.hasaki.vn/wysiwyg/HaNguyen3/kem-chong-nang-la-roche-posay-kiem-soat-dau-spf50-50ml-2.jpg" alt="Kem chống nắng La Roche-Posay Anthelios Dry Touch Finish Mattifying Effect phiên bản cũ, bán song song 2 mẫu bao bì tiếng Đức và Ý"
-                                         width="800">
-                                </p>
-                                <p>&nbsp;</p>
+
                                 <h2 style="font-size: 17px!important;font-weight: bolder;">Loại da phù hợp:</h2>
-                                <ul>
-                                    <li>
-                                        <p>Sản phẩm phù hợp cho da dầu và da hỗn hợp.</p>
-                                    </li>
-                                    <li>
-                                        <p>Thích hợp sử dụng cho da mặt và cổ.</p>
-                                    </li>
-                                </ul>
+                                @Html.Raw(productDataView.thongtin["LoaiDa"])
                                 <h2 style="font-size: 17px!important;font-weight: bolder;">Giải pháp cho tình trạng da:</h2>
                                 <ul>
                                     <li>
@@ -197,26 +206,7 @@
                                     </li>
                                 </ul>
                                 <h2 style="font-size: 17px!important;font-weight: bolder;">Ưu điểm nổi bật:</h2>
-                                <ul>
-                                    <li>
-                                        <p>Kết cấu dạng kem gel, thẩm thấu tức thì, mang lại cảm giác khô thoáng, không để lại vệt trắng.</p>
-                                    </li>
-                                    <li>
-                                        <p>Kiểm soát bã nhờn &amp; mồ hôi vượt trội nhờ <span><strong>hoạt chất AIRLICIUM</strong>,&nbsp;</span>giúp mang đến một cảm giác “sạch” cho làn da đến 12h.</p>
-                                    </li>
-                                    <li>
-                                        <p>Bảo vệ da trước những tác hại từ ánh nắng &amp; ô nhiễm: lão hóa sớm, đốm nâu, kích ứng ánh nắng.</p>
-                                    </li>
-                                    <li>
-                                        <p>Độ chống nắng cao nhất SPF 50+ bảo vệ da tối ưu dưới ánh nắng.</p>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            Chống nắng phổ rộng với <strong>màng lọc độc quyền MEXORYL 400&nbsp;</strong>-&nbsp;màng lọc UV duy nhất trên thị trường và hiệu quả nhất, kể cả trước những tia UVA dài làm hủy hoại tế bào da với bước sóng 380-400nm.
-                                            Ngăn chặn hiểu quả của thâm nám da.
-                                        </p>
-                                    </li>
-                                </ul>
+                                @Html.Raw(productDataView.thongtin["LoiIch"])
                                 <h2 style="font-size: 17px!important;font-weight: bolder;">Hiệu quả sử dụng:</h2>
                                 <div>
                                     <ul>
@@ -249,44 +239,8 @@
                                     </ul>
                                 </div>
                                 <h2 style="font-size: 17px!important;font-weight: bolder;">Bảo quản:</h2>
-                                <ul>
-                                    <li>
-                                        <p>Tránh ánh nắng trực tiếp.</p>
-                                    </li>
-                                    <li>
-                                        <p>Để nơi khô ráo, thoáng mát.</p>
-                                    </li>
-                                    <li>
-                                        <p>Đậy nắp kín sau khi sử dụng.</p>
-                                    </li>
-                                </ul>
-                                <h2 style="font-size: 17px!important;font-weight: bolder;">Thông số sản phẩm:</h2>
-                                <ul>
-                                    <li>
-                                        <p><strong>Dung tích:</strong>&nbsp;50ml</p>
-                                    </li>
-                                    <li>
-                                        <p><strong>Thương hiệu:</strong>&nbsp;La Roche-Posay</p>
-                                    </li>
-                                    <li>
-                                        <p><strong>Nhà sản xuất:</strong>&nbsp;La Roche-Posay Laboratoire Pharmaceutique – France</p>
-                                    </li>
-                                    <li>
-                                        <p><strong>Xuất xứ thương hiệu:&nbsp;</strong>Pháp</p>
-                                    </li>
-                                    <li>
-                                        <p><strong>Nơi sản xuất:</strong>&nbsp;Pháp</p>
-                                    </li>
-                                    <li>
-                                        <p><strong>Hạn sử dụng:&nbsp;</strong>3 năm kể từ ngày sản xuất</p>
-                                    </li>
-                                    <li>
-                                        <p><strong>Ngày sản xuất:&nbsp;</strong>Xem trên bao bì sản phẩm</p>
-                                    </li>
-                                    <li>
-                                        <p><strong>Thành phần:</strong>&nbsp;In trên bao bì</p>
-                                    </li>
-                                </ul>
+                                @Html.Raw(productDataView.thongtin["BaoQuan"])
+
                             </div>
                             </ul>
                         </div>
@@ -302,36 +256,53 @@
                 </div>
                 <div class="details_frame" id="thongSo">
                     <table class="table table-hover w-75" cell-spacing="5px" border="1">
-                        <tbody>
-                            <tr>
-                                <td class="border-end border w-25">Xuất xứ </td>
-                                <td>China</td>
-                            </tr>
-                            <var>
-                            <tr>
-                                <td class="border-end border w-25">Xuất xứ </td>
-                                <td>China</td>
-                            </tr></var>
-                        </tbody>
+                        <tr>
+                            <th>
+                                Xuất xứ
+                            </th>
+
+                            <th>
+                                Thương hiệu
+                            </th>
+
+                            <th>
+                                Nơi sản xuất
+                            </th>
+
+                            <th>
+                                Đặc tính
+                            </th>
+
+                            <th>
+                                Vấn đề về da
+                            </th>
+                        </tr>
+                        <tr>
+                            @foreach (var i in productDataView.xuatXu)
+                            {
+                                <td>@i.Value</td>
+                            }
+                        </tr>
                     </table>
                 </div>
                 <div class="details_frame p-3" id="thanhPhan">
                     <h4>Thành phần</h4>
                     <ul style="list-style-type: circle; margin-left: 10px;">
-                        <li><span class="tp_name fw-bold">Ten thanh phan</span>TP1</li>
-                        <li><span class="tp_name fw-bold">Ten thanh phan</span>TP2</li>
                     </ul>
                     <h6>Chi tiết thành phần</h6>
+                    <div>
+                        Thành phần chỉnh:
+                        @Html.Raw(productDataView.thanhphan["Thanhphanchinh"])
+                    </div>
                     <p class="text-justify">
-                        Water, Homosalate, Silica, Octocrylene, Ethylhexyl Salicylate, Butyl Methoxydibenzoylmethane, Ethylhexyl Triazone, Bis-Ethylhexyloxyphenol Methoxyphenyl Triazine, Drometrizole Trisiloxane, Aluminum Starch Octenylsuccinate, Glycerin, Pentylene Glycol,
-                        Styrene/Acrylates Copolymer, Potassium Cetyl Phosphate, Dimethicone, Perlite, Propylene Glycol, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Aluminum Hydroxide, P-Anisic Acid, Caprylyl Glycol, Disodium Edta, Inulin Lauryl
-                        Carbamate, Isopropyl Lauroyl Sarcosinate, Peg-8 Laurate, Phenoxyethanol, Scutellaria Baicalensis Extract / Scutellaria Baicalensis Root Extract, Silica Silylate, Stearic Acid, Stearyl Alcohol, Terephthalylidene Dicamphor Sulfonic
-                        Acid, Titanium Dioxide, Tocopherol, Triethanolamine, Xanthan Gum, Zinc Gluconate.
+                        <strong>Thành phần phụ: </strong>
+                        @productDataView.thanhphan["Thanhphanphu"]
                     </p>
                 </div>
 
                 <div class="details_frame" id="cachDung">
                     <h4>Cách dùng</h4>
+                    @Html.Raw(productDataView.huongdan)
                 </div>
 
                 <div class="details_frame" id="danhGia">
@@ -351,7 +322,7 @@
                                         <i class="fa fa-star"></i>
                                     </div>
                                     <div class="total_fb text-center">
-                                        Có 127 lượt phản hồi
+                                        Có @Model.productModel.sophanhoi lượt phản hồi
                                     </div>
                                 </div>
                             </div>
@@ -360,14 +331,14 @@
                             <div class="progress_five_star f-start mb-2">
                                 <span style="margin-top: -4px;">5 sao</span>&nbsp;
                                 <div class="progress w-50">
-                                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="54" aria-valuemin="0" aria-valuemax="100">25%</div>
                                 </div>&nbsp;
                                 <span style="margin-top: -4px;">Rất hài lòng</span>
                             </div>
                             <div class="progress_five_star f-start mb-2">
                                 <span style="margin-top: -4px;">4 sao</span>&nbsp;
                                 <div class="progress w-50">
-                                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="32" aria-valuemin="0" aria-valuemax="100">25%</div>
                                 </div>&nbsp;
                                 <span style="margin-top: -4px;">Hài lòng</span>
                             </div>
@@ -388,7 +359,7 @@
                             <div class="progress_five_star f-start mb-2">
                                 <span style="margin-top: -4px;">1 sao</span>&nbsp;
                                 <div class="progress w-50">
-                                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">25%</div>
                                 </div>&nbsp;
                                 <span style="margin-top: -4px;">Rất tệ</span>
                             </div>
@@ -411,7 +382,7 @@
                             </ul>
 
                             <div class="total_fb mx-3">
-                                Có 127 lượt phản hồi
+                                Có @Model.productModel.sophanhoi lượt phản hồi
                             </div>
                         </div>
                         <div id="blockContentFb">
@@ -427,7 +398,7 @@
                                         Kim ngân
                                     </div>
                                     <div class="product_name">
-                                        Kem dưỡng da laposshreKem dưỡng da laposshr
+                                        @Model.productModel.tensp
                                     </div>
                                     <div class="buy_method">
                                         <i class="fa fa-check text-danger"></i>
@@ -507,50 +478,50 @@
             </div>
             <div class="col-12 col-md-2 ml-3">
                 <div class="flex-md-column overflow-x-auto flex-sm-wrap d-flex flex-sm-row">
-                    <div class="block_rmds">
-                        <div class="card">
-                            <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                    @for (int i = 0; i < 4; i++)
+                    {
+                        var rmdProduct = collectRecommendProduct[randIndex.Next(0, collectRecommendProduct.Count() - 1)];
+                        <div class="block_rmds">
+                            <div class="card">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <div class="card-title">
+                                        @rmdProduct.giabanmoi.ToString("N2") đ
+                                        <span class="old-price float-start">@rmdProduct.giaban.ToString("N2") đ</span>
+                                        <span class="discount float-end p-1 border-1 rounded">-@Math.Ceiling((1 - (double)rmdProduct.giabanmoi / (double)rmdProduct.giaban) * 100)%</span>
+                                        <span class="clearfix"></span>
+                                    </div>
+                                    <div class="card-text">
+                                        <h6>@rmdProduct.tensp</h6>
+                                        <p class="short-info">
+                                            {this.mota}
+                                        </p>
+                                        <span class="fb-star border-end" onclick="starLight(this)">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </span>&nbsp;
+                                        <span class="buyed"><i class="fa fa-shopping-cart"></i>&nbsp;@rmdProduct.sldaban </span>
+
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="progress">
+                                        <div style="width: @((((float)rmdProduct.sosao / 1000)*100).ToString() + '%')" class="progress-bar progress-bar-striped bg-info progress-bar-animated progress-bar-reverse" role="progressbar"
+                                             aria-valuenow="@rmdProduct.sosao" aria-valuemin="0" aria-valuemax="700">
+                                        </div>
+                                        <span>@(Math.Floor(((float)rmdProduct.sosao / 1000)*100))% </span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="block_rmds">
-                        <div class="card">
-                            <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="block_rmds">
-                        <div class="card">
-                            <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="block_rmds">
-                        <div class="card">
-                            <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
+                    }
                 </div>
+            </div>
         </div>
     </div>
-</div>
-@section Scripts{
+    @section Scripts{
         <script src="~/js/details.js" asp-append-version="true"></script>
-}
+    }

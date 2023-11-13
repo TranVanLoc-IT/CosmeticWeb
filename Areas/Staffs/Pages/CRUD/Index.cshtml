@@ -1,0 +1,72 @@
+﻿@page
+@model WebCosmetic.Areas_Staffs_Views_CRUD.IndexModel
+
+@{
+}
+
+<h1>Trang quản lí sản phẩm</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-success fs-5">Tạo mới một sản phẩm</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Sanpham[0].Tensp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sanpham[0].Giaban)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sanpham[0].Nsx)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sanpham[0].Hsd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sanpham[0].MaloaiNavigation)
+            </th>
+            <th>Tùy chọn chỉnh sửa</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Sanpham) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tensp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Giaban)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nsx)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hsd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaloaiNavigation.Maloai)
+            </td>
+            <td>
+                <div class="dropdown fs-5">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonEdit" data-bs-toggle="dropdown" aria-expanded="false">
+                        Nhấn để chọn
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonEdit">
+                        <li>
+                            <a class="dropdown-item" asp-page="./Edit" asp-route-id="@item.Masp">Chỉnh sửa</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" asp-page="./Details" asp-route-id="@item.Masp">Chi tiết</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" asp-page="./Delete" asp-route-id="@item.Masp">Xóa</a>
+                        </li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

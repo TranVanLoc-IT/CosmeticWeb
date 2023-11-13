@@ -1,0 +1,19 @@
+﻿@page "/create-user-claims/{id}"
+@model WebCosmetic.Admins.claim.CreateUserClaimsModel
+@{
+}
+
+<h1 class="text_title_page">Thêm thông tin claim của user @Model.userClaims.UserName</h1>
+<partial name="./_StatusMessage.cshtml" model="@Model.statusMessage"></partial>
+<form asp-action="./CreateUserClaims" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger">
+        ModelState.AddModelError
+    </div>
+    <div class="form-group w-25">
+        @Html.LabelFor(model => model.dropRoleClaims)
+        @Html.DropDownListFor(model => model.dropRoleClaims, Model.dropRoleClaims, new { @name = "roleClaimId" })
+    </div>
+    <div class="form-group">
+        <button class="btn btn-success" type="submit">Thêm role claim</button>
+    </div>
+</form>

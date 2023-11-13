@@ -1,0 +1,13 @@
+﻿@page "/delete-role/{id}"
+@model WebCosmetic.Admins.Role.DeleteModel
+@{
+    Layout = "../../../../Views/Shared/_Layout.cshtml";
+}
+
+<partial name="./_StatusMessage.cshtml" model="@Model.statusMessage"></partial>
+
+<form method="post">
+    <button class="btn btn-success p3">Xóa</button>
+    <a class="btn btn-danger text-decoration-none" asp-page="./Index">Trở về</a>
+
+</form>

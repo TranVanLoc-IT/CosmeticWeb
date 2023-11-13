@@ -1,0 +1,54 @@
+﻿@model SuccessPayingModel
+
+<div class="container-fluid p-2">
+    <div class="py-1 w-100 alert alert-success">
+        Thanh toán thành công
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-12">
+            <div class="card">
+                <div class="card-title">
+                    Thông tin khách hàng
+                </div>
+                <div class="card-body">
+                    @Html.LabelFor(m => m._clientInfo._clienName)
+                    @Html.DisplayFor(m => m._clientInfo._clienName)
+                    @Html.LabelFor(m => m._clientInfo._clientAddress)
+                    @Html.DisplayFor(m => m._clientInfo._clientAddress)
+                    @Html.LabelFor(m => m._clientInfo._phone)
+                    @Html.DisplayFor(m => m._clientInfo._phone)
+                </div>
+                <div class="card-footer text-muted">
+                    Mí phẩm SeaBeauty.vn
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-12">
+            <div class="card">
+                <div class="card-title">
+                    Thông tin đơn hàng
+                </div>
+                <div class="card-body">
+                    @Html.LabelFor(m => m._bill._billCode)
+                    @Html.DisplayFor(m => m._bill._billCode)
+                    @Html.LabelFor(m => m._bill._transactionCode)
+                    @Html.DisplayFor(m => m._bill._transactionCode)
+                    @Html.LabelFor(m => m._bill._methodPayment)
+                    @Html.DisplayFor(m => m._bill._methodPayment)
+                    @Html.LabelFor(m => m._bill._dateSet)
+                    @Html.DisplayFor(m => m._bill._dateSet)
+                    @Html.LabelFor(m => m._bill._totalMoney)
+                    @Html.DisplayFor(m => m._bill._totalMoney)
+                </div>
+                <div class="card-footer text-muted">
+                    Mĩ phẩm SeaBeauty.vn
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <p class="float-right">
+            <a href="@Url.Action("IndexHoModele", "HoModele")">Mua sắm tiếp>></a>
+        </p>
+    </div>
+</div>

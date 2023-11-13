@@ -1,0 +1,794 @@
+﻿{
+  "SPCN": [
+    {
+      "masp": "SPCN001   ",
+      "mota": "Kem chống nắng Laroche-Posay dành cho da dầu, mụn",
+      "imgUrl": "kem-chong-nang-laroche-posay.jpg",
+      "anhQuaTang": "Bong-tay-trang-ceiba.jpg",
+      "tenQua": "Bông tẩy trang",
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'><strong>Nước khoáng thiên nhiên La Roche-Posay:</strong> có tác dụng làm dịu da và giảm kích ứng.</p></li>\n<li dir='ltr'><p dir='ltr'><strong>Hoạt chất Airlicium:</strong> hỗ trợ thấm hút các sợi bã nhờn, hạn chế da đổ dầu.</p></li>\n<li dir='ltr'><p dir='ltr'>Không chứa Paraben, chất tạo màu, xà phòng, cồn, an toàn cho làn da nhạy cảm.</p></li>\n<li dir='ltr'><p dir='ltr'>Silica: hỗ trợ kiềm dầu cho da</p></li></ul>",
+        "Thanhphanphu": "Aqua / Water, Sodium Laureth Sulfate, Peg-8, Coco-Betaine, Hexylene Glycol, Sodium Chloride, Peg-120 Methyl Glucose Dioleate, Zinc Pca, Sodium Hydroxide, Citric Acid, Sodium Benzoate, Phenoxyethanol, Caprylyl Glycol, Parfum / Fragrance"
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Kem chống nắng La Roche-Posay&nbsp;&nbsp;Dành Cho Da Dầu, Nhạy Cảm</strong>&nbsp;với 3 dung tích đa dạng phù hợp với từng nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><p>Dầu thừa - lỗ chân lông to</p></li><li><p><a href='' target='_blank'>Da mụn</a>&nbsp;cám, đầu đen, đầu trắng và sưng viêm từ trung bình đến nặng vừa</p></li><li><p>Da nhạy cảm, dễ kích ứng</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li><li><p>Tránh xa tầm tay trẻ em.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": "<li>Sản phẩm phù hợp cho&nbsp;<a href='' target='_blank'>da dầu</a>, da mụn, da nhạy cảm.</li>"
+      },
+      "xuatXu": {
+        "XuatXu": "Pháp",
+        "ThuongH ieu": "La Posche-Possay",
+        "NoiSanXuat": "France",
+        "DacTinh": "Ngày và đêm",
+        "VanDeVeDa": "Da dầu, lỗ chân lông to"
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>Lấy một lượng vừa đủ thoa một lớp mỏng lên da 30p trước khi tiếp xúc với ánh nắng mặt trời.</p></li></ul><p><strong>Lưu ý:&nbsp;</strong></p><ul><li><p>Tránh tiếp xúc với mắt.</p></li><li><p>Trong quá trình sử dụng nếu thấy da có các biểu hiện khác thường như: xuất hiện các vết đỏ, ngứa, hay bị kích ứng thì phải ngưng sử dụng ngay và hỏi ý kiến tư vấn từ chuyên gia da liễu.</p></li></ul></div>                      </div>"
+    },
+    {
+      "masp": "SPCN002   ",
+      "mota": "Kem chống nắng Centella",
+      "imgUrl": "kem-chong-nang-centella.jpg",
+      "anhQuaTang": "Bong-tay-trang-silcot.jpg",
+      "tenQua": "Bông tẩy trang",
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'><strong>Centella Asatica extract</strong></p></li>\n<li dir='ltr'><p dir='ltr'><strong>Hoạt chất zinc oxide:</strong> hỗ trợ thấm hút các sợi bã nhờn, hạn chế da đổ dầu.</p></li>\n<li dir='ltr'><p dir='ltr'></p></ul>",
+        "Thanhphanphu": "Không có"
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Kem chống nắng Centella Skin 1004&nbsp;&nbsp;Dành Cho Da Dầu, Nhạy Cảm</strong>&nbsp;với 3 dung tích đa dạng phù hợp với từng nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><p>Dành cho da dầu,</p></li><li><p><a href='' target='_blank'>Da nhiều khuyết điểm</a>&nbsp;tàn nhang, nám sạm, đốm nâu.</p></li><li><p>Da nhạy cảm, dễ kích ứng</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li><li><p>Tránh xa tầm tay trẻ em.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": "<li>Sản phẩm phù hợp cho&nbsp;<a href='' target='_blank'>da dầu</a>, da mụn, da nhạy cảm.</li>"
+      },
+      "xuatXu": {
+        "XuatXu": "Hàn Quốc",
+        "ThuongHieu": "Centella",
+        "NoiSanXuat": "Korea",
+        "DacTinh": "Ngày",
+        "VanDeVeDa": "Da dầu, da nhiều khuyết điểm, da khô"
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>Lấy một lượng vừa đủ thoa một lớp mỏng lên da 30p trước khi tiếp xúc với ánh nắng mặt trời.</p></li></ul><p><strong>Lưu ý:&nbsp;</strong></p><ul><li><p>Tránh tiếp xúc với mắt.</p></li><li><p>Trong quá trình sử dụng nếu thấy da có các biểu hiện khác thường như: xuất hiện các vết đỏ, ngứa, hay bị kích ứng thì phải ngưng sử dụng ngay và hỏi ý kiến tư vấn từ chuyên gia da liễu.</p></li></ul></div>                      </div>"
+    },
+    {
+      "masp": "SPCN003   ",
+      "mota": "Kem chống nắng Vichy",
+      "imgUrl": "kem-chong-nang-vichy.jpg",
+      "anhQuaTang": "kem-duong-rau-ma.jpg",
+      "tenQua": "Kem dưỡng rau má Centella",
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'><strong>Nước khoáng núi lửa Vichy:</strong> có tác dụng củng cố và hồi phục hàng rào bảo vệ da.</p></li>\n<li dir='ltr'><p dir='ltr'><strong>Màng lọc Mexoryl:</strong> bảo vệ da trước tác hại của tia UVB và tia UVA.</p></li>\n<li dir='ltr'><p dir='ltr'>Alkyl benzoate</p></li>\n</ul>",
+        "Thanhphanphu": "Không có"
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Kem chống nắng Vichy&nbsp;&nbsp;Dành Cho Da Dầu, Nhạy Cảm, Da Thường</strong>&nbsp;với 3 dung tích đa dạng phù hợp với từng nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><p>Dầu thừa - lỗ chân lông to</p></li><li><p><a href='' target='_blank'>Da mụn</a>&nbsp;cám, đầu đen, đầu trắng và sưng viêm từ trung bình đến nặng vừa</p></li><li><p>Da nhạy cảm, dễ kích ứng</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li><li><p>Tránh xa tầm tay trẻ em.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": "<li>Sản phẩm phù hợp cho&nbsp;<a href='' target='_blank'>da dầu</a>, da mụn, da nhạy cảm,da thường.</li>"
+      },
+      "xuatXu": {
+        "XuatXu": "Pháp",
+        "ThuongHieu": "Vichy",
+        "NoiSanXuat": "France",
+        "DacTinh": "Ngày",
+        "VanDeVeDa": "Da dầu, lỗ chân lông to"
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>Lấy một lượng bằng 2 hạt bắp chấm lên 5 điểm: trán, mũi, 2 má và cằm đồng thời xoa vùng cổ.</p></li></ul><p><strong>Lưu ý:&nbsp;</strong></p><ul><li><p>Nếu đi bơi đi biển, hoạt động nhiều thì nên thoa lại sản phẩm sau mỗi 2h.</p></li><li><p>Trong quá trình sử dụng nếu thấy da có các biểu hiện khác thường như: xuất hiện các vết đỏ, ngứa, hay bị kích ứng thì phải ngưng sử dụng ngay và hỏi ý kiến tư vấn từ chuyên gia da liễu.</p></li></ul></div>                      </div>"
+    },
+    {
+      "masp": "SPCN004   ",
+      "mota": "Kem chống nắng Skin Aqua",
+      "imgUrl": "kem-chong-nang-skin-aqua.jpg",
+      "anhQuaTang": null,
+      "tenQua": null,
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'>Nước, Ethanol, Ethylhexyl Methoxycinnamate, BG, Diphenylsiloxyphenyl Trimethicon, Titan Oxit, Polysorbate 60, Hexyl Diethylaminohydroxybenzoyl Benzoate, Natri Hyaluronate, chiết xuất quả chanh leo, chiết xuất hoa hồng tây , hương liệu và các thành phần khác.</p></li>\n</ul>",
+        "Thanhphanphu": "Không có"
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Kem chống nắng Skin Aqua SFP50+ &nbsp;&nbsp;Dành Cho Da Dầu, Nhạy Cảm, Da Bình Thường</strong>",
+        "LoiIch": "<ul><li><p>Công thức kiểm soát màu và ánh sáng</p></li><li><pNâng tổng làm trắng tự nhiên</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li><li><p>Tránh xa tầm tay trẻ em.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": "<li>Sản phẩm phù hợp cho&nbsp;<a href='' target='_blank'>da dầu</a>, da mụn, da nhạy cảm.</li>"
+      },
+      "xuatXu": {
+        "XuatXu": "Nhật Bản",
+        "ThuongHieu": "Rohto",
+        "NoiSanXuat": "Japan",
+        "DacTinh": "Ngày",
+        "VanDeVeDa": "Phù hợp mọi loại da"
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>Lấy một lượng vừa đủ thoa một lớp mỏng lên da 30p trước khi tiếp xúc với ánh nắng mặt trời.</p></li></ul><p><strong>Lưu ý:&nbsp;</strong></p><ul><li><p>Không sử dụng lên làn da có vết thương hở, làn da bị dị ứng.</p></li><li><p>Trong quá trình sử dụng nếu thấy da có các biểu hiện khác thường như: xuất hiện các vết đỏ, ngứa, hay bị kích ứng thì phải ngưng sử dụng ngay và hỏi ý kiến tư vấn từ chuyên gia da liễu.</p></li></ul></div>                      </div>"
+    }
+  ],
+  "SPKD": [
+    {
+      "masp": "SPKD001   ",
+      "mota": "Kem dưỡng ẩm Klairs",
+      "imgUrl": "kem-duong-am-klaris.jpg",
+      "anhQuaTang": null,
+      "tenQua": null,
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'><strong>Chiết xuất từ rau má:</strong> có tác dụng làm dịu da và mờ vết thâm do mụn gây ra.</p></li>\n<li dir='ltr'><p dir='ltr'><strong>Hoa cúc La Mã:</strong> Làm dịu và làm mát da, tái tạo da hiệu quả.</p></li>\n<li dir='ltr'><p dir='ltr'>Bơ hạt mỡ, Sodium Hyaluronate, Glycerin, Capric.</p></li>\n<li dir='ltr'><p dir='ltr'>Peptide: tái tạo da cấu trúc da, giúp da khỏe mạnh hơn và ngừa quá trình lão hóa</p></li></ul>",
+        "Thanhphanphu": "Không có"
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Kem dưỡng ẩm Klairs Cream&nbsp;&nbsp;Dành Cho Da Nhạy Cảm, Dễ Kích Ứng</strong>&nbsp;với 2 dung tích đa dạng phù hợp với từng nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><p>Cấp ẩm cho da</p></li><li><p><a href='' target='_blank'>Da nhạy cảm</a></p></li><li><p>Kiểm soát dầu thừa, giữ da luôn dễ chịu, thông thoáng.</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li><li><p>Tránh xa tầm tay trẻ em.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": "<li>Sản phẩm phù hợp cho&nbsp;<a href='' target='_blank'>da dầu</a>, da mụn, da nhạy cảm.</li>"
+      },
+      "xuatXu": {
+        "XuatXu": "Hàn Quốc",
+        "ThuongHieu": "Klairs",
+        "NoiSanXuat": "Korea",
+        "DacTinh": "Đêm",
+        "VanDeVeDa": "Da nhạy cảm, da khô"
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>Lấy một lượng kem dưỡng vừa đủ thoa đều và massage mặt trong vòng 5p để tinh chất thấm sâu.</p></li></ul></div>                      </div>"
+    },
+    {
+      "masp": "SPKD002   ",
+      "mota": "Kem dưỡng ẩm Laroche-posay",
+      "imgUrl": "gel-duong-am-laroche-posay.jpg",
+      "anhQuaTang": null,
+      "tenQua": null,
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'><strong>Các thành phần làm dịu da và dưỡng ẩm:</strong> Panthenol 5%, Zinc Gluconate, Silica, Shea butter...</p></li>\n<li dir='ltr'><p dir='ltr'>Không chứa Paraben, chất tạo màu, xà phòng, cồn, an toàn cho làn da nhạy cảm.</p></li></ul>",
+        "Thanhphanphu": "Không có"
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Kem dưỡng ẩm La Roche-Posay&nbsp;&nbsp;Dành Cho Da Dầu, Nhạy Cảm</strong>&nbsp;với 1 dung tích phù hợp với mọi nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><p>Dầu thừa - lỗ chân lông to</p></li><li><p><a href='' target='_blank'>Da mụn</a>&nbsp;cám, đầu đen, đầu trắng và sưng viêm từ trung bình đến nặng vừa</p></li><li><p>Da nhạy cảm, dễ kích ứng</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li><li><p>Tránh xa tầm tay trẻ em.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": "<li>Sản phẩm phù hợp cho&nbsp;<a href='' target='_blank'>da dầu</a>, da mụn, da nhạy cảm.</li>"
+      },
+      "xuatXu": {
+        "XuatXu": "Pháp",
+        "ThuongHieu": "La Posche-Possay",
+        "NoiSanXuat": "France",
+        "DacTinh": "Ngày và đêm",
+        "VanDeVeDa": "Da dầu, lỗ chân lông to"
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>Lấy một lượng vừa đủ bôi lên toàn bộ mặt, massage và vỗ nhẹ để kem thấm vào da.</p></li></ul><li><p>Trong quá trình sử dụng nếu thấy da có các biểu hiện khác thường như: xuất hiện các vết đỏ, ngứa, hay bị kích ứng thì phải ngưng sử dụng ngay và hỏi ý kiến tư vấn từ chuyên gia da liễu.</p></li></ul></div>                      </div>"
+    },
+    {
+      "masp": "SPKD003   ",
+      "mota": "Kem dưỡng ẩm Hada Labo",
+      "imgUrl": "kem-duong-am-hada-labo.jpg",
+      "anhQuaTang": "Dau-goi-cocoon.jpg",
+      "tenQua": "Dầu gội đầu Cocoon",
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'><strong>Hyaluronic Acid:</strong> có tác dụng giúp giảm tình trạng mất nước, củng cố màng ẩm tự nhiên bảo vệ da.</p></li>\n<li dir='ltr'><p dir='ltr'><strong>Hệ dưỡng ẩm sâu HA:</strong> giúp cung cấp độ ẩm tối ưu, duy trì làn da ẩm mượt suốt 36 giờ.</p></li></ul>",
+        "Thanhphanphu": "Không có"
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Kem dưỡng ẩm Hada Labo&nbsp;&nbsp;Dành Cho Mọi Loại Da</strong>&nbsp;với nhiều dung tích đa dạng phù hợp với từng nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><p>Tăng độ ẩm của da gấp 2 lần</p></li><li><p>Giảm tình trạng mất nước, củng cố màng ẩm tự nhiên bảo vệ da</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li><li><p>Tránh xa tầm tay trẻ em.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": "<li>Sản phẩm phù hợp cho&nbsp;<a href='' target='_blank'>tất cả mọi loại da.</a></li>"
+      },
+      "xuatXu": {
+        "XuatXu": "Nhật Bản",
+        "ThuongHieu": "Hada Labo",
+        "NoiSanXuat": "Rohto Việt Nam",
+        "DacTinh": "Ngày và đêm",
+        "VanDeVeDa": "Phù hộ mọi loại da cần cấp ẩm"
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>Lấy một lượng vừa đủ thoa đều khắp mặt.</p></li></ul></div>                      </div>"
+    },
+    {
+      "masp": "SPKD004   ",
+      "mota": "Kem dưỡng ẩm Vichy",
+      "imgUrl": "kem-duong-am-vichy.jpg",
+      "anhQuaTang": null,
+      "tenQua": null,
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'><strong>Khoáng núi lửa Vichy</strong> có tác dụng làm dịu da và giảm kích ứng.</p></li>\n<li dir='ltr'><p dir='ltr'>Còn có Sodium PCA, không paraben.</p></li></ul>",
+        "Thanhphanphu": "Không có"
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Kem dưỡng ẩm Vichy&nbsp;&nbsp;Dành Cho Da Thường, Da Khô</strong>&nbsp;với nhiều dung tích đa dạng phù hợp với từng nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><p>Dành riêng cho da khô, da mất nước, nhạy cảm</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li><li><p>Tránh xa tầm tay trẻ em.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": "<li>Sản phẩm phù hợp cho&nbsp;<a href='' target='_blank'>da khô</a>, da thường, da nhạy cảm.</li>"
+      },
+      "xuatXu": {
+        "XuatXu": "Pháp",
+        "ThuongHieu": "Vichy",
+        "NoiSanXuat": "France",
+        "DacTinh": "Ngày và đêm",
+        "VanDeVeDa": "Da dầu, lỗ chân lông to"
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>Lấy một lượng vừa đủ thoa từ trong ra ngoài và từ trên xuống dưới.</p></li></ul><p><strong>Lưu ý:&nbsp;</strong></p><ul><li><p>Tránh tiếp xúc với mắt.</p></li><li><p>Trong quá trình sử dụng nếu thấy da có các biểu hiện khác thường như: xuất hiện các vết đỏ, ngứa, hay bị kích ứng thì phải ngưng sử dụng ngay và hỏi ý kiến tư vấn từ chuyên gia da liễu.</p></li></ul></div>                      </div>"
+    }
+  ],
+  "SPSM": [
+    {
+      "masp": "SPSM001   ",
+      "mota": "Son kem lì Black Rouge",
+      "imgUrl": "son-kem-black-rouge.jpg",
+      "anhQuaTang": "sua-rua-mat-cetaphil.jpeg",
+      "tenQua": "Sửa rửa mặt centaphil",
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'><strong>Dimethicone:</strong> có tác dụng son lâu trôi.</p></li>\n<li dir='ltr'><p dir='ltr'><strong>Butylene Glycol:</strong> Cung cấp và giữ độ ẩm cho môi luôn ổn định.</p></li>\n<li dir='ltr'><p dir='ltr'>Isododecane: giúp tăng độ mịn và mượt cho môi.</p></li></ul>",
+          "Thanhphanphu": "Không có"
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Son kem lì Black Rouge&nbsp;</strong>&nbsp;với nhiều dòng đa dạng phù hợp với từng nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><p>Có nhiều bảng màu son vô cùng đa dạng</p><li><p>Thiết kế đẹp mặt và vô cùng tiện lợi</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li></ul>",
+        "LoaiDa": ""
+      },
+      "xuatXu": {
+        "XuatXu": "Hàn Quốc",
+        "ThuongHieu": "Black Rouge",
+        "NoiSanXuat": "Korea",
+        "DacTinh": "Ngày và đêm",
+        "VanDeVeDa": ""
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>Dùng son dưỡng trước khi son màu để màu son lên tự nhiên.</p></li></ul></div>                      </div>"
+    },
+    {
+      "masp": "SPSM002   ",
+      "mota": "Son dưỡng môi Mediheal",
+      "imgUrl": "son-duong-moi-mediheal.jpg",
+      "anhQuaTang": null,
+      "tenQua": null,
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'><strong>10% Panthenol:</strong> có tác dụng phục hồi làn môi đang bị tổn thương, cải thiện rãnh môi.</p></li>\n<li dir='ltr'><p dir='ltr'><strong>Chiết xuất rau má:</strong> có tác dụng làm dịu, giảm viêm và kích ứng.</p></li>\n<li dir='ltr'><p dir='ltr'>Chiết xuất từ các loại tinh dầu: Dầu hạt hướng dương, Dầu argan, Dầu hạt macadamia và Dầu Olive: có độ ẩm tối ưu, giảm thiểu tối đa tình trạng nứt nẻ và khô môi, kích thích tái tạo collagen, để bờ môi luôn mềm mịn, căng bóng.</p></li></ul>",
+        "Thanhphanphu": "Không có"
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Son dưỡng môi Mediheal&nbsp</strong>&nbsp;với nhiều màu đa dạng phù hợp với từng nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><p>Làm môi đỡ khô và nứt nẻ.</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": ""
+      },
+      "xuatXu": {
+        "XuatXu": "Hàn Quốc",
+        "ThuongHieu": "Mediheal",
+        "NoiSanXuat": "Korea",
+        "DacTinh": "Ngày và đêm",
+        "VanDeVeDa": ""
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>Thoa son để dưỡng ẩm và làm mềm làn môi.</p></li></ul></div>                      </div>"
+    },
+    {
+      "masp": "SPSM003   ",
+      "mota": "Son kem lì 3CE Sepia",
+      "imgUrl": "son-kem-lì-3CE.jpg",
+      "anhQuaTang": null,
+      "tenQua": null,
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'>Water, Dimethicone, Dimethicone/Vinyl Dimethicone Crosspolymer, Glycerin, Alcohol Denat., Pentylene Glycol, Polyglyceryl-10 Myristate, Polyacrylate Crosspolymer-6, Butylene Glycol, Dimethicone Crosspolymer, Ceteareth-20, Ethylhexylglycerin, Trisodium Ethylenediamine Disuccinate, Arginine, Aluminum Hydroxide, Ammonium Polyacrylate, Carbomer.</p></li></ul>",
+        "Thanhphanphu": "Không có"
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Son kem lì 3CE&nbsp</strong>&nbsp;với nhiều bảng màu đa dạng phù hợp với từng nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><p>Có nhiều bảng màu để lựa chọn</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li><li><p>Tránh xa tầm tay trẻ em.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": ""
+      },
+      "xuatXu": {
+        "XuatXu": "Hàn Quốc",
+        "ThuongHieu": "3CE",
+        "NoiSanXuat": "Korea",
+        "DacTinh": "Ngày và đêm",
+        "VanDeVeDa": ""
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>Lấy một lượng nhỏ son môi và thoa nhẹ nhàng lên môi.</p></li></ul><p><strong>Lưu ý:&nbsp;</strong></p><ul><li><p>Tránh tiếp xúc với mắt.</p></li></ul></div>                      </div>"
+    },
+    {
+      "masp": "SPSM004   ",
+      "mota": "Son bóng Maybeline",
+      "imgUrl": "son-bong-maybeline.jpg",
+      "anhQuaTang": null,
+      "tenQua": null,
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'>Water, Dimethicone, Dimethicone/Vinyl Dimethicone Crosspolymer, Glycerin, Alcohol Denat., Pentylene Glycol, Polyglyceryl-10 Myristate, Polyacrylate Crosspolymer-6, Butylene Glycol, Dimethicone Crosspolymer, Ceteareth-20, Ethylhexylglycerin, Trisodium Ethylenediamine Disuccinate, Arginine, Aluminum Hydroxide, Ammonium Polyacrylate, Carbomer.</p></li></ul>",
+        "Thanhphanphu": "Không có"
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Son bóng Maybeline&nbsp;với bảng màu đa dạng phù hợp với từng nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><p>Giúp môi căng bóng hơn.</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li><li><p>Tránh xa tầm tay trẻ em.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": ""
+      },
+      "xuatXu": {
+        "XuatXu": "Mỹ",
+        "ThuongHieu": "Maybeline",
+        "NoiSanXuat": "China",
+        "DacTinh": "Ngày và đêm",
+        "VanDeVeDa": ""
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>Lướt nhẹ son theo cách bạn thích , sau đó để son lưu lại tự nhiên trên môi.</p></li></ul><p><strong>Lưu ý:&nbsp;</strong></p><ul><li><p>Tránh tiếp xúc với mắt.</p></li></ul></div>                      </div>"
+    },
+    {
+      "masp": "SPSM005   ",
+      "mota": "Son kem lì Gila",
+      "imgUrl": "son-kem-li-gila.jpg",
+      "anhQuaTang": null,
+      "tenQua": null,
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'><strong>Shea butter(bơ hạt mỡ):</strong> Bảo vệ trước tác hại của tia UV từ ánh nắng mặt trời, hỗ trợ trị thâm môi.</p></li>\n<li dir='ltr'><p dir='ltr'><strong>Macadamia:</strong>Duy trì độ ẩm mịn cho môi, chống khô và nứt nẻ môi.</p></li></ul>",
+        "Thanhphanphu": "Không có"
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Son kem lì Gila&nbsp;</strong>&nbsp;với nhiều bảng màu đa dạng phù hợp với từng nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><p>Giúp môi căng bóng hơn.</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li><li><p>Tránh xa tầm tay trẻ em.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": ""
+      },
+      "xuatXu": {
+        "XuatXu": "Hàn Quốc",
+        "ThuongHieu": "Gila",
+        "NoiSanXuat": "Korea",
+        "DacTinh": "Ngày và đêm",
+        "VanDeVeDa": ""
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>Bôi trực tiếp lên môi.</p></li></ul><p><strong>Lưu ý:&nbsp;</strong></p><ul><li><p>Tránh tiếp xúc với mắt.</p></li></ul></div>                      </div>"
+    },
+    {
+      "masp": "SPSM006   ",
+      "mota": "Son kem lì PinkFlash",
+      "imgUrl": "son-kem-li-PinkFlash.jpg",
+      "anhQuaTang": "Vien-uong-DHC.jpg",
+      "tenQua": "Viên uống bổ sung vitamin c DHC",
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'><strong>Shea butter(bơ hạt mỡ):</strong> Bảo vệ trước tác hại của tia UV từ ánh nắng mặt trời, hỗ trợ trị thâm môi.</p></li>\n<li dir='ltr'><p dir='ltr'><strong>Macadamia:</strong>Duy trì độ ẩm mịn cho môi, chống khô và nứt nẻ môi.</p></li></ul>",
+        "Thanhphanphu": "Không có"
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Son kem lì PinkFlash&nbsp;</strong>&nbsp;với nhiều bảng màu đa dạng phù hợp với từng nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><p>Giúp môi căng bóng hơn.</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li><li><p>Tránh xa tầm tay trẻ em.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": ""
+      },
+      "xuatXu": {
+        "XuatXu": "Trung Quốc",
+        "ThuongHieu": "PinkFlash",
+        "NoiSanXuat": "China",
+        "DacTinh": "Ngày và đêm",
+        "VanDeVeDa": ""
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>Bôi trực tiếp lên môi.</p></li></ul><p><strong>Lưu ý:&nbsp;</strong></p><ul><li><p>Tránh tiếp xúc với mắt.</p></li></ul></div>                      </div>"
+    }
+  ],
+  "SPSR": [
+    {
+      "masp": "SPSR001   ",
+      "mota": "Sữa rửa mặt Hada Labo",
+      "imgUrl": "sua-rua-mat-Hada-Labo.jpg",
+      "anhQuaTang": "Keo-deo-cham-soc-toc.jpg",
+      "tenQua": "Kẹo dẻo chăm sóc tóc",
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'><strong>Bột lúa mạch ngọc trai:</strong>có tác dụng cân bằng độ ẩm, làm sáng da, hạn chế sự sưng viêm và loại bỏ quầng thâm.</p></li></ul>",
+        "Thanhphanphu": "Hoạt chất Dipotassium Glycyrrhizate và 6 - aminocaproic acid, Vitamin C, Chiết xuất hoa cúc La Mã, lá Kameleon"
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Sữa rửa mặt Hada Labo&nbsp;&nbsp;Dành Cho Da Dầu, Nhạy Cảm</strong>&nbsp;với nhiều loại đa dạng phù hợp với từng nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><p>Dầu thừa - lỗ chân lông to</p></li><li><p><a href='' target='_blank'>Da mụn</a>&nbsp;cám, đầu đen, đầu trắng và sưng viêm từ trung bình đến nặng vừa</p></li><li><p>Da nhạy cảm, dễ kích ứng</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li><li><p>Tránh xa tầm tay trẻ em.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": "<li>Sản phẩm phù hợp cho&nbsp;<a href='' target='_blank'>da dầu</a>, da mụn, da nhạy cảm.</li>"
+      },
+      "xuatXu": {
+        "XuatXu": "Nhật Bản",
+        "ThuongHieu": "Hada Labo",
+        "NoiSanXuat": "Japan",
+        "DacTinh": "Ngày và đêm",
+        "VanDeVeDa": "Da dầu, lỗ chân lông to"
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>B1:Làm ướt da mặt<li><p>B2:Lấy một lượng sữa rửa mặt nhỏ tạo bọt và massage đều trên mặt.</p></li><li><p>B3:Rửa sạch lại với nước và lau khô.</p></li></ul><p><strong>Lưu ý:&nbsp;</strong></p><ul><li><p>Tránh tiếp xúc với mắt.</p></li><li><p>Trong quá trình sử dụng nếu thấy da có các biểu hiện khác thường như: xuất hiện các vết đỏ, ngứa, hay bị kích ứng thì phải ngưng sử dụng ngay và hỏi ý kiến tư vấn từ chuyên gia da liễu.</p></li></ul></div>                      </div>"
+    },
+    {
+      "masp": "SPSR002   ",
+      "mota": "Sữa rửa mặt CeraVe sạch sâu",
+      "imgUrl": "sua-rua-mat-CeraVe.jpg",
+      "anhQuaTang": null,
+      "tenQua": null,
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'>AQUA / WATER / EAU, COCAMIDOPROPYL HYDROXYSULTAINE, GLYCERIN, SODIUM LAUROYL SARCOSINATE, PEG-150 PENTAERYTHRITYL TETRASTEARATE, NIACINAMIDE, PEG-6 CAPRYLIC/CAPRIC GLYCERIDES, SODIUM METHYL COCOYL TAURATE, PROPYLENE GLYCOL, CERAMIDE NP, CERAMIDE AP, CERAMIDE EOP, CARBOMER, METHYLPARABEN, SODIUM CHLORIDE, SODIUM LAUROYL LACTYLATE, CHOLESTEROL, DISODIUM EDTA, PROPYLPARABEN, CITRIC ACID, TETRASODIUM EDTA, HYDROLYZED HYALURONIC ACID, PHYTOSPHINGOSINE, XANTHAN GUM.</p></li></ul>",
+        "Thanhphanphu": "Không có"
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Sữa rửa mặt CeraVe sạch sâu&nbsp;&nbsp;Dành Cho Da Dầu, Da Thường</strong>&nbsp;với nhiều loại đa dạng phù hợp với từng nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><p>Làm sạch và loại bỏ dầu, sáng da</p></li><li><p><a href='' target='_blank'>Da mụn</a>&nbsp;cám, đầu đen, đầu trắng và sưng viêm từ trung bình đến nặng vừa</p></li><li><p>Da nhạy cảm, dễ kích ứng</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li><li><p>Tránh xa tầm tay trẻ em.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": "<li>Sản phẩm phù hợp cho&nbsp;<a href='' target='_blank'>da dầu</a>, da mụn, da nhạy cảm, da thường.</li>"
+      },
+      "xuatXu": {
+        "XuatXu": "Pháp",
+        "ThuongHieu": "CeraVe",
+        "NoiSanXuat": "France",
+        "DacTinh": "Ngày và đêm",
+        "VanDeVeDa": "Da dầu,da thường, lỗ chân lông to"
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>B1:Làm ướt da mặt.</p></li><li><p>B2:Massage sữa rửa mặt vào da theo chuyển động tròn và nhẹ nhàng.</p></li><li><p>B3: Rửa sạch lại với nước.</p></li></ul><p><strong>Lưu ý:&nbsp;</strong></p><ul><li><p>Tránh tiếp xúc với mắt.</p></li><li><p>Trong quá trình sử dụng nếu thấy da có các biểu hiện khác thường như: xuất hiện các vết đỏ, ngứa, hay bị kích ứng thì phải ngưng sử dụng ngay và hỏi ý kiến tư vấn từ chuyên gia da liễu.</p></li></ul></div>                      </div>"
+    },
+    {
+      "masp": "SPSR003   ",
+      "mota": "Gel Rửa Mặt La Roche-Posay Dành Cho Da Dầu",
+      "imgUrl": "sua-rua-mat-larosche-possay.jpeg",
+      "anhQuaTang": "Bong-tay-trang-silcot.jpg",
+      "tenQua": "Bông tẩy trang Silcot",
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'><strong>Nước khoáng thiên nhiên La Roche-Posay:</strong> có tác dụng làm dịu da và giảm kích ứng.</p></li>\n<li dir='ltr'><p dir='ltr'><strong>ZinC PCA:</strong> giúp điều tiết lượng dầu tiết ra trên da, từ đó kiểm soát bóng dầu và bã nhờn dư thừa hiệu quả, giảm hình thành mụn đầu đen.</p></li>\n<li dir='ltr'><p dir='ltr'>Không chứa Paraben, chất tạo màu, xà phòng, cồn, an toàn cho làn da nhạy cảm.</p></li>\n<li dir='ltr'><p dir='ltr'>Công thức không chứa dầu (oil-free) nên rất thích hợp cho da dầu.</p></li></ul>",
+        "Thanhphanphu": "Aqua / Water, Sodium Laureth Sulfate, Peg-8, Coco-Betaine, Hexylene Glycol, Sodium Chloride, Peg-120 Methyl Glucose Dioleate, Zinc Pca, Sodium Hydroxide, Citric Acid, Sodium Benzoate, Phenoxyethanol, Caprylyl Glycol, Parfum / Fragrance"
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Gel Rửa Mặt La Roche-Posay&nbsp;Effaclar Purifying Foaming Gel For Oily Sensitive Skin&nbsp;Dành Cho Da Dầu, Nhạy Cảm</strong>&nbsp;với 3 dung tích đa dạng phù hợp với từng nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><p>Dầu thừa - lỗ chân lông to</p></li><li><p><a href='' target='_blank'>Da mụn</a>&nbsp;cám, đầu đen, đầu trắng và sưng viêm từ trung bình đến nặng vừa</p></li><li><p>Da nhạy cảm, dễ kích ứng</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát, tránh ánh nắng trực tiếp hoặc nơi có nhiệt độ cao / ẩm ướt.</p></li><li><p>Tránh xa tầm tay trẻ em.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": "<li>Sản phẩm phù hợp cho&nbsp;<a href='' target='_blank'>da dầu</a>, da mụn, da nhạy cảm.</li>"
+      },
+      "xuatXu": {
+        "XuatXu": "Pháp",
+        "ThuongHieu": "La Posche-Possay",
+        "NoiSanXuat": "France",
+        "DacTinh": "Ngày và đêm",
+        "VanDeVeDa": "Da dầu, lỗ chân lông to"
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>Làm ẩm da với nước ấm, cho một lượng vừa đủ sản phẩm ra tay, tạo bọt, thoa sản phẩm lên mặt, tránh vùng da quanh mắt.</p></li><li><p>Massage nhẹ nhàng, sau đó rửa sạch lại với nước và thấm khô da.</p></li><li><p>Sử dụng hằng ngày vào buổi sáng và tối.</p></li></ul><p><strong>Lưu ý:&nbsp;</strong></p><ul><li><p>Tránh tiếp xúc với mắt.</p></li><li><p>Trong quá trình sử dụng nếu thấy da có các biểu hiện khác thường như: xuất hiện các vết đỏ, ngứa, hay bị kích ứng thì phải ngưng sử dụng ngay và hỏi ý kiến tư vấn từ chuyên gia da liễu.</p></li></ul></div>                                    </div>"
+    },
+    {
+      "masp": "SPSR004   ",
+      "mota": "Gel rửa mặt SVR",
+      "imgUrl": "sua-rua-mat-SVR.jpg",
+      "anhQuaTang": null,
+      "tenQua": null,
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'><strong>Gluconolactone:</strong>tác động giảm viêm và tiêu sừng, giúp làm sạch da và thông thoáng lỗ chân lông.</p></li>\n<li dir='ltr'><p dir='ltr'><strong>Niacinamide:</strong> có tác dụng giảm khuẩn và điều tiết bã nhờn.</p></li>\n<li dir='ltr'><p dir='ltr'>Không chứa Paraben, chất tạo màu, xà phòng, cồn, an toàn cho làn da nhạy cảm.</p></li>\n<li dir='ltr'><p dir='ltr'>Mat SR (2%) giúp điều hòa lượng bã nhờn dư thừa, cho làn da không bóng dầu</p></li></ul>",
+        "Thanhphanphu": "Aqua (Purified Water), Disodium Laureth Sulfosuccinate, Coco-Betaine, Peg-7 Glyceryl Cocoate, Glycerin, Sodium Laureth Sulfate, Gluconolactone, Peg-120 Methyl Glucose Dioleate, Calcium Gluconate, Sarcosine, Butylene Glycol, Lactic Acid, Pentylene Glycol, Sodium Chloride, Sodium Hydroxide, Xanthan Gum, Sodium Benzoate, Fragrance"
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Gel rửa mặt SVR&nbsp;&nbsp;Dành Cho Da Dầu, Nhạy Cảm</strong>&nbsp;với nhiều dung tích đa dạng phù hợp với từng nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><p>Dầu thừa - lỗ chân lông to</p></li><li><p><a href='' target='_blank'>Da mụn</a>&nbsp;cám, đầu đen, đầu trắng và sưng viêm từ trung bình đến nặng vừa</p></li><li><p>Da nhạy cảm, dễ kích ứng</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li><li><p>Tránh xa tầm tay trẻ em.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": "<li>Sản phẩm phù hợp cho&nbsp;<a href='' target='_blank'>da dầu</a>, da mụn, da nhạy cảm.</li>"
+      },
+      "xuatXu": {
+        "XuatXu": "Pháp",
+        "ThuongHieu": "SVR",
+        "NoiSanXuat": "France",
+        "DacTinh": "Ngày và đêm",
+        "VanDeVeDa": "Da dầu, lỗ chân lông to"
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>B1:Làm ướt da mặt.</p></li><li><p>B2:Massage sữa rửa mặt vào da theo chuyển động tròn và nhẹ nhàng.</p></li><li><p>B3: Rửa sạch lại với nước.</p></li></ul><p><strong>Lưu ý:&nbsp;</strong></p><ul><li><p>Tránh tiếp xúc với mắt.</p></li><li><p>Trong quá trình sử dụng nếu thấy da có các biểu hiện khác thường như: xuất hiện các vết đỏ, ngứa, hay bị kích ứng thì phải ngưng sử dụng ngay và hỏi ý kiến tư vấn từ chuyên gia da liễu.</p></li></ul></div>                      </div>"
+    },
+    {
+      "masp": "SPSR005   ",
+      "mota": "Sữa rửa mặt Blue Copper",
+      "imgUrl": "sua-rua-mat-BlueCopper.jpg",
+      "anhQuaTang": null,
+      "tenQua": null,
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'><strong>Gluconolactone:</strong>tác động giảm viêm và tiêu sừng, giúp làm sạch da và thông thoáng lỗ chân lông.</p></li>\n<li dir='ltr'><p dir='ltr'><strong>Niacinamide:</strong> có tác dụng giảm khuẩn và điều tiết bã nhờn.</p></li>\n<li dir='ltr'><p dir='ltr'>Không chứa Paraben, chất tạo màu, xà phòng, cồn, an toàn cho làn da nhạy cảm.</p></li>\n<li dir='ltr'><p dir='ltr'>Mat SR (2%) giúp điều hòa lượng bã nhờn dư thừa, cho làn da không bóng dầu</p></li></ul>",
+        "Thanhphanphu": "Aqua (Purified Water), Disodium Laureth Sulfosuccinate, Coco-Betaine, Peg-7 Glyceryl Cocoate, Glycerin, Sodium Laureth Sulfate, Gluconolactone, Peg-120 Methyl Glucose Dioleate, Calcium Gluconate, Sarcosine, Butylene Glycol, Lactic Acid, Pentylene Glycol, Sodium Chloride, Sodium Hydroxide, Xanthan Gum, Sodium Benzoate, Fragrance"
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Sữa rửa mặt Blue Copper&nbsp;&nbsp;Dành Cho Da Dầu, Nhạy Cảm</strong>&nbsp;với 3 dung tích đa dạng phù hợp với từng nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><p>Cấp ẩm, chống lão hóa, giảm viêm cho làn da mụn</p></li><li><p><a href='' target='_blank'>Da mụn</a>&nbsp;cám, đầu đen, đầu trắng và sưng viêm từ trung bình đến nặng vừa</p></li><li><p>Da nhạy cảm, dễ kích ứng</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li><li><p>Tránh xa tầm tay trẻ em.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": "<li>Sản phẩm phù hợp cho&nbsp;<a href='' target='_blank'>da dầu</a>, da mụn, da nhạy cảm.</li>"
+      },
+      "xuatXu": {
+        "XuatXu": "Trung Quốc",
+        "ThuongHieu": "Lucenbase",
+        "NoiSanXuat": "China",
+        "DacTinh": "Ngày và đêm",
+        "VanDeVeDa": "Da dầu,da mụn, lỗ chân lông to"
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>B1:Làm ướt da mặt.</p></li><li><p>B2:Massage sữa rửa mặt vào da theo chuyển động tròn và nhẹ nhàng.</p></li><li><p>B3: Rửa sạch lại với nước.</p></li></ul><p><strong>Lưu ý:&nbsp;</strong></p><ul><li><p>Tránh tiếp xúc với mắt.</p></li><li><p>Trong quá trình sử dụng nếu thấy da có các biểu hiện khác thường như: xuất hiện các vết đỏ, ngứa, hay bị kích ứng thì phải ngưng sử dụng ngay và hỏi ý kiến tư vấn từ chuyên gia da liễu.</p></li></ul></div>                      </div>"
+    },
+    {
+      "masp": "SPSR007   ",
+      "mota": "Sữa rửa mặt Acnes",
+      "imgUrl": "sua-rua-mat-Acnes.jpg",
+      "anhQuaTang": null,
+      "tenQua": null,
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'><strong>Gluconolactone:</strong>tác động giảm viêm và tiêu sừng, giúp làm sạch da và thông thoáng lỗ chân lông.</p></li>\n<li dir='ltr'><p dir='ltr'><strong>Niacinamide:</strong> có tác dụng giảm khuẩn và điều tiết bã nhờn.</p></li>\n<li dir='ltr'><p dir='ltr'>Không chứa Paraben, chất tạo màu, xà phòng, cồn, an toàn cho làn da nhạy cảm.</p></li>\n<li dir='ltr'><p dir='ltr'>Mat SR (2%) giúp điều hòa lượng bã nhờn dư thừa, cho làn da không bóng dầu</p></li></ul>",
+        "Thanhphanphu": "Aqua (Purified Water), Disodium Laureth Sulfosuccinate, Coco-Betaine, Peg-7 Glyceryl Cocoate, Glycerin, Sodium Laureth Sulfate, Gluconolactone, Peg-120 Methyl Glucose Dioleate, Calcium Gluconate, Sarcosine, Butylene Glycol, Lactic Acid, Pentylene Glycol, Sodium Chloride, Sodium Hydroxide, Xanthan Gum, Sodium Benzoate, Fragrance"
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Sữa rửa mặt Acnes&nbsp;&nbsp;Dành Cho Da Dầu, Nhạy Cảm</strong>&nbsp;với 3 dung tích đa dạng phù hợp với từng nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><pTẩy tế bào chết dịu nhẹ, làm mờ vết thâm mụn.</p></li><li><p><a href='' target='_blank'>Da mụn</a>&nbsp;cám, đầu đen, đầu trắng và sưng viêm từ trung bình đến nặng vừa</p></li><li><p>Da nhạy cảm, dễ kích ứng</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li><li><p>Tránh xa tầm tay trẻ em.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": "<li>Sản phẩm phù hợp cho&nbsp;<a href='' target='_blank'>da dầu</a>, da mụn, da nhạy cảm.</li>"
+      },
+      "xuatXu": {
+        "XuatXu": "Nhật Bản",
+        "ThuongHieu": "Acnes",
+        "NoiSanXuat": "Japan",
+        "DacTinh": "Ngày và đêm",
+        "VanDeVeDa": "Da sạm, xỉn, không đều màu"
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>B1:Làm ướt da mặt.</p></li><li><p>B2:Massage sữa rửa mặt vào da theo chuyển động tròn và nhẹ nhàng.</p></li><li><p>B3: Rửa sạch lại với nước.</p></li></ul><p><strong>Lưu ý:&nbsp;</strong></p><ul><li><p>Tránh tiếp xúc với mắt.</p></li><li><p>Trong quá trình sử dụng nếu thấy da có các biểu hiện khác thường như: xuất hiện các vết đỏ, ngứa, hay bị kích ứng thì phải ngưng sử dụng ngay và hỏi ý kiến tư vấn từ chuyên gia da liễu.</p></li></ul></div>                      </div>"
+    }
+  ],
+  "SPST": [
+    {
+      "masp": "SPST001   ",
+      "mota": "Sữa tắm Hatomugi",
+      "imgUrl": "sua-tam-hatomugi.jpeg",
+      "anhQuaTang": null,
+      "tenQua": null,
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'><strong>Chiết xuất ý dĩ:</strong> chứa nhiều axit béo và dưỡng chất vitamin E, B1, B12 có khả năng cung cấp độ ẩm cho da ẩm mượt hơn, đồng thời giảm sự hình thành nếp nhăn, làm mờ các đốm nâu, dưỡng da sáng và đều màu.</p></li>\n<li dir='ltr'><p dir='ltr'><strong>Các enzyme phân giải protein có trong chiết xuất hạt ý dĩ:</strong> hòa tan lớp keratin của da giúp làm mềm và làm ẩm da hiệu quả.</p></li>\n</ul>",
+        "Thanhphanphu": "Water, Lauric Acid, Myristic Acid, Potassium Hydroxide, Cocamide MEA, Glycerin, Glycol Distearate, Cocamidopropyl Betaine, Sodium Laureth Sulfate, Cocamide DEA, Sodium Chloride, Potassium Cocoyl Glutamate, Sodium Cocoyl Glutamate, Sodium Lauroyl Methylaminopropionate, Coix Lacryma - Jobi ma - Yuen SEED Extract, Butyrospermum Parkii (SHEA) Butter, Sodium Hyaluronate, Butylene Glycol, Propylene Glycol, Polyquaternium - 7, Alcohol Denat, Tetrasodium EDTA, Phenoxyethanol, Ethylparaben, Fragrance."
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Sữa tắm Hatomugi&nbsp;&nbsp;Dành Cho Da Thường, Mọi Loại Da</strong>&nbsp;với nhiều dung tích đa dạng phù hợp với từng nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><p>Làm sạch da, nuôi dưỡng cho làn da sáng mịn từ bên trong.</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li><li><p>Tránh xa tầm tay trẻ em.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": "<li>Sản phẩm phù hợp cho&nbsp;<a href='' target='_blank'>da thường</a>, mọi loại da.</li>"
+      },
+      "xuatXu": {
+        "XuatXu": "Nhật Bản",
+        "ThuongHieu": "Hatomugi",
+        "NoiSanXuat": "Japan",
+        "DacTinh": "Ngày và đêm",
+        "VanDeVeDa": "Da khô, mất nước"
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>B1:Làm ướt cơ thể.</p></li><li><p>B2:Tạo bọt với nước rồi thoa đều lên cơ thể, massage nhẹ nhàng.</p></li><li><p>B3: Rửa sạch lại với nước.</p></li></ul><p><strong>Lưu ý:&nbsp;</strong></p><ul><li><p>Tránh tiếp xúc với mắt.</p></li><li><p>Trong quá trình sử dụng nếu thấy da có các biểu hiện khác thường như: xuất hiện các vết đỏ, ngứa, hay bị kích ứng thì phải ngưng sử dụng ngay và hỏi ý kiến tư vấn từ chuyên gia da liễu.</p></li></ul></div>                      </div>"
+    },
+    {
+      "masp": "SPST002   ",
+      "mota": "Sữa tắm St.Ives",
+      "imgUrl": "sua-tam-St.Ives.jpg",
+      "anhQuaTang": null,
+      "tenQua": null,
+      "thanhphan": {
+        "Thanhphanchinh": "Water (Eau), Sodium Laureth Sulfate, Sodium Chloride, Cocamide Mea, Glycol Stearate, Fragrance (Parfum), Citric Acid, Sodium Benzoate, Glycerin, Tetrasodium Edta, Stearamide Amp, Ppg-9, Butyrospermum Parkii (Shea) Butter, Avena Sativa (Oat) Meal Extract, Coumarin, Yellow 5 (Ci 19140), Red 33 (Ci 17200), Blue 1 (Ci 42090)",
+        "Thanhphanphu": "Không có"
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Sữa tắm St.Ives&nbsp;&nbsp;Dành Cho Da khô</strong>&nbsp;với 3 dung tích đa dạng phù hợp với từng nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><p>Làm sạch bụi bẩn, dưỡng ẩm và </p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li><li><p>Tránh xa tầm tay trẻ em.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": "<li>Sản phẩm phù hợp cho&nbsp;<a href='' target='_blank'>da thường</a>, mọi loại da.</li>"
+      },
+      "xuatXu": {
+        "XuatXu": "Mỹ",
+        "ThuongHieu": "ST.IVES",
+        "NoiSanXuat": "United States",
+        "DacTinh": "Ngày và đêm",
+        "VanDeVeDa": "Mọi loại da"
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>B1:Làm ướt cơ thể.</p></li><li><p>B2:Tạo bọt với nước rồi thoa đều lên cơ thể, massage nhẹ nhàng.</p></li><li><p>B3: Rửa sạch lại với nước.</p></li></ul><p><strong>Lưu ý:&nbsp;</strong></p><ul><li><p>Tránh tiếp xúc với mắt.</p></li><li><p>Trong quá trình sử dụng nếu thấy da có các biểu hiện khác thường như: xuất hiện các vết đỏ, ngứa, hay bị kích ứng thì phải ngưng sử dụng ngay và hỏi ý kiến tư vấn từ chuyên gia da liễu.</p></li></ul></div>                      </div>"
+    },
+    {
+      "masp": "SPST003   ",
+      "mota": "Sữa tắm Centaphil Baby",
+      "imgUrl": "sua-tam-Centaphil-Baby.jpg",
+      "anhQuaTang": null,
+      "tenQua": null,
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'><strong>Chiết xuất hoa Cúc Calendula hữu cơ:</strong>  giúp làm dịu, dưỡng ẩm và làm mềm da nhạy cảm đồng thời lưu lại hương thơm tươi mát.</p></li>\n<li dir='ltr'><p dir='ltr'><strong>Glycerin:</strong> dưỡng ẩm da.</p></li>\n<li dir='ltr'><p dir='ltr'>Tocopherol (Vitamin E): chống oxy hoá, dưỡng ẩm da.</p></li>\n<li dir='ltr'><p dir='ltr'>Panthenol: làm dịu, dưỡng ẩm, hỗ trợ phục hồi da.</p></li></ul>",
+        "Thanhphanphu": "Water, Sodium Laureth Sulfate, Disodium Laureth Sulfosuccinate, Cocamidopropyl Betaine, Glycerin, Panthenol (Vitamin B5), PEG-120 Methyl Glucose Dioleate, Glycol Distearate, Hydrolyzed Wheat Protein, Calendula Officinalis Flower Extract, Aloe Barbadensis Leaf Juice Powder, Fragrance, Citric Acid, Sodium Benzoate, Phenoxyethanol, Sodium Citrate, Laureth-4, Heliotropine, Polyquaternium-10, Sodium Chloride, Sodium Hydroxide, Tocopherol (Vitamin E)."
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Sữa tắm Centaphil Baby&nbsp;&nbsp;Dành Cho em bé</strong>&nbsp;với nhiều dung tích đa dạng phù hợp với từng nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><p>Nâng niu làn da nhạy cảm của bé</p></li><li><p>Duy trì độ ẩm làn da cho bé đến 8h</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li><li><p>Tránh xa tầm tay trẻ em.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": "<li>Sản phẩm phù hợp cho&nbsp;<a href='' target='_blank'>da dầu</a>, da mụn, da nhạy cảm.</li>"
+      },
+      "xuatXu": {
+        "XuatXu": "Canada",
+        "ThuongHieu": "Cetaphil",
+        "NoiSanXuat": "Việt Nam",
+        "DacTinh": "Ngày và đêm",
+        "VanDeVeDa": "Da nhạy cảm, kích ứng, mẩn đỏ"
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>B1:Làm ướt cơ thể.</p></li><li><p>B2:Tạo bọt với nước rồi thoa đều lên cơ thể, massage nhẹ nhàng.</p></li><li><p>B3: Rửa sạch lại với nước.</p></li></ul><p><strong>Lưu ý:&nbsp;</strong></p><ul><li><p>Tránh tiếp xúc với mắt.</p></li><li><p>Trong quá trình sử dụng nếu thấy da có các biểu hiện khác thường như: xuất hiện các vết đỏ, ngứa, hay bị kích ứng thì phải ngưng sử dụng ngay và hỏi ý kiến tư vấn từ chuyên gia da liễu.</p></li></ul></div>                      </div>"
+    },
+    {
+      "masp": "SPST004   ",
+      "mota": "Sữa tắm Lifeboy Detox",
+      "imgUrl": "sua-tam-lifeboy.jpg",
+      "anhQuaTang": "Dau-goi-collagen.jpg",
+      "tenQua": "Dầu gội collagen",
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'><strong>Khổ qua:</strong>là thành phần đã được sử dụng từ xa xưa để chăm sóc da, đặc biệt mỗi khi làn da cơ thể nổi mẩn đỏ, ngứa, nổi mụn, nhờ khả năng thanh lọc, diệt khuẩn, làm dịu da lành tính.</p></li>\n<li dir='ltr'><p dir='ltr'><strong>Matcha:</strong>là một trong những bí quyết chăm sóc da nổi tiếng chứa thành phần chống oxy hóa hiệu quả, kháng viêm, hỗ trợ tái tạo những vùng da tổn thương, mang lại làn da sáng khỏe hơn trông thấy.</p></li></ul>",
+        "Thanhphanphu": "Không có"
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Sữa tắm Lifeboy&nbsp;&nbsp;Dành Cho Mụn</strong>&nbsp;với 3 loại đa dạng phù hợp với từng nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><p>Giúp detox sạch sâu</p></li><li><p><a href='' target='_blank'>Da thường tiếp xúc khói bụi,</a>&nbsp;da dầu nhờn, lỗ chân lông bít tắc, dễ nổi mụn</p></li><li><p>Da nhạy cảm, dễ kích ứng</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li><li><p>Tránh xa tầm tay trẻ em.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": "<li>Sản phẩm phù hợp cho&nbsp;<a href='' target='_blank'>mọi loại da</a>, đặc biệt là da dầu nhờn.</li>"
+      },
+      "xuatXu": {
+        "XuatXu": "Mỹ",
+        "ThuongHieu": "Lifeboy",
+        "NoiSanXuat": "Việt Nam",
+        "DacTinh": "Ngày và đêm",
+        "VanDeVeDa": "Da mụn"
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>B1:Làm ướt cơ thể.</p></li><li><p>B2:Tạo bọt với nước rồi thoa đều lên cơ thể, massage nhẹ nhàng.</p></li><li><p>B3: Rửa sạch lại với nước.</p></li></ul><p><strong>Lưu ý:&nbsp;</strong></p><ul><li><p>Tránh tiếp xúc với mắt.</p></li><li><p>Trong quá trình sử dụng nếu thấy da có các biểu hiện khác thường như: xuất hiện các vết đỏ, ngứa, hay bị kích ứng thì phải ngưng sử dụng ngay và hỏi ý kiến tư vấn từ chuyên gia da liễu.</p></li></ul></div>                      </div>"
+    },
+    {
+      "masp": "SPST005   ",
+      "mota": "Sữa tắm Hazaline",
+      "imgUrl": "sua-tam-hazaline.jpg",
+      "anhQuaTang": "serum-bi-dao.jpg",
+      "tenQua": "Serum bí đao",
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'><strong>Chiết xuất Matcha:</strong> giàu chất chống oxy hoá, bảo vệ da trước tác hại ánh nắng, làm đều màu da, tăng cường độ ẩm, hạn chế tình trạng khô sạm, cho da mềm mịn.</p></li>\n<li dir='ltr'><p dir='ltr'><strong>Chiết xuất Lựu đỏ: </strong>giàu vitamin C giúp dưỡng sáng và tái tạo làn da, cho da sáng rạng ngời.</p></li>\n<li dir='ltr'><p dir='ltr'>Vitamin B3 - C - E: cho tác động dưỡng sáng da vượt trội gấp 3 lần.</p></li></ul>",
+        "Thanhphanphu": "Không có"
+
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Sữa tắm Hazaline&nbsp;&nbsp;Dành Cho Mọi Loại Da</strong>&nbsp;với 3 mùi hương phù hợp với từng nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><p>Làm cho làn da sáng ngời thuần khiết</p></li><li><p>Lưu hương quyến rũ tới 8H</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li><li><p>Tránh xa tầm tay trẻ em.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": "<li>Sản phẩm phù hợp cho&nbsp;<a href='' target='_blank'>mọi loại da</a>, da mụn, da nhạy cảm, da bình thường.</li>"
+      },
+      "xuatXu": {
+        "XuatXu": "Mỹ",
+        "ThuongHieu": "Hazaline",
+        "NoiSanXuat": "Việt Nam",
+        "DacTinh": "Ngày và đêm",
+        "VanDeVeDa": "Mọi loại da"
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>B1:Làm ướt cơ thể.</p></li><li><p>B2:Tạo bọt với nước rồi thoa đều lên cơ thể, massage nhẹ nhàng.</p></li><li><p>B3: Rửa sạch lại với nước.</p></li></ul><p><strong>Lưu ý:&nbsp;</strong></p><ul><li><p>Tránh tiếp xúc với mắt.</p></li><li><p>Trong quá trình sử dụng nếu thấy da có các biểu hiện khác thường như: xuất hiện các vết đỏ, ngứa, hay bị kích ứng thì phải ngưng sử dụng ngay và hỏi ý kiến tư vấn từ chuyên gia da liễu.</p></li></ul></div>                      </div>"
+    },
+    {
+      "masp": "SPST006   ",
+      "mota": "Sữa tắm Dove",
+      "imgUrl": "sua-tam-Dove.jpg",
+      "anhQuaTang": "tay-trang-hoa-cuc.jpeg",
+      "tenQua": "Nước tẩy trang hoa cúc",
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'><strong>¼ kem dưỡng da mặt:</strong> giúp dưỡng ẩm sâu, nuôi dưỡng làn da mềm mịn từ sâu bên trong sau mỗi lần tắm.</p></li></ul>",
+        "Thanhphanphu": "Nước, Cocamidopropyl Betaine, Sodium Methyl Lauroyl Taurate, Sodium Cocoyl Isethionate, Fragrance, Glycerin, Sodium Chloride, Phenoxyethanol, Styrene/Acrylates Copolymer, Carbomer, Sodium Hydroxide, Coconut Acid, Stearic Acid, Coco-Glucoside, Citric Acid, Palmitic Acid, Sodium Benzoate, Lauric Acid, Sodium Isethionate, Sodium Methyltaurate, PPG-9, Tetrasodium EDTA, PEG-150 Pentaerythrityl Tetrastearate."
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Sữa tắm Dove&nbsp;&nbsp;Dành Cho Da Khô/strong>&nbsp;với 3 mùi hương đa dạng phù hợp với từng nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><p>Da mềm mịn hơn tức thì</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li><li><p>Tránh xa tầm tay trẻ em.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": "<li>Sản phẩm phù hợp cho&nbsp;<a href='' target='_blank'>da khô</a>, da mụn, da nhạy cảm.</li>"
+      },
+      "xuatXu": {
+        "XuatXu": "Mỹ",
+        "ThuongHieu": "Dove",
+        "NoiSanXuat": "Việt Nam",
+        "DacTinh": "Ngày và đêm",
+        "VanDeVeDa": "Da khô, da mất nước"
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>B1:Làm ướt cơ thể.</p></li><li><p>B2:Tạo bọt với nước rồi thoa đều lên cơ thể, massage nhẹ nhàng.</p></li><li><p>B3: Rửa sạch lại với nước.</p></li></ul><p><strong>Lưu ý:&nbsp;</strong></p><ul><li><p>Tránh tiếp xúc với mắt.</p></li><li><p>Trong quá trình sử dụng nếu thấy da có các biểu hiện khác thường như: xuất hiện các vết đỏ, ngứa, hay bị kích ứng thì phải ngưng sử dụng ngay và hỏi ý kiến tư vấn từ chuyên gia da liễu.</p></li></ul></div>                      </div>"
+    }
+  ],
+  "SPTT": [
+    {
+      "masp": "SPTT001   ",
+      "mota": "Nước tẩy trang Bioderma",
+      "imgUrl": "tay-trang-bioderma.jpeg",
+      "anhQuaTang": "tay-trang-simple.jpeg",
+      "tenQua": "Nước tẩy trang Simple",
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'><strong>Công nghệ Micellar: </strong> Các hạt micelle, có thành phần được lấy cảm hứng từ lipid của da, là những hạt làm sạch vô hình siêu nhỏ. Chúng có khả năng thu giữ các tạp chất trong khi vẫn duy trì lớp màng bảo vệ tự nhiên của da.</p></li>\n<li dir='ltr'><p dir='ltr'><strong>Sáng chế D.A.F.: </strong> Các tác động từ bên ngoài có thể làm cho da trở nên kích ứng và nhạy cảm. Hợp chất này giúp làm tăng khả năng dung nạp của làn da - bất kể đối với loại da nào - nhằm tăng cường sức đề kháng cho da.</p></li></ul>",
+        "Thanhphanphu": "Water (Aqua), Peg-6 Caprylic/Capric Glycerides, Sodium Citrate , Zinc Gluconate, Copper Sulfate, Ginkgo Biloba Extract – Chiết Xuất Lá Bạch Quả, Mannitol, Xylitol, Rhamnose, Fructooligosaccharides, Propylene Glycol, Citric Acid, Disodium Edta, Cetrimonium Bromide, Fragrance (Parfum)."
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Nước tẩy trang Bioderma&nbsp;&nbsp;Dành Cho Da Dầu, Nhạy Cảm</strong>&nbsp;với 3 dung tích đa dạng phù hợp với từng nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><p>Dầu thừa - lỗ chân lông to</p></li><li><p><a href='' target='_blank'>Da mụn</a>&nbsp;cám, đầu đen, đầu trắng và sưng viêm từ trung bình đến nặng vừa</p></li><li><p>Da nhạy cảm, dễ kích ứng</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li><li><p>Tránh xa tầm tay trẻ em.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": "<li>Sản phẩm phù hợp cho&nbsp;<a href='' target='_blank'>da dầu</a>, da mụn, da nhạy cảm.</li>"
+      },
+      "xuatXu": {
+        "XuatXu": "Pháp",
+        "ThuongHieu": "Bioderma",
+        "NoiSanXuat": "France",
+        "DacTinh": "Ngày và đêm",
+        "VanDeVeDa": "Da dầu, lỗ chân lông to"
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>B1:Thấm nước tẩy trang lên bông tẩy trang.</p></li><li><p>B2:Nhẹ nhàng tẩy sạch vùng mặt.</p></li><li><p>B3: Rửa sạch lại với nước.</p></li></ul><p><strong>Lưu ý:&nbsp;</strong></p><ul><li><p>Tránh tiếp xúc với mắt.</p></li><li><p>Trong quá trình sử dụng nếu thấy da có các biểu hiện khác thường như: xuất hiện các vết đỏ, ngứa, hay bị kích ứng thì phải ngưng sử dụng ngay và hỏi ý kiến tư vấn từ chuyên gia da liễu.</p></li></ul></div>                      </div>"
+    },
+    {
+      "masp": "SPTT002   ",
+      "mota": "Nước tẩy trang Garnier",
+      "imgUrl": "tay-trang-garnier.jpeg",
+      "anhQuaTang": "serum-laroche-posay.jpg",
+      "tenQua": "Serum laroche-posay",
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'><strong>Công nghệ Micellar: </strong> Các hạt micelle, có thành phần được lấy cảm hứng từ lipid của da, là những hạt làm sạch vô hình siêu nhỏ. Chúng có khả năng thu giữ các tạp chất trong khi vẫn duy trì lớp màng bảo vệ tự nhiên của da.</p></li>\n<li dir='ltr'><p dir='ltr'><strong>Sáng chế D.A.F.: </strong> Các tác động từ bên ngoài có thể làm cho da trở nên kích ứng và nhạy cảm. Hợp chất này giúp làm tăng khả năng dung nạp của làn da - bất kể đối với loại da nào - nhằm tăng cường sức đề kháng cho da.</p></li></ul>",
+        "Thanhphanphu": "Water (Aqua), Peg-6 Caprylic/Capric Glycerides, Sodium Citrate , Zinc Gluconate, Copper Sulfate, Ginkgo Biloba Extract – Chiết Xuất Lá Bạch Quả, Mannitol, Xylitol, Rhamnose, Fructooligosaccharides, Propylene Glycol, Citric Acid, Disodium Edta, Cetrimonium Bromide, Fragrance (Parfum)."
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Nước tẩy trang Garnier&nbsp;&nbsp;Dành Cho Da Dầu, Nhạy Cảm</strong>&nbsp;với 3 dung tích đa dạng phù hợp với từng nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><p>Dầu thừa - lỗ chân lông to</p></li><li><p><a href='' target='_blank'>Da mụn</a>&nbsp;cám, đầu đen, đầu trắng và sưng viêm từ trung bình đến nặng vừa</p></li><li><p>Da nhạy cảm, dễ kích ứng</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li><li><p>Tránh xa tầm tay trẻ em.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": "<li>Sản phẩm phù hợp cho&nbsp;<a href='' target='_blank'>da dầu</a>, da mụn, da nhạy cảm.</li>"
+      },
+      "xuatXu": {
+        "XuatXu": "Pháp",
+        "ThuongHieu": "Garnier",
+        "NoiSanXuat": "Việt Nam",
+        "DacTinh": "Ngày và đêm",
+        "VanDeVeDa": "Da dầu, lỗ chân lông to"
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>B1:Thấm nước tẩy trang lên bông tẩy trang.</p></li><li><p>B2:Nhẹ nhàng tẩy sạch vùng mặt.</p></li><li><p>B3: Rửa sạch lại với nước.</p></li></ul><p><strong>Lưu ý:&nbsp;</strong></p><ul><li><p>Tránh tiếp xúc với mắt.</p></li><li><p>Trong quá trình sử dụng nếu thấy da có các biểu hiện khác thường như: xuất hiện các vết đỏ, ngứa, hay bị kích ứng thì phải ngưng sử dụng ngay và hỏi ý kiến tư vấn từ chuyên gia da liễu.</p></li></ul></div>                      </div>"
+    },
+    {
+      "masp": "SPTT003   ",
+      "mota": "Nước tẩy trang Nivea",
+      "imgUrl": "tay-trang-nivea.jpg",
+      "anhQuaTang": "cap-am-klaris.jpeg",
+      "tenQua": "Nước cấp ẩm da Klaris",
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'><strong>Công nghệ Micellar: </strong> Các hạt micelle, có thành phần được lấy cảm hứng từ lipid của da, là những hạt làm sạch vô hình siêu nhỏ. Chúng có khả năng thu giữ các tạp chất trong khi vẫn duy trì lớp màng bảo vệ tự nhiên của da.</p></li>\n<li dir='ltr'><p dir='ltr'><strong>Sáng chế D.A.F.: </strong> Các tác động từ bên ngoài có thể làm cho da trở nên kích ứng và nhạy cảm. Hợp chất này giúp làm tăng khả năng dung nạp của làn da - bất kể đối với loại da nào - nhằm tăng cường sức đề kháng cho da.</p></li></ul>",
+        "Thanhphanphu": "Water (Aqua), Peg-6 Caprylic/Capric Glycerides, Sodium Citrate , Zinc Gluconate, Copper Sulfate, Ginkgo Biloba Extract – Chiết Xuất Lá Bạch Quả, Mannitol, Xylitol, Rhamnose, Fructooligosaccharides, Propylene Glycol, Citric Acid, Disodium Edta, Cetrimonium Bromide, Fragrance (Parfum)."
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Nước tẩy trang Nivea&nbsp;&nbsp;Dành Cho Da Dầu, Nhạy Cảm</strong>&nbsp;với 3 dung tích đa dạng phù hợp với từng nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><p>Dầu thừa - lỗ chân lông to</p></li><li><p><a href='' target='_blank'>Da mụn</a>&nbsp;cám, đầu đen, đầu trắng và sưng viêm từ trung bình đến nặng vừa</p></li><li><p>Da nhạy cảm, dễ kích ứng</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li><li><p>Tránh xa tầm tay trẻ em.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": "<li>Sản phẩm phù hợp cho&nbsp;<a href='' target='_blank'>da dầu</a>, da mụn, da nhạy cảm.</li>"
+      },
+      "xuatXu": {
+        "XuatXu": "Đức",
+        "ThuongHieu": "Nivea",
+        "NoiSanXuat": "Việt Nam",
+        "DacTinh": "Ngày và đêm",
+        "VanDeVeDa": "Da dầu, da mụn"
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>B1:Thấm nước tẩy trang lên bông tẩy trang.</p></li><li><p>B2:Nhẹ nhàng tẩy sạch vùng mặt.</p></li><li><p>B3: Rửa sạch lại với nước.</p></li></ul><p><strong>Lưu ý:&nbsp;</strong></p><ul><li><p>Tránh tiếp xúc với mắt.</p></li><li><p>Trong quá trình sử dụng nếu thấy da có các biểu hiện khác thường như: xuất hiện các vết đỏ, ngứa, hay bị kích ứng thì phải ngưng sử dụng ngay và hỏi ý kiến tư vấn từ chuyên gia da liễu.</p></li></ul></div>                      </div>"
+    },
+    {
+      "masp": "SPTT004   ",
+      "mota": "Nước tẩy trang Hada-Labo",
+      "imgUrl": "tay trang Hada-Labo.jpg",
+      "anhQuaTang": null,
+      "tenQua": null,
+      "thanhphan": {
+        "Thanhphanchinh": "<ul><li dir='ltr'><p dir='ltr'><strong>Công nghệ Micellar: </strong> Các hạt micelle, có thành phần được lấy cảm hứng từ lipid của da, là những hạt làm sạch vô hình siêu nhỏ. Chúng có khả năng thu giữ các tạp chất trong khi vẫn duy trì lớp màng bảo vệ tự nhiên của da.</p></li>\n<li dir='ltr'><p dir='ltr'><strong>Sáng chế D.A.F.: </strong> Các tác động từ bên ngoài có thể làm cho da trở nên kích ứng và nhạy cảm. Hợp chất này giúp làm tăng khả năng dung nạp của làn da - bất kể đối với loại da nào - nhằm tăng cường sức đề kháng cho da.</p></li></ul>",
+        "Thanhphanphu": "Water (Aqua), Peg-6 Caprylic/Capric Glycerides, Sodium Citrate , Zinc Gluconate, Copper Sulfate, Ginkgo Biloba Extract – Chiết Xuất Lá Bạch Quả, Mannitol, Xylitol, Rhamnose, Fructooligosaccharides, Propylene Glycol, Citric Acid, Disodium Edta, Cetrimonium Bromide, Fragrance (Parfum)."
+      },
+      "thongtin": {
+        "TieuDe": "<strong>Nước tẩy trang Hada-Labo&nbsp;&nbsp;Dành Cho Da Dầu, Da Thường</strong>&nbsp;với nhiều dung tích đa dạng phù hợp với từng nhu cầu riêng biệt",
+        "LoiIch": "<ul><li><p>Dầu thừa - lỗ chân lông to</p></li><li><p><a href='' target='_blank'>Da thường</a>&nbsp;cám, đầu đen, đầu trắng và sưng viêm từ trung bình đến nặng vừa</p></li><li><p>Da nhạy cảm, dễ kích ứng</p></li></ul>",
+        "BaoQuan": "<ul><li><p>Bảo quản nơi khô ráo, thoáng mát,/ ẩm ướt.</p></li><li><p>Tránh xa tầm tay trẻ em.</p></li><li><p>Đậy nắp kín sau khi sử dụng.</p></li></ul>",
+        "LoaiDa": "<li>Sản phẩm phù hợp cho&nbsp;<a href='' target='_blank'>da dầu</a>, da mụn, da nhạy cảm, da thường.</li>"
+      },
+      "xuatXu": {
+        "XuatXu": "Nhật Bản",
+        "ThuongHieu": "Hada Labo",
+        "NoiSanXuat": "Việt Nam",
+        "DacTinh": "Ngày và đêm",
+        "VanDeVeDa": "Da khô, da mất nước"
+
+      },
+      "huongdan": "<div class='ct_box_detail width_common'><div style='font-size: 13px!important; font-family: arial, helvetica, sans-serif;color: black!important;'><ul><li><p>B1:Thấm nước tẩy trang lên bông tẩy trang.</p></li><li><p>B2:Nhẹ nhàng tẩy sạch vùng mặt.</p></li><li><p>B3: Rửa sạch lại với nước.</p></li></ul><p><strong>Lưu ý:&nbsp;</strong></p><ul><li><p>Tránh tiếp xúc với mắt.</p></li><li><p>Trong quá trình sử dụng nếu thấy da có các biểu hiện khác thường như: xuất hiện các vết đỏ, ngứa, hay bị kích ứng thì phải ngưng sử dụng ngay và hỏi ý kiến tư vấn từ chuyên gia da liễu.</p></li></ul></div>                      </div>"
+    }
+  ]
+}

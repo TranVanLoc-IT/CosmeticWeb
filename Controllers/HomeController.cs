@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using WebCosmetic.Models;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace WebCosmetic.Controllers
 {
@@ -15,6 +17,8 @@ namespace WebCosmetic.Controllers
 
         public IActionResult IndexHome()
         {
+            var getAllDataJson = System.IO.File.ReadAllText("ProductData.json");
+            ViewData["ProductDataJson"] = JsonConvert.DeserializeObject<Dictionary<string, List<ProductDataJson>>>(getAllDataJson);
             return View();
         }
 

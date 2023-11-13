@@ -1,0 +1,56 @@
+﻿@page
+@model WebCosmetic.Areas.Admins.Pages.User.IndexClaimModel
+@{
+}
+<table class="table table-hover p-3" cellpadding="5">
+    <tr>
+        <th>Mã nhân viên</th>
+        <th>Tên nhân viên</th>
+        <th>Quyền hạn</th>
+        <th>Thông tin quyền hạn</th>
+        <th class="text-center">Chỉnh sửa</th>
+    </tr>
+    @foreach (var user in Model._usersProfile)
+    {
+        <tr>
+            <td>@user._maNv</td>
+            <td>@user._tenNv</td>
+            <td>
+                <ol type="1">
+                    @foreach (var role in user.roles)
+                    {
+                        <li>@role</li>
+                    }
+                </ol>
+            </td>
+            <td>
+                <ol type="1">
+                    @foreach (var role in user.roleClaims)
+                    {
+                        <li>@role.Key : @role.Value</li>
+                    }
+                </ol>
+            </td>
+            <td class="d-flex justify-content-around">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Chỉnh sửa Role
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item">Thêm Role</a></li>
+                        <li><a class="dropdown-item" asp-page="">Xóa Role</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Chỉnh sửa Claim
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" asp-page="./CreateUserClaims">Thêm Claim</a></li>
+                        <li><a class="dropdown-item" asp-page="DeleteUserClaims" asp-route-id="">Xóa Claim</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    }
+</table>

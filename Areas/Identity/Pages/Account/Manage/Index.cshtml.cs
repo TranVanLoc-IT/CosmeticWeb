@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -23,7 +23,20 @@ namespace WebCosmetic.Areas.Identity.Pages.Account.Manage
             _signInManager = signInManager;
         }
 
+        [Display(Name = "Tên người dùng: ")]
         public string Username { get; set; }
+
+        [Display(Name = "Email của bạn: ")]
+        public string Email { get; set; }
+
+        [Display(Name = "Số điện thoại của bạn: ")]
+        public string PhoneNumber { get; set; }
+
+        [Display(Name = "Địa chỉ của bạn: ")]
+        public string Address { get; set; }
+
+        [Display(Name = "Quyền hạn sử dụng: ")]
+        public string Roles { get; set; }
 
         [TempData]
         public string StatusMessage { get; set; }
@@ -33,21 +46,35 @@ namespace WebCosmetic.Areas.Identity.Pages.Account.Manage
 
         public class InputModel
         {
+
+
+            [Display(Name = "Tên người dùng: ")]
+            public string Username { get; set; }
+
+            [EmailAddress]
+            [Display(Name = "Email của bạn: ")]
+            public string Email { get; set; }
+
+            [Display(Name = "Số điện thoại của bạn: ")]
             [Phone]
-            [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+
+            [Display(Name = "Địa chỉ của bạn: ")]
+            public string Address { get; set; }
+
+            [Display(Name = "Quyền hạn sử dụng: ")]
+            public string Roles { get; set; }
         }
 
         private async Task LoadAsync(CosmeticModel user)
         {
-            var userName = await _userManager.GetUserNameAsync(user);
-            var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
-
-            Username = userName;
+            this.Username = await _userManager.GetUserNameAsync(user);
+            this.Email = user.Email;
+            this.PhoneNumber = user.PhoneNumber;
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = user.PhoneNumber
             };
         }
 

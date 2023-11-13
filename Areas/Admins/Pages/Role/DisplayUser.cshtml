@@ -1,0 +1,42 @@
+﻿@page
+@model WebCosmetic.Admins.Role.DisplayUserModel
+@{
+    var paging = new WebCosmetic.Models.PagingModel()
+    {
+        currentPage = Model.currentPage,
+        totalPage=Model.totalPage,
+        pagingUrl = (int? p) => Url.Page("./DisplayUser", new { p })
+    };
+    string x = TempData.ContainsKey("statusMessage")?TempData["statusMessage"].ToString():"";
+    Layout = "../../../../Views/Shared/_Layout.cshtml";
+
+}
+<partial name="./_StatusMessage.cshtml" model="@Model.statusMessage"></partial>
+<h1 class="alert-heading alert-primary p-2">Danh sách nhân sự</h1>
+<table class="container-fluid" border="1" cellpadding="10px" cellspacing="10px">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>User Claims</th>
+        <th>Options</th>
+        <th>Roles</th>
+    </tr>
+    @foreach(var i in Model.users)
+    {
+        <tr>
+            <td>@i.Id</td>
+            <td>@i.UserName</td>
+            <td>
+                @i.userClaims
+            </td>
+            <td>
+                <a asp-page="./AddUserRoles" asp-route-id="@i.Id">Add role</a>
+                <a asp-page="./Admin/Pages/User/CreateUserClaims" asp-route-id="@i.Id">Add user claim</a>
+            </td>
+            <td>
+                @i.rolesName
+            </td>
+        </tr>
+    }
+</table>
+<partial name="~/Pages/PartialPage/_Paging.cshtml" model="@paging" />

@@ -20,26 +20,33 @@ namespace WebCosmetic.Scaffold
         }
 
         [Key]
+        [Display(Name = "Mã sản phẩm")]
         [Column("masp")]
         [StringLength(10)]
         public string Masp { get; set; }
         [Required]
+        [Display(Name = "Tên sản phẩm")]
         [Column("tensp")]
         [StringLength(100)]
         public string Tensp { get; set; }
         [Required]
+        [Display(Name = "Mã loại")]
         [Column("maloai")]
         [StringLength(5)]
         public string Maloai { get; set; }
+        [Display(Name = "Giá bán")]
         [Column("giaban", TypeName = "money")]
         public decimal? Giaban { get; set; }
+        [Display(Name = "Ngày sản xuất")]
         [Column("nsx", TypeName = "date")]
         public DateTime? Nsx { get; set; }
         [Column("hsd", TypeName = "date")]
+        [Display(Name = "Hạn sử dụng")]
         public DateTime? Hsd { get; set; }
 
         [ForeignKey(nameof(Maloai))]
         [InverseProperty(nameof(Loaisanpham.Sanphams))]
+        [Display(Name = "Mã loại")]
         public virtual Loaisanpham MaloaiNavigation { get; set; }
         [InverseProperty("MaspNavigation")]
         public virtual Dexuatmua Dexuatmua { get; set; }

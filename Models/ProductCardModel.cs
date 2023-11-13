@@ -1,19 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace WebCosmetic.Models
 {
     public class ProductCardModel
     {
-        public string _srcImg { get; set; }
-        public string _currentCost { get; set; }
-        public string _oldCost { get; set; }
-        public int _salePercent { get; set; }
-        public string _productName { get; set; }
-        public string _shortDescription { get; set; }
-        public double _buyed { get; set; }
-        public int _reviewPercent { get; set; }
+        [JsonPropertyName("id")]
+        public string masp { get; set; }
+        public decimal giaban { get; set; }
+        public decimal giabanmoi { get; set; }
+        public string tensp { get; set; }
+        public int sldaban { get; set; }
+        public int slconlai { get; set; }
+        public int sosao { get; set; }
+        public int sophanhoi { get; set; }
+        public string tencongty { get; set; }
+        public virtual ICollection<ProductCardModel> ProductCardModels { get; set; }
     }
 }

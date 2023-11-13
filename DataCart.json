@@ -1,0 +1,88 @@
+{
+  "_productCart": [
+    {
+      "soLuongMua": 3,
+      "_userId": "b3269491-1b19-4f4c-af7a-3dc722316dfa",
+      "id": "SPSR007",
+      "giaban": 100000.0000,
+      "giabanmoi": 30000.0000,
+      "tensp": "S\u1EEFa r\u1EEDa m\u1EB7t Acnes",
+      "sldaban": 0,
+      "slconlai": 0,
+      "sosao": 0,
+      "sophanhoi": 0,
+      "tencongty": "C\u00F4ng ty Skinna",
+      "ProductCardModels": null
+    },
+    {
+      "soLuongMua": 3,
+      "_userId": "a7d096f2-bb9f-4242-b0ce-f6dc5ff5d56b",
+      "id": "SPSR005",
+      "giaban": 160000.0000,
+      "giabanmoi": 48000.0000,
+      "tensp": "S\u1EEFa r\u1EEDa m\u1EB7t Blue Copper",
+      "sldaban": 0,
+      "slconlai": 0,
+      "sosao": 0,
+      "sophanhoi": 0,
+      "tencongty": "C\u00F4ng ty Ifree Vi\u1EC7t Nam",
+      "ProductCardModels": null
+    },
+    {
+      "soLuongMua": 8,
+      "_userId": "a7d096f2-bb9f-4242-b0ce-f6dc5ff5d56b",
+      "id": "SPSR004",
+      "giaban": 429000.0000,
+      "giabanmoi": 128700.0000,
+      "tensp": "Gel r\u1EEDa m\u1EB7t SVR ",
+      "sldaban": 0,
+      "slconlai": 0,
+      "sosao": 0,
+      "sophanhoi": 0,
+      "tencongty": "C\u00F4ng ty Th\u01B0\u01A1ng M\u1EA1i V\u1EA1n Ninh",
+      "ProductCardModels": null
+    },
+    {
+      "soLuongMua": 2,
+      "_userId": "a7d096f2-bb9f-4242-b0ce-f6dc5ff5d56b",
+      "id": "SPSM005",
+      "giaban": 300000.0000,
+      "giabanmoi": 90000.0000,
+      "tensp": "Son kem l\u00EC Gila",
+      "sldaban": 0,
+      "slconlai": 0,
+      "sosao": 0,
+      "sophanhoi": 0,
+      "tencongty": "C\u00F4ng ty Dermafirm",
+      "ProductCardModels": null
+    },
+    {
+      "soLuongMua": 9,
+      "_userId": "a7d096f2-bb9f-4242-b0ce-f6dc5ff5d56b",
+      "id": "SPSR001",
+      "giaban": 200000.0000,
+      "giabanmoi": 60000.0000,
+      "tensp": "S\u1EEFa r\u1EEDa m\u1EB7t Hada Labo",
+      "sldaban": 0,
+      "slconlai": 0,
+      "sosao": 0,
+      "sophanhoi": 0,
+      "tencongty": "C\u00F4ng ty Huy\u1EC1n Ph\u01B0\u01A1ng Lab",
+      "ProductCardModels": null
+    },
+    {
+      "soLuongMua": 39,
+      "_userId": "a7d096f2-bb9f-4242-b0ce-f6dc5ff5d56b",
+      "id": "SPSR003",
+      "giaban": 300000.0000,
+      "giabanmoi": 90000.0000,
+      "tensp": "Gel r\u1EEDa m\u1EB7t La Roche-Posay",
+      "sldaban": 0,
+      "slconlai": 0,
+      "sosao": 0,
+      "sophanhoi": 0,
+      "tencongty": "C\u00F4ng ty m\u1EF9 ph\u1EA9m Hani",
+      "ProductCardModels": null
+    }
+  ]
+}

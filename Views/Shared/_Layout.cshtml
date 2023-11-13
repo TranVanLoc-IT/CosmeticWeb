@@ -16,7 +16,7 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
 <body >
-    <partial name="_customerHeader.cshtml"></partial>
+    <partial name="_clientHeader.cshtml"></partial>
     <div style="min-height: max-content; width: 100%;">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -32,6 +32,6 @@
     <script src="~/js/header.js" asp-append-version="true"></script>
     <script src="~/js/swiper.js" asp-append-version="true"></script>
     <script src="~/js/body.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    @await RenderSectionAsync("Scripts", required: false) 
 </body>
 </html>

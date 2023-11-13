@@ -1,0 +1,9 @@
+﻿@page "/delete-user-claim/{id}"
+@model WebCosmetic.Admins.claim.DeleteUserClaimsModel
+@{
+}
+<partial name="./_statusMessage.cshtml" model="@Model.statusMessage"></partial>
+<h4>Xác nhận xóa claim @Model.claim.ClaimType của user @Model.user.UserName</h4>
+<form asp-action="DeleteUserClaims" method="post">
+    <button class="btn btn-outline-success" type="submit">Delete</button>
+</form>

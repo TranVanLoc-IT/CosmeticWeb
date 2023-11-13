@@ -1,0 +1,36 @@
+﻿@page "/authorize/{statusMessage?}"
+@model WebCosmetic.Admins.Role.IndexModel
+@{
+    var status = this.Request.RouteValues["statusMessage"] ?? null;
+    Layout = "../../../../Views/Shared/_Layout.cshtml";
+}
+<partial name="./_StatusMessage.cshtml" model="@Model.statusMessage ?? @status"/>
+
+<h1 class="text_title_page">Tạo Role phân quyền dành cho người quản trị hệ thống !!</h1>
+<a class="btn btn-primary" asp-page="./Create" style="text-decoration: none;">Tạo role mới</a>
+<table border="1" cellpadding="10px" cellspacing="50px"  class="container-fluid w-75 mx-auto">
+    <tr>
+        <th>Tên role (vai trò)</th>
+        <th>Tác vụ</th>
+        <th>Role Claims</th>
+    </tr>
+       @foreach(var role in Model._roles)
+        {
+            <tr>
+            <td>@role.Name</td>
+            <td>
+                <a asp-page="./Update" asp-route-id="@role.Id" >Update</a>
+                <a asp-page="./Delete" asp-route-id="@role.Id">Delete</a>
+                <a asp-page="./AddRoleClaims" asp-route-roleid="@role.Id">Add Claims</a>
+            </td>
+            <td>
+                @foreach(var claim in role.Claims)
+                {
+                    <a asp-page="./UpdateRoleClaims" asp-route-claimid="@claim.Id">
+                        <small>@claim.ClaimType: @claim.ClaimValue</small>
+                    </a>
+                }
+            </td>
+            </tr>
+        }
+</table>

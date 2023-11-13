@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Builder;
-
 namespace WebCosmetic
 {
     public class Startup
@@ -35,7 +34,6 @@ namespace WebCosmetic
                     options.UseSqlServer(constring);
                 }   
                 );
-            
             services.AddIdentity<CosmeticModel, IdentityRole>()
                 .AddEntityFrameworkStores<WebCosmetic.Scaffold.QL_COSMETICContext>().AddDefaultTokenProviders();
             services.AddControllersWithViews();
@@ -49,35 +47,41 @@ namespace WebCosmetic
                     options.CallbackPath = "/dang-nhap-bang-google";
                 }
                 );
+            services.AddAuthentication().AddFacebook(
+                // truy cập developer.facebook tương tự google, cấp tên, url
+                options =>
+                {
+                    var getFacebook = this.Configuration.GetSection("Authentications:FaceBook");
+                    options.AppSecret = getFacebook["AppSecret"];
+                    options.AppId = getFacebook["AppId"];
+                    options.CallbackPath = "/dang-nhap-bang-facebook";
+                }
+                );
             // mail
             services.Configure<MailSettings>(this.Configuration.GetSection("MailSettings"));
             services.AddSingleton<IEmailSender, IdentityGmail>();
             services.AddSession(
                 options =>
                 {
-                    options.IdleTimeout = TimeSpan.FromDays(30);
+                    options.IdleTimeout = TimeSpan.FromDays(2);
                 });
-
             services.AddAuthorization(
                 options =>
                 {
-                    options.AddPolicy("customerTerm", policy =>
+                   
+                    options.AddPolicy("StaffTerm", policy =>
                     {
-            
-                        policy.RequireRole("customer");
                         policy.RequireAuthenticatedUser();
+                        policy.RequireRole("Staff");
+                        // claim là các thông tin mô tả của role
+                        //policy.RequireClaim("Acknowledge", new string[] { "nhân viên BeautyCosmetic", "tốt nghiệp" });
 
                     });
-                    options.AddPolicy("staffTerm", policy =>
+                    options.AddPolicy("AdminTerm", policy =>
                     {
                         policy.RequireAuthenticatedUser();
-                        policy.RequireRole("admin");
-
-                    });
-                    options.AddPolicy("adminTerm", policy =>
-                    {
-                        policy.RequireAuthenticatedUser();
-                        policy.RequireRole("staff");
+                        policy.RequireRole("Administrator");
+                        policy.RequireClaim("Acknowledge", new string[] { "admin BeautyCosmetic", "tốt nghiệp", "ngành thẩm mĩ" });
                     });
                 }
                 );
@@ -85,7 +89,10 @@ namespace WebCosmetic
             services.ConfigureApplicationCookie(
                 options=>
                 {
-                    options.LoginPath = "/login";
+                    options.LoginPath = "/Authentication/Login";
+                    options.LogoutPath = "/Authentication/Logout";
+                    options.AccessDeniedPath = "/AccessDenied/{otherError=return}";
+                    options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
                 });
             services.AddMvc();
         }

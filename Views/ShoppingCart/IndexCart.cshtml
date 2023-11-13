@@ -1,0 +1,222 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Newtonsoft.Json
+@inject UserManager<CosmeticModel> userManager
+@model List<ProductCart.DetailsCart>
+@{
+    var collectDataDetails = ViewData["ProductDataJson"] as Dictionary<string, List<ProductDataJson>>;
+    double sumMoney = 0;
+    double toFinalMoney = 0;
+    Func<string, double> vat = item =>
+    {
+        if (item.Contains("SPSR"))
+            return 20000f;
+        else if (item.Contains("SPCN"))
+            return 15000f;
+        else
+            return 10000f;
+    };
+}
+<style>
+    .fit-content {
+        min-width: max-content;
+        min-height: max-content;
+    }
+
+    .gradient-custom {
+        /* fallback for old browsers */
+        background: #6a11cb;
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+    }
+
+    #blank_cart {
+        padding: 4px 5px 20px;
+    }
+</style>
+<section class="h-100 gradient-custom">
+    <div class="container py-5">
+
+        <div class="row d-flex justify-content-center my-4">
+            <div class="col-md-8">
+                <div class="card mb-4">
+                    <div class="card-header py-3">
+                        @if (Model.Count == 0)
+                        {
+                            <h5 class="mb-0">Bạn chưa có sản phẩm nào</h5>
+
+                        }
+                        else
+                        {
+                            <h5 class="mb-0" id="titleStatusByJs">Giỏ hàng - <span id="totalProduct">@Model.Count</span>  sản phẩm</h5>
+                        }
+                    </div>
+
+                    <div class="row text-center d-none" id="statusByJs">
+                        <div id="blank_cart">
+                            <div class="text-muted blank_ico_cart mb-3 my-2">
+                                <i class="fas fa-shopping-cart fs-1"></i>
+                                <p>Oops!! Bạn chưa mua sản phẩm nào.</p>
+                            </div>
+                            <button class="btn btn-success"><a href="@Url.Action("IndexHome","Home")" class="text-white text-decoration-none">Đến trang mua hàng</a></button>
+                        </div>
+                    </div>
+                    @if (Model.Count == 0)
+                    {
+                        <div class="row text-center">
+                            <div id="blank_cart">
+                                <div class="text-muted blank_ico_cart mb-3 my-2">
+                                    <i class="fas fa-shopping-cart fs-1"></i>
+                                    <p>Oops!! Bạn chưa mua sản phẩm nào.</p>
+                                </div>
+                                <button class="btn btn-success"><a href="@Url.Action("IndexHome","Home")" class="text-white text-decoration-none">Đến trang mua hàng</a></button>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="card-body">
+                            @foreach (var buy in Model)
+                            {
+                                ProductDataJson dataJson = new ProductDataJson();
+                                foreach (var data in collectDataDetails[buy.masp.Substring(0, 4)].ToList())
+                                {
+                                    if (data.masp.Substring(0, 7) == buy.masp)
+                                    {
+                                        dataJson = data;
+                                        break;
+                                    }
+                                }
+                                <div class="row @dataJson.masp.Substring(0,7)">
+                                    <div class="col-lg-3 col-md-12 mb-4 mb-lg-0 ">
+                                        <!-- Image -->
+                                        <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
+                                            <img src="~/images/SanPham/@dataJson.imgUrl" class="w-100" alt="@dataJson.mota" />
+                                            <a href="#!">
+                                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+                                            </a>
+                                        </div>
+                                        <!-- Image -->
+                                    </div>
+
+                                    <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                                        <!-- Data -->
+                                        <p><strong>@dataJson.masp</strong>: @dataJson.mota</p>
+                                        <a title="Remove item" class=" btn btn-primary btn-sm me-1 mb-2 text-decoration-none removeLink" id="@userManager.GetUserId(this.User)+'_' + @dataJson.masp.Substring(0,7)" onclick="RemoveFromCart('@userManager.GetUserId(this.User)','@dataJson.masp.Substring(0,7)')">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                        <button type="button" class="btn btn-danger btn-sm mb-2" data-mdb-toggle="tooltip" title="Move to the wish list">
+                                            <i class="fas fa-heart"></i>
+                                        </button>
+                                        <!-- Data -->
+                                        @if (dataJson.anhQuaTang != null)
+                                        {
+
+                                            <div class="gift_sticked">
+                                                <div class="card mb-3" style="max-width: 540px; padding: 0 !important;">
+                                                    <div class="row g-0">
+                                                        <div class="col-md-4">
+                                                            <i class="fas fa-gift text-warning my-0"></i>
+                                                            <img src="~/images/SanPham/@dataJson.anhQuaTang" class="img-fluid rounded-start" alt="...">
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <div class="card-body">
+                                                                <p class="card-text fs-6"><strong>Tặng</strong> @dataJson.tenQua</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                                        <!-- Số lượng -->
+                                        <div class="d-flex mb-4" style="max-width: 300px">
+                                            <button class="btn btn-primary px-3 me-2" style="height: max-content;" onclick="this.parentNode.querySelector('input[type=number]').stepDown(); fixQuantityOfProduct();">
+                                                <i class="fas fa-minus"></i>
+                                            </button>
+
+                                            <div class="form-outline">
+                                                <input id="quantity_@buy.masp" min="0" name="quantity" value="@buy.soLuongMua" type="number" onclick="@buy.soLuongMua = this.value" class="form-control w-50 mx-auto text-center inputQuantity" />
+                                                <label class="form-label w-100 text-center" for="form1">Số lượng</label>
+                                            </div>
+
+                                            <button class="btn btn-primary px-3 ms-2" style="height: max-content;" onclick="this.parentNode.querySelector('input[type=number]').stepUp(); fixQuantityOfProduct();">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                        <!-- Số lượng -->
+                                        <!-- Price -->
+                                        <p class="text-start text-md-center">
+                                            Đơn giá: <strong class="box_price">@(((double)buy.giabanmoi).ToString("N2"))</strong>
+                                        </p>
+                                        <!-- Price -->
+                                    </div>
+                                </div>
+                                <!-- Single item -->
+
+                                <hr class="my-4" />
+                            }
+                        </div>
+                    }
+
+                </div>
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <p><strong>Giao hàng dự kiến</strong></p>
+                        <p class="mb-0">@DateTime.Now.ToString("d") - 14.10.2020</p>
+                    </div>
+                </div>
+                <div class="card mb-4 mb-lg-0">
+                    <div class="card-body">
+                        <p><strong>Hỗ trợ thanh toán</strong></p>
+                        <img class="me-2" width="45px" src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg" alt="Visa" />
+                        <img class="me-2" width="45px" src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg" alt="American Express" />
+                        <img class="me-2" width="45px" src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg" alt="Mastercard" />
+                        <img class="me-2" width="45px" src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce/includes/gateways/paypal/assets/images/paypal.webp" alt="PayPal acceptance mark" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-header py-3">
+                        <h5 class="mb-0">Tổng thanh toán</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                                Sản phẩm mua:
+
+                                @foreach (var product in Model)
+                                {
+                                    sumMoney += (double)product.giabanmoi;
+                                    toFinalMoney += (double)product.giabanmoi + vat(product.masp);
+                                }
+                                <span id="total_money_box">@sumMoney.ToString("N2")</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                Giao hàng
+                                <span>Gratis</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                                <div>
+                                    <strong>Thành tiền</strong>
+                                    <strong>
+                                        <p class="mb-0">(Bao gồm VAT)</p>
+                                    </strong>
+                                </div>
+                                <span><strong>@toFinalMoney.ToString("N2")</strong></span>
+                            </li>
+                        </ul>
+
+                        <a type="button" class="btn btn-primary btn-lg btn-block" href="/Pay/IndexPay?buyList=@JsonConvert.SerializeObject(Model)">
+                            Đi đến thanh toán
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

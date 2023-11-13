@@ -1,14 +1,13 @@
 ﻿@page
 @model EnableAuthenticatorModel
 @{
-    ViewData["Title"] = "Configure authenticator app";
     ViewData["ActivePage"] = ManageNavPages.TwoFactorAuthentication;
 }
 
 <partial name="_StatusMessage" for="StatusMessage" />
-<h4>@ViewData["Title"]</h4>
+<h4>Sử dụng ứng dụng xác thực</h4>
 <div>
-    <p>To use an authenticator app go through the following steps:</p>
+    <p>Để sử dụng ứng dụng xác thực hãy làm theo bước sau: </p>
     <ol class="list">
         <li>
             <p>
@@ -28,8 +27,7 @@
         </li>
         <li>
             <p>
-                Once you have scanned the QR code or input the key above, your two factor authentication app will provide you
-                with a unique code. Enter the code in the confirmation box below.
+                Scan mã QR hoặc dùng khóa ở trên, ứng dụng sẽ cấp một mã code và nhập ô bên dưới
             </p>
             <div class="row">
                 <div class="col-md-6">

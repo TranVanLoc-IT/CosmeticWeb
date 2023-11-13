@@ -1,0 +1,33 @@
+﻿{
+  "sản phẩm": [
+    {
+      "có bao nhiêu": "Chúng tôi cung cấp 123 sản phẩm các loại bao gồm: Kem chống nắng, sửa rửa mặt, Serum, toner .v.v.\n Bạn có thể tham khảo bằng cách kích hoạt nút có biểu tượng 3 dấu gạch ngang để tham khảo !!"
+    },
+    {
+      "giá trung bình": "Giá mĩ phẩm ở Shop Seabeauty phù hợp với sinh viên, lao động dao động khoảng từ vài trăm đến vài triệu"
+    },
+    {
+      "có gây hại": "Mĩ phẩm được kiểm duyệt chính hãng, bạn có thể xem các huy hiệu ở bên dưới phần footer nhé !!"
+    }
+  ],
+  "dịch vụ": [
+    {
+      "trị mụn": "Dịch vụ trị mụn bao gồm các gói chỉ 129k như vệ sinh da mặt, khám da, lột mụn, serum và các quà tặng trị mụn khác. Nếu bạn quan tâm hãy liên hệ số hotline 19001600 để tư vấn và đặt lịch miễn phí !!"
+    },
+    {
+      "giao hàng": "Giao hàng do chính nhân viên SeaBeauty thực hiện hoặc các công ty liên kết khác tùy theo nhu cầu của bạn!!"
+    },
+    {
+      "tư vấn khám bệnh": "Liên hệ số 19001600 để đặt lịch trước nếu bạn không thể lên trực tiếp, nhân viên tư vấn sẽ liên hệ lại trong 1 đến 2 ngày bạn nhé."
+    }
+  ],
+  "công ty": [
+    {
+      "chính sách": "Chính sách của SeaBeauty bao gồm 80 điều khoản, các ràng buộc chặt chẽ để đảm bảo lợi ích cho các bên liên quan, bạn có thể tham khảo tại đây: <a href=''>Điều khoản dịch vụ</a>"
+    },
+    {
+      "chi nhánh": "Công ty SeaBeauty có 120 chi nhánh trên toàn quốc, với các thành phố lớn như TP.HCM hay Hà Nội thì có 30 chi nhánh trên các quận huyện !!"
+    }
+  ],
+  "chi tiết khác": "Bạn có thể tìm kiếm trên thanh tìm kiếm để đảm bảo thông tin đầy đủ nhé !"
+}

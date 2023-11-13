@@ -1,0 +1,10 @@
+﻿@page "/delete-role-claim/{claimid:int}"
+@model WebCosmetic.Admins.claim.DeleteRoleClaimsModel
+@{
+    Layout = "../../../../Views/Shared/_Layout.cshtml";
+}
+<partial name="./_StatusMessage.cshtml" model="@Model.statusMessage"></partial>
+<form asp-page="./DeleteRoleClaims" method="post" asp-page-handler="confirm">
+    <input type="submit" value="Xóa" class="btn-outline-danger btn"/>
+    <a class="btn-outline-danger btn" href="./Index"> Quay về</a> 
+</form>

@@ -15,6 +15,11 @@ namespace WebCosmetic.Scaffold
         [Column("magiaodich")]
         [StringLength(12)]
         public string Magiaodich { get; set; }
+
+        [Required]
+        [Column("mahd")]
+        [StringLength(10)]
+        public string Mahd { get; set; }
         [Required]
         [Column("manganhang")]
         [StringLength(5)]
@@ -26,6 +31,13 @@ namespace WebCosmetic.Scaffold
         [Column("trangthai")]
         [StringLength(20)]
         public string Trangthai { get; set; }
+        
+        [Column("ngaylap", TypeName = "date")]
+        public DateTime ngaylap { get; set; }
+
+        [ForeignKey(nameof(Mahd))]
+        [InverseProperty(nameof(Hoadon.Thanhtoans))]
+        public virtual Hoadon MahdNavigation { get; set; }
 
         [ForeignKey(nameof(Makh))]
         [InverseProperty(nameof(Khachhang.Thanhtoans))]

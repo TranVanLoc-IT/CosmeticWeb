@@ -1,0 +1,25 @@
+﻿@page "/update-role-claims/{claimid:int}"
+@model WebCosmetic.Admins.claim.UpdateRoleClaimsModel
+@{
+    Layout = "../../../../Views/Shared/_Layout.cshtml";
+}
+
+<partial name="./_StatusMessage.cshtml" model="@Model.statusMessage"></partial>
+<form asp-action="./UpdateRoleClaims" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger">
+            ModelState.AddModelError
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.input.ClaimType"></label>
+        <input asp-for="@Model.input.ClaimType" />
+        <span asp-validation-for="@Model.input.ClaimType" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.input.ClaimValue"></label>
+        <input asp-for="@Model.input.ClaimValue" />
+    </div>
+    <div class="form-group">
+        <button class="btn btn-success" type="submit">Submit</button>
+    </div>
+    <a asp-page="./DeleteRoleClaims" asp-route-claimid="@this.Request.RouteValues["claimid"]">Xóa</a>
+</form>

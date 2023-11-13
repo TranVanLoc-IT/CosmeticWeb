@@ -1,10 +1,29 @@
-﻿@page
+﻿@page "/AccessDenied/{otherError?}"
 @model AccessDeniedModel
 @{
     ViewData["Title"] = "Access denied";
+    string otherError = this.Request.Query["otherError"].ToString();
 }
 
 <header>
-    <h1 class="text-danger">@ViewData["Title"]</h1>
-    <p class="text-danger">You do not have access to this resource.</p>
+    <h1 class="text-danger fw-bold text-center">Từ chối truy cập</h1>
+    @if (!string.IsNullOrEmpty(otherError))
+    {
+<p class="text-danger alert alert-warning">
+    Bạn không có quyền truy cập vào trang này !!
+
+</p>
+    }
+    else
+    {
+        <script>
+            // Lấy tham số từ truy vấn URL
+            const params = new URLSearchParams(window.location.search);
+            const otherError = params.get('otherError');
+
+            // Sử dụng giá trị của tham số
+            console.log(otherError);
+            window.history.back();
+        </script>
+    }
 </header>

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,21 +8,21 @@ namespace WebCosmetic.Areas.Identity.Pages.Account.Manage
 {
     public static class ManageNavPages
     {
-        public static string Index => "Index";
+        public static string Index => "Trang thông tin";
 
-        public static string Email => "Email";
+        public static string Email => "Email của bạn";
 
-        public static string ChangePassword => "ChangePassword";
+        public static string ChangePassword => "Thay đổi mật khẩu";
 
-        public static string DownloadPersonalData => "DownloadPersonalData";
+        public static string DownloadPersonalData => "Tải dữ liệu cá nhân";
 
-        public static string DeletePersonalData => "DeletePersonalData";
+        public static string DeletePersonalData => "Xóa dữ liệu cá nhân";
 
-        public static string ExternalLogins => "ExternalLogins";
+        public static string ExternalLogins => "Đăng nhập dịch vụ";
 
-        public static string PersonalData => "PersonalData";
+        public static string PersonalData => "Dữ liệu cá nhân";
 
-        public static string TwoFactorAuthentication => "TwoFactorAuthentication";
+        public static string TwoFactorAuthentication => "Xác thực 2 yếu tố";
 
         public static string IndexNavClass(ViewContext viewContext) => PageNavClass(viewContext, Index);
 
