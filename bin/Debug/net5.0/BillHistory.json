@@ -1,1 +1,199 @@
-﻿
+{
+  "_billHistoryList": [
+    {
+      "_clientInfo": {
+        "_clienName": "kiemthu",
+        "_clientAddress": "hocmon",
+        "_phone": "9653634444"
+      },
+      "_bill": {
+        "_billCode": "HDA384EB1C",
+        "_transactionCode": "NH01DD5E    ",
+        "_dateSet": "2023-11-17T00:00:00",
+        "_methodPayment": "Ng\u00E2n H\u00E0ng BIDV",
+        "_totalMoney": 0
+      },
+      "_khId": "KH301cf"
+    },
+    {
+      "_clientInfo": {
+        "_clienName": "kiemthu",
+        "_clientAddress": "hocmon",
+        "_phone": "9653634444"
+      },
+      "_bill": {
+        "_billCode": "HDC07BDFDC",
+        "_transactionCode": "NH01BB65    ",
+        "_dateSet": "0001-01-01T00:00:00",
+        "_methodPayment": "Ng\u00E2n H\u00E0ng BIDV",
+        "_totalMoney": 0
+      },
+      "_khId": "KH301cf"
+    },
+    {
+      "_clientInfo": {
+        "_clienName": "kiemthu",
+        "_clientAddress": "hocmon",
+        "_phone": "9653634444"
+      },
+      "_bill": {
+        "_billCode": "HD1059B0DD",
+        "_transactionCode": "NH019930    ",
+        "_dateSet": "2023-11-17T00:00:00",
+        "_methodPayment": "Ng\u00E2n H\u00E0ng BIDV",
+        "_totalMoney": 0
+      },
+      "_khId": "KH301cf"
+    },
+    {
+      "_clientInfo": {
+        "_clienName": "kiemthu",
+        "_clientAddress": "hocmon",
+        "_phone": "9653634444"
+      },
+      "_bill": {
+        "_billCode": "HD0D40B48B",
+        "_transactionCode": "NH01D531    ",
+        "_dateSet": "2023-11-17T00:00:00",
+        "_methodPayment": "Ng\u00E2n H\u00E0ng BIDV",
+        "_totalMoney": 0
+      },
+      "_khId": "KH301cf"
+    },
+    {
+      "_clientInfo": {
+        "_clienName": "kiemthu",
+        "_clientAddress": "hocmon",
+        "_phone": "9653634444"
+      },
+      "_bill": {
+        "_billCode": "HDCE9FCE7B",
+        "_transactionCode": "NH01F8B1    ",
+        "_dateSet": "2023-11-18T00:00:00",
+        "_methodPayment": "Ng\u00E2n H\u00E0ng BIDV",
+        "_totalMoney": 0
+      },
+      "_khId": "KH301cf"
+    },
+    {
+      "_clientInfo": {
+        "_clienName": "kiemthu",
+        "_clientAddress": "hocmon",
+        "_phone": "9653634444"
+      },
+      "_bill": {
+        "_billCode": "HDD9E78EA6",
+        "_transactionCode": "NH011D71    ",
+        "_dateSet": "2023-11-18T00:00:00",
+        "_methodPayment": "Ng\u00E2n H\u00E0ng BIDV",
+        "_totalMoney": 0
+      },
+      "_khId": "KH301cf"
+    },
+    {
+      "_clientInfo": {
+        "_clienName": "kiemthu",
+        "_clientAddress": "hocmon",
+        "_phone": "9653634444"
+      },
+      "_bill": {
+        "_billCode": "HD41E0DDA6",
+        "_transactionCode": "NH0120FA    ",
+        "_dateSet": "2023-11-18T00:00:00",
+        "_methodPayment": "Ng\u00E2n H\u00E0ng BIDV",
+        "_totalMoney": 0
+      },
+      "_khId": "KH301cf"
+    },
+    {
+      "_clientInfo": {
+        "_clienName": "kiemthu",
+        "_clientAddress": "hocmon",
+        "_phone": "9653634444"
+      },
+      "_bill": {
+        "_billCode": "HD50FD5B85",
+        "_transactionCode": "NH01A893    ",
+        "_dateSet": "2023-11-18T00:00:00",
+        "_methodPayment": "Ng\u00E2n H\u00E0ng BIDV",
+        "_totalMoney": 0
+      },
+      "_khId": "KH301cf"
+    },
+    {
+      "_clientInfo": {
+        "_clienName": "kiemthu",
+        "_clientAddress": "hocmon",
+        "_phone": "9653634444"
+      },
+      "_bill": {
+        "_billCode": "HDE1C81B23",
+        "_transactionCode": "NH0173E9    ",
+        "_dateSet": "2023-11-18T00:00:00",
+        "_methodPayment": "Ng\u00E2n H\u00E0ng BIDV",
+        "_totalMoney": 0
+      },
+      "_khId": "KH301cf"
+    },
+    {
+      "_clientInfo": {
+        "_clienName": "kiemthu",
+        "_clientAddress": "hocmon",
+        "_phone": "9653634444"
+      },
+      "_bill": {
+        "_billCode": "HDB2145F89",
+        "_transactionCode": "NH014AF3    ",
+        "_dateSet": "2023-11-18T00:00:00",
+        "_methodPayment": "Ng\u00E2n H\u00E0ng BIDV",
+        "_totalMoney": 0
+      },
+      "_khId": "KH301cf"
+    },
+    {
+      "_clientInfo": {
+        "_clienName": "kiemthu",
+        "_clientAddress": "hocmon",
+        "_phone": "9653634444"
+      },
+      "_bill": {
+        "_billCode": "HDBB8B7EC8",
+        "_transactionCode": "NH01C134    ",
+        "_dateSet": "2023-11-19T00:00:00",
+        "_methodPayment": "Ng\u00E2n H\u00E0ng BIDV",
+        "_totalMoney": 54000
+      },
+      "_khId": "KH301cf"
+    },
+    {
+      "_clientInfo": {
+        "_clienName": "kiemthu",
+        "_clientAddress": "hocmon",
+        "_phone": "9653634444"
+      },
+      "_bill": {
+        "_billCode": "HD08A08B3D",
+        "_transactionCode": "NH0165A5    ",
+        "_dateSet": "2023-11-19T00:00:00",
+        "_methodPayment": "Ng\u00E2n H\u00E0ng BIDV",
+        "_totalMoney": 54000
+      },
+      "_khId": "KH301cf"
+    },
+    {
+      "_clientInfo": {
+        "_clienName": "kiemthu",
+        "_clientAddress": "hocmon",
+        "_phone": "9653634444"
+      },
+      "_bill": {
+        "_billCode": "HD8F17DDA2",
+        "_transactionCode": "NH01B72D    ",
+        "_dateSet": "2023-11-19T00:00:00",
+        "_methodPayment": "Ng\u00E2n H\u00E0ng BIDV",
+        "_totalMoney": 54000
+      },
+      "_khId": "KH301cf"
+    }
+  ]
+}

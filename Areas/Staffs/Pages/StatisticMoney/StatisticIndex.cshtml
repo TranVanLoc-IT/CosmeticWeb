@@ -1,4 +1,175 @@
-﻿@page
+﻿@page "/thongke-doanhthu/"
+@using Newtonsoft.Json;
 @model WebCosmetic.Areas.Staffs.Pages.StatisticMoney.StatisticIndexModel
 @{
+}
+<div class="container-fluid p-2">
+    <div class="row">
+        <div class="col-12 col-md-8">
+            <label>Line chart: </label>
+            <input type="radio" name="chartOption" onclick="UpdateChart(this.value)" value="bar" />
+
+            <label>Pie chart: </label>
+            <input type="radio" name="chartOption" onclick="UpdateChart(this.value)" value="pie" />
+            <canvas id="Chart" style="width:100%;max-width:600px"></canvas>
+        </div>
+        <div class="col-12 col-md-8">
+            <form method="post">
+                <select id="sl_option" name="option" onclick="optionChanges(this.value)">
+                    <option value="1">
+                        Theo hóa đơn
+                    </option>
+                    <option value="2">
+                        Theo tháng
+                    </option>
+                    <option value="3">
+                        Theo năm
+                    </option>
+                </select>
+                <div id="expand_options" class="my-2 mx-2">
+                    <div class="w-25">
+                        <div class="month_items float-start">
+                            <label for="month">Chọn tháng: </label>
+                            <select name="month">
+                                @foreach (var i in Model.monthlabel)
+                                {
+                                    <option value="@i">Tháng @i</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="year_items float-end">
+                            <label for="year">Chọn năm: </label>
+                            <select name="year">
+                                @foreach (var i in Model.yearlabel)
+                                {
+                                    <option value="@i">Năm @i</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <label for="ptype">Nhập loại sản phẩm: </label>
+                <input name="ptype" type="text" />
+
+                <label for="ptype">Chọn sản phẩm: </label>
+                <select name="product">
+                    @foreach (var i in Model.productlabel)
+                    {
+                        <option value="@i.Split('-')[0]">@i.Split('-')[1]</option>
+                    }
+                </select>
+                <button class="btn btn-outline-info" type="submit">Chọn</button>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="row container mx-auto w-75">
+        <form method="post" asp-page-handler="SendReport">
+            <textarea id="reportMoneyFigure" name="reportContent"></textarea>
+            @Html.EditorFor(model => model._report)
+            <button>Gửi báo cáo</button>
+        </form>
+    </div>
+</div>
+<partial name="~/Views/Shared/_summernotePartial.cshtml" model="@(new SummerNote("reportMoneyFigure",170,true))"></partial>
+
+
+<!-- Modal Toast Bootstrap 5 -->
+<div id="myToast" class="toast position-absolute" style="top: 30px;" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <strong class="me-auto fw-bold text-danger">Thông báo</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+        @if (ViewData["reportState"] != null)
+        {
+            @ViewData["reportState"]
+        }
+    </div>
+</div>
+
+@section Scripts{
+    @if (ViewData["reportState"] != null)
+    {
+        <script>
+            // Kích hoạt Toast khi có ViewData
+            var toast = new bootstrap.Toast(document.getElementById('myToast'));
+            toast.show();
+        </script>
+    }
+    <script>
+        const xValues = @Html.Raw(Json.Serialize(Model.xlabel.ToArray()));
+        const yValues = @Html.Raw(Json.Serialize(Model.ylabel.ToArray()));
+        const optionChanges = (value) => {
+            if (value == 2) {
+                $(document).ready(function () {
+                    $("#expand_options").html($(".month_items").html())
+
+                })
+            }
+            if (value == 3) {
+                $(document).ready(function () {
+                    $("#expand_options").html($(".year_items").html())
+                })
+            }
+
+        }
+        const barColors = [
+            "#b91d47",
+            "#00aba9",
+            "#2b5797",
+            "#e8c3b9",
+            "#1e7145"
+        ];
+        function UpdateChart(value) {
+            if (value == "bar") {
+
+                new Chart("Chart", {
+                    type: value,
+                    data: {
+                        labels: xValues,
+                        datasets: [{
+                            fill: false,
+                            lineTension: 0,
+                            backgroundColor: barColors,
+                            borderColor: "rgba(0,0,255,0.1)",
+                            data: yValues
+                        }]
+                    },
+                    options: {
+                        title: {
+                            display: true,
+                            text: "@Html.Raw(ViewData["ChartTitle"])",
+                        },
+                        legend: { display: false },
+                        scales: {
+                            yAxes: [{ ticks: { min: 6, max: 16 } }],
+                        },
+
+
+                    }
+                });
+            }
+            if (value == "pie") {
+                new Chart("Chart", {
+                    type: value,
+                    data: {
+                        labels: ["Italy", "France", "Spain", "USA", "Argentina"],
+                        datasets: [{
+                            backgroundColor: barColors,
+                            data: [55, 49, 44, 24, 15]
+                        }]
+                    },
+                    options: {
+                        title: {
+                            display: true,
+                            text: "@Html.Raw(ViewData["ChartTitle"])",
+                        }
+                    }
+                });
+            }
+        }
+    </script>
 }

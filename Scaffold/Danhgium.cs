@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 namespace WebCosmetic.Scaffold
 {
     [Table("DANHGIA")]
-    public partial class Danhgia
+    public partial class Danhgium
     {
         [Key]
         [Column("masp")]

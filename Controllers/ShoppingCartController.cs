@@ -7,9 +7,11 @@ using Newtonsoft.Json;
 using System;
 using System.Text;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebCosmetic.Controllers
 {
+    [Authorize(policy: "CusTerm")]
     public class ShoppingCartController : Controller
     {
         public IActionResult IndexCart(string productCartEncode, [FromQuery]int slmua, [FromQuery] string userid)

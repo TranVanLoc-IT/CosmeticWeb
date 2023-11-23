@@ -31,6 +31,31 @@
                     }
                 </ol>
             </td>
+            <td>
+                    @if (user.Official)
+                    {
+                        <form asp-route-returnUrl="@Model.ReturnUrl" asp-page-handler="DelLogin" method="post">
+                            <div class="">
+                                <input type="text" value="@user._tenNv" name="_tenNv" />
+                            </div>
+                                <button class="btn btn-danger" type="submit">
+                                    Xóa nhân viên
+                                </button>
+                        </form>
+                    }
+                    else
+                    {
+                    <form asp-route-returnUrl="@Model.ReturnUrl" asp-page-handler="AddLogin" method="post">
+                        <div class="">
+                            <input type="text" value="@user._maNv" name="_maNv" />
+                            <input type="text" value="@user._tenNv" name="_tenNv" />
+                        </div>
+                        <button class="btn btn-success" type="submit">
+                            Thêm nhân viên
+                        </button>
+                    </form>
+                    }
+            </td>
             <td class="d-flex justify-content-around">
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">

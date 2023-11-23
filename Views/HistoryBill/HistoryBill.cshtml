@@ -2,25 +2,26 @@
 
 @{
     List<HistoryProductBill> products = ViewData["HistoryProduct"] as List<HistoryProductBill>;
-    int colWidth = (Model.Count) % 6;
 }
-<div class="row container-fluid mx-5 my-2">
-    <div class="card-group">
+<div class="row container-fluid mx-2 my-2 d-flex justify-content-between flex-wrap">
         @foreach (var bill in Model)
         {
-            <div class="card">
-                <div class="card-header">
+            <div class="card my-1 mx-1 my-1" style="width: max-content">
+                <div class="card-header text-left bg-success">
                     <span>Mã hóa đơn: @bill._bill._billCode</span>
                 </div>
-                <div class="card-subtitle">
+                <div class="card-subtitle text-left p-1">
                     <div>Phương thức: @bill._bill._methodPayment</div>
                     <div>Mã giao dịch / giao vận: @bill._bill._transactionCode</div>
                 </div>
-                <div class="card-body">
+                <div class="card-body p-2 text-left">
                     <div>Tên khách hàng: @bill._clientInfo._clienName</div>
                    @foreach(var product in products)
-                {
-                    <div class="p-1">@product._tenSp x @product._soluong - @product._giaban</div>
+                   {
+                       if(product._mahd == bill._bill._billCode)
+                    {
+                        <div class="p-1">@product._tenSp x @product._soluong - @product._giaban</div>
+                    }
                 }
 
                 </div>
@@ -29,5 +30,4 @@
                 </div>
             </div>
         }
-    </div>
 </div>

@@ -31,14 +31,14 @@ namespace WebCosmetic.TagHelpers
             string priceToString = (giabanmoi).ToString("N2").Substring(0, (giabanmoi).ToString("N2").Length - 3);
             output.TagName = "a";
             output.Attributes.Add("href", $"/xem-chi-tiet/san-pham?ProductModel={Convert.ToBase64String(Encoding.UTF8.GetBytes(toJsonData))}");
-            output.Attributes.Add("class", "card h-100 details_link"+ProductModel.masp);
+            output.Attributes.Add("class", "card h-100 details_link");
             output.Attributes.Add("id", "details_link"+ProductModel.masp);
             output.Attributes.Add("style", "border-radius: 0 !important;");
             string contentCard = $@"
-                 <img src='./images/SanPham/{data.imgUrl}' alt='This image has not loaded' class='card-img-top h-50'>
+                 <img src='https://localhost:5001//images/SanPham/{data.imgUrl}' alt='This image has not loaded' class='card-img-top h-50'>
                         <div class=""card-body"">
                             <div class=""card-title"">
-                                {priceToString} đ 
+                                <span class=""current_price"">{priceToString}<span> đ
                                 <span class=""old-price float-start"">{oldPriceToString} đ</span>
                                 <span class=""discount float-end p-1 border-1 rounded"">-{this.giamgia.ToString()}%</span>
                                 <span class=""clearfix""></span>

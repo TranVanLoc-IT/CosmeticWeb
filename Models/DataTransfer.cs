@@ -25,9 +25,9 @@ namespace WebCosmetic.Models
         private void transferDbToJson()
         {
             var collectAllProduct = this._cosmeticContext.Sanphams.ToList();
-            string productId = collectAllProduct[0].Masp.Substring(0,4);
+            string productId = collectAllProduct[0].Masp.Substring(0, 4);
             ProductTypeId productTypeId = new ProductTypeId();
-            if(!System.IO.File.Exists("ProductData.json"))
+            if (!System.IO.File.Exists("ProductData.json"))
             {
                 List<ProductDataJson> dataJson = new List<ProductDataJson>();
                 foreach (var product in collectAllProduct)
@@ -35,7 +35,7 @@ namespace WebCosmetic.Models
                     ProductDataJson productData = new ProductDataJson();
 
                     productData.masp = product.Masp;
-                    if(product.Masp.Substring(0,4).CompareTo(productId) != 0)
+                    if (product.Masp.Substring(0, 4).CompareTo(productId) != 0)
                     {
                         productTypeId._productObjectIdType[productId] = dataJson;
                         dataJson = new List<ProductDataJson>();
@@ -48,10 +48,10 @@ namespace WebCosmetic.Models
                 {
                     WriteIndented = true
                 });
-                System.IO.File.WriteAllText("ProductData.json",toJsonData);
-            }    
-            
+                System.IO.File.WriteAllText("ProductData.json", toJsonData);
+            }
         }
+
         public List<ProductCardModel> claimProductSearchCatalog()
         {
             return this._cosmeticContext.GetProductCardData();
@@ -60,6 +60,20 @@ namespace WebCosmetic.Models
         {
             var allProduct = this._cosmeticContext.GetProductCardData();
             return allProduct.Where(product => product.masp.Substring(0,4) == masp).ToList();
+        }
+        public void UpdateAccessTimes(string masp)
+        {
+            if(this._cosmeticContext.UpdateAccessTimes(masp) == "1")
+            {
+                Console.WriteLine("Update success times");
+                return;
+            }
+            Console.WriteLine("Update failed times");
+        }
+        public List<ProductCardModel> GetTopSearch()
+        {
+            var allProduct = this._cosmeticContext.GetProductCardData();
+            return allProduct.Where(product => product.solantruycap > 100).ToList();
         }
 
         public bool RegisterAnnoucement(string makh)
@@ -127,7 +141,6 @@ namespace WebCosmetic.Models
         {
             // null
             int changes = 0;
-            Console.WriteLine(pay._payment + changes.ToString());
 
             if (pay._payment.CompareTo("Money") == 0)
                 return true;
@@ -135,15 +148,14 @@ namespace WebCosmetic.Models
             {
                 using(QL_COSMETICContext contextAddmethodPayment = new QL_COSMETICContext())
                 {
-                    if (pay._payment.Contains("NH"))
+                    if (pay._payment.StartsWith("NH"))
                     {
                         Thanhtoan tt = new Thanhtoan();
                         tt.Makh = pay._makh;
                         tt.Mahd = mahd;
                         tt.Magiaodich = "ABCXYZ123456";
-                        Console.WriteLine("ok vo ne");
                         tt.Trangthai = "";
-                        tt.ngaylap = DateTime.Now;
+                        tt.Ngaylap = DateTime.Now.Date;
                         tt.Manganhang = pay._payment;
                         contextAddmethodPayment.Thanhtoans.Add(tt);
                         contextAddmethodPayment.Entry<Thanhtoan>(tt).State = Microsoft.EntityFrameworkCore.EntityState.Added;
@@ -154,20 +166,29 @@ namespace WebCosmetic.Models
                         vc.Mahd = mahd;
                         vc.Madichvu = pay._payment;
                         vc.Magiaovan = "ABCXYZ123456";
+                        vc.Tinhtrang = "Đang giao";
                         vc.Khoangcach = 10;
                         vc.Tongthanhtoan = (decimal)(pay._totalMoney + (double)this._cosmeticContext.Hotrovanchuyens.Where(v => v.Madichvu == pay._payment).Select(v => v.Chiphi).FirstOrDefault());
-                        vc.NgayDatHang = DateTime.Now;
-                        vc.NgayGiaoHang = new DateTime(DateTime.Now.Day + 2, DateTime.Now.Month, DateTime.Now.Year);
+                        vc.Ngaydathang = DateTime.Now.Date;
+                        if(DateTime.Now.Day == 28 && DateTime.Now.Month == 2 || DateTime.Now.Day == 30)
+                        {
+                            vc.Ngaygiaohang = new DateTime(DateTime.Now.Year,DateTime.Now.Month + 1, 1);
+
+                        }
+                        else
+                        {
+                            vc.Ngaygiaohang = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 2, 8, 0, 0);
+                        }
                         contextAddmethodPayment.Hoadonvanchuyens.Add(vc);
                         contextAddmethodPayment.Entry<Hoadonvanchuyen>(vc).State = Microsoft.EntityFrameworkCore.EntityState.Added;
                     }
+                        
                     changes = contextAddmethodPayment.SaveChanges();
                 }    
                 
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.InnerException.Message);
                 return false;
             }
             return changes > 0 ? true : false;
@@ -178,6 +199,7 @@ namespace WebCosmetic.Models
             {
                 Hoadon hd = new Hoadon();
                 hd.Makh = pay._makh;
+                hd.Ngaylap = DateTime.Now.Date;
                 hd.Tongtien = (decimal)pay._totalMoney;
                 hd.Mahd = this._cosmeticContext.GenerateBillCode();
                 this._cosmeticContext.Hoadons.Add(hd);
@@ -200,7 +222,7 @@ namespace WebCosmetic.Models
                        select new SuccessPayingModel.BillInfo()
                        {
                            _billCode = item.Mahd,
-                           _dateSet = item.ngaylap,
+                           _dateSet = item.Ngaylap,
                            _transactionCode = item.Magiaodich,
                            _methodPayment = (this._cosmeticContext.Hotrothanhtoans.Where(ht => ht.Manganhang == item.Manganhang).Select(ht => ht.Tennganhang).FirstOrDefault())
                        };
@@ -237,14 +259,135 @@ namespace WebCosmetic.Models
 
         public List<HistoryProductBill> GetProductHistory(string khId)
         {
+            khId = this._cosmeticContext.GetKhidByUID(khId);
+            if (string.IsNullOrEmpty(khId))
+                return null;
             var getHistory = from item in _cosmeticContext.Chitiethoadons
                              join sp in _cosmeticContext.Sanphams
                              on item.Masp equals sp.Masp
                              join hd in _cosmeticContext.Hoadons
                              on item.Mahd equals hd.Mahd
                              where hd.Makh == khId
-                             select new HistoryProductBill { _tenSp = sp.Tensp, _giaban = (double)sp.Giaban, _soluong = item.Soluong??0 };
+                             select new HistoryProductBill {_mahd = item.Mahd, _tenSp = sp.Tensp, _giaban = (double)sp.Giaban, _soluong = item.Soluong??0 };
             return getHistory.ToList();
+        }
+        public List<string> GetBillCodeNotConfirmed()
+        {
+            return this._cosmeticContext.Hoadons.Where(itm => itm.Manv == null).Select(itm => itm.Mahd).ToList();
+        }
+
+        public List<string> GetBillCodeConfirmed()
+        {
+            return this._cosmeticContext.Hoadons.Where(itm => itm.Manv != null).Select(itm => itm.Mahd).ToList();
+        }
+        public List<string> GetDeliveryNotConfirmed()
+        {
+            return this._cosmeticContext.Hoadonvanchuyens.Where(itm => itm.Tinhtrang.CompareTo("Đang giao") == 0).Select(itm => itm.Magiaovan).ToList();
+        }
+
+        public List<string> GetDeliveryConfirmed()
+        {
+            return this._cosmeticContext.Hoadonvanchuyens.Where(itm => itm.Tinhtrang.CompareTo("Đang giao") != 0).Select(itm => itm.Magiaovan).ToList();
+        }
+        public string UpdateDeliveryConfirmed(string magv, string manv)
+        {
+            if (magv == null || manv == null) return "Failed by parameters null";
+            var hdvc = this._cosmeticContext.Hoadonvanchuyens.Where(itm => itm.Magiaovan == magv).FirstOrDefault();
+            if (hdvc == null) return "Failed by not found";
+            hdvc.Tinhtrang = "Đã giao";
+            try
+            {
+                this._cosmeticContext.Hoadonvanchuyens.Attach(hdvc);
+                this._cosmeticContext.Entry<Hoadonvanchuyen>(hdvc).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                this._cosmeticContext.SaveChanges();
+            }catch(Exception ex)
+            {
+                return "Failed by exception occurred";
+            }
+            return this._cosmeticContext.UpdateStaffConfirmed(hdvc.Mahd, manv);
+        }
+        public List<HistoryProductBill> GetProductHistory(List<string> mahds)
+        {
+            var get = from item in this._cosmeticContext.Chitiethoadons
+                      join sp in this._cosmeticContext.Sanphams
+                      on item.Masp equals sp.Masp
+                      where mahds.Contains(item.Mahd)
+                      select new HistoryProductBill {_mahd = item.Mahd, _giaban = (double)sp.Giabanmoi, _soluong = item.Soluong ?? 0, _tenSp = sp.Tensp };
+            return get.ToList();
+        }
+        public string UpdateStaffConfirmed(string _billcode, string _manv)
+        {
+            return this._cosmeticContext.UpdateStaffConfirmed(_billcode, _manv);
+        }
+        public List<StatisticModel> GetAllStatiticMoneys(int month, int year, string? ptype, string? product)
+        {
+             
+            if(month != 0 && ptype != null && product == null)
+            {
+
+                return (from item in _cosmeticContext.Chitiethoadons
+                        join sp in _cosmeticContext.Sanphams
+                        on item.Masp equals sp.Masp
+                        join hd in _cosmeticContext.Hoadons
+                        on item.Mahd equals hd.Mahd
+                        where hd.Ngaylap.Month == month && hd.Ngaylap.Year == year && sp.Maloai == ptype
+                        select new StatisticModel { _masp = sp.Masp, _ngaylap = hd.Ngaylap, _tongtien = (double)hd.Tongtien, _tensp = this._cosmeticContext.Loaisanphams.Where(itm => itm.Maloai == ptype).Select(itm => itm.Tenloai).First() }).ToList();
+            }
+            if (month != 0 && ptype == null && product != null)
+            {
+
+                return (from item in _cosmeticContext.Chitiethoadons
+                        join sp in _cosmeticContext.Sanphams
+                        on item.Masp equals sp.Masp
+                        join hd in _cosmeticContext.Hoadons
+                        on item.Mahd equals hd.Mahd
+                        where hd.Ngaylap.Month == month && hd.Ngaylap.Year == year && sp.Masp == product
+                        select new StatisticModel { _masp = sp.Masp, _ngaylap = hd.Ngaylap, _tongtien = (double)hd.Tongtien, _tensp = sp.Tensp }).ToList();
+            }
+            else if (month == 0 && ptype != null && product == null)
+            {
+
+                return (from item in _cosmeticContext.Chitiethoadons
+                        join sp in _cosmeticContext.Sanphams
+                        on item.Masp equals sp.Masp
+                        join hd in _cosmeticContext.Hoadons
+                        on item.Mahd equals hd.Mahd
+                        where hd.Ngaylap.Year == year && sp.Maloai == ptype
+                        select new StatisticModel { _masp = sp.Masp, _ngaylap = hd.Ngaylap, _tongtien = (double)hd.Tongtien, _tensp = this._cosmeticContext.Loaisanphams.Where(itm => itm.Maloai == ptype).Select(itm => itm.Tenloai).First() }).ToList();
+            }
+            else if (month == 0 && ptype == null && product != null)
+            {
+
+                return (from item in _cosmeticContext.Chitiethoadons
+                        join sp in _cosmeticContext.Sanphams
+                        on item.Masp equals sp.Masp
+                        join hd in _cosmeticContext.Hoadons
+                        on item.Mahd equals hd.Mahd
+                        where hd.Ngaylap.Year == year && sp.Masp == product
+                        select new StatisticModel { _masp = sp.Masp, _ngaylap = hd.Ngaylap, _tongtien = (double)hd.Tongtien, _tensp = sp.Tensp }).ToList();
+            }
+            else if (month != 0 && ptype == null && product != null)
+            {
+
+                return (from item in _cosmeticContext.Chitiethoadons
+                        join sp in _cosmeticContext.Sanphams
+                        on item.Masp equals sp.Masp
+                        join hd in _cosmeticContext.Hoadons
+                        on item.Mahd equals hd.Mahd
+                        where hd.Ngaylap.Year == year && sp.Masp == product && hd.Ngaylap.Month == month
+                        select new StatisticModel { _masp = sp.Masp, _ngaylap = hd.Ngaylap, _tongtien = (double)hd.Tongtien, _tensp = sp.Tensp }).ToList();
+            }
+            else
+                return null;
+        }
+        public List<Sanpham> GetAllProducts()
+        {
+            return this._cosmeticContext.Sanphams.ToList();
+        }
+
+        public List<Hoadon> GetAllBills()
+        {
+            return this._cosmeticContext.Hoadons.ToList();
         }
     }
 }

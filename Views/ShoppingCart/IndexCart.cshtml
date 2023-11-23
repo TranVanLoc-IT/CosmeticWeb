@@ -3,6 +3,7 @@
 @inject UserManager<CosmeticModel> userManager
 @model List<ProductCart.DetailsCart>
 @{
+    string uid = userManager.GetUserId(this.User);
     var collectDataDetails = ViewData["ProductDataJson"] as Dictionary<string, List<ProductDataJson>>;
     double sumMoney = 0;
     double toFinalMoney = 0;
@@ -49,7 +50,7 @@
                         }
                         else
                         {
-                            <h5 class="mb-0" id="titleStatusByJs">Giỏ hàng - <span id="totalProduct">@Model.Count</span>  sản phẩm</h5>
+                            <h5 class="mb-0" id="titleStatusByJs">Giỏ hàng - <span id="totalProduct">@Model.Sum(itm => itm.soLuongMua)</span>  sản phẩm</h5>
                         }
                     </div>
 
@@ -103,7 +104,7 @@
                                     <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
                                         <!-- Data -->
                                         <p><strong>@dataJson.masp</strong>: @dataJson.mota</p>
-                                        <a title="Remove item" class=" btn btn-primary btn-sm me-1 mb-2 text-decoration-none removeLink" id="@userManager.GetUserId(this.User)+'_' + @dataJson.masp.Substring(0,7)" onclick="RemoveFromCart('@userManager.GetUserId(this.User)','@dataJson.masp.Substring(0,7)')">
+                                        <a title="Remove item" class=" btn btn-primary btn-sm me-1 mb-2 text-decoration-none removeLink" id="@userManager.GetUserId(this.User)+'_' + @dataJson.masp.Substring(0,7)" onclick="RemoveFromCart('@uid','@dataJson.masp.Substring(0,7)')">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                         <button type="button" class="btn btn-danger btn-sm mb-2" data-mdb-toggle="tooltip" title="Move to the wish list">
@@ -134,16 +135,16 @@
                                     <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                                         <!-- Số lượng -->
                                         <div class="d-flex mb-4" style="max-width: 300px">
-                                            <button class="btn btn-primary px-3 me-2" style="height: max-content;" onclick="this.parentNode.querySelector('input[type=number]').stepDown(); fixQuantityOfProduct();">
+                                            <button class="btn btn-primary px-3 me-2" style="height: max-content;" onclick="this.parentNode.querySelector('input[type=number]').stepDown(); UpdateQuantity('@uid','@dataJson.masp.Substring(0,7)')">
                                                 <i class="fas fa-minus"></i>
                                             </button>
 
                                             <div class="form-outline">
-                                                <input id="quantity_@buy.masp" min="0" name="quantity" value="@buy.soLuongMua" type="number" onclick="@buy.soLuongMua = this.value" class="form-control w-50 mx-auto text-center inputQuantity" />
+                                                <input id="quantity_@buy.masp" min="0" name="quantity" value="@buy.soLuongMua" type="number" class="form-control w-50 mx-auto text-center inputQuantity" />
                                                 <label class="form-label w-100 text-center" for="form1">Số lượng</label>
                                             </div>
 
-                                            <button class="btn btn-primary px-3 ms-2" style="height: max-content;" onclick="this.parentNode.querySelector('input[type=number]').stepUp(); fixQuantityOfProduct();">
+                                            <button class="btn btn-primary px-3 ms-2" style="height: max-content;" onclick="this.parentNode.querySelector('input[type=number]').stepUp(); UpdateQuantity('@uid','@dataJson.masp.Substring(0,7)')">
                                                 <i class="fas fa-plus"></i>
                                             </button>
                                         </div>

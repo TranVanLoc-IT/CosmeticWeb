@@ -9,13 +9,16 @@
     <link rel="stylesheet" href="~/css/header.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/body.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/footer.min.css" asp-append-version="true" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="~/css/details.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CosmeticWeb.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" type="text/css" href="~/lib/fontawesome/css/all.min.css"/>
+    <link rel="stylesheet" type="text/css" href="~/lib/fontawesome/css/all.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
-<body >
+<body>
     <partial name="_clientHeader.cshtml"></partial>
     <div style="min-height: max-content; width: 100%;">
         <main role="main" class="pb-3">
@@ -26,12 +29,11 @@
     <footer class="border-top">
         <partial name="_footerPartial"></partial>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/header.js" asp-append-version="true"></script>
     <script src="~/js/swiper.js" asp-append-version="true"></script>
     <script src="~/js/body.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false) 
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

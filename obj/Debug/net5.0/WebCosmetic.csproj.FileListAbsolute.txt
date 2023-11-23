@@ -251,9 +251,12 @@ L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Views\ShoppingCart\IndexCart.
 L:\source\repos\WebCosmetic\bin\Debug\net5.0\DataCart.json
 L:\source\repos\WebCosmetic\bin\Debug\net5.0\ProductData.json
 L:\source\repos\WebCosmetic\bin\Debug\net5.0\HtmlAgilityPack.dll
-L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Staffs\Pages\ManageBill\HandleBill.cshtml.g.cs
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Staffs\Pages\ManageBill\StatisticBill.cshtml.g.cs
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Staffs\Pages\StatisticMoney\StatisticIndex.cshtml.g.cs
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Views\Pay\PayingProcess.cshtml.g.cs
 L:\source\repos\WebCosmetic\bin\Debug\net5.0\BillHistory.json
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Views\HistoryBill\HistoryBill.cshtml.g.cs
+L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Views\Shared\_summernotePartial.cshtml.g.cs
+L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Views\Catalog\PriceFilter.cshtml.g.cs
+L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Staffs\Pages\ManageBill\HandleDelivery.cshtml.g.cs
+L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Staffs\Pages\ManageBill\HandleBill.cshtml.g.cs

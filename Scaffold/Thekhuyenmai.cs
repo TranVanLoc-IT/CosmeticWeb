@@ -9,6 +9,8 @@ using Microsoft.EntityFrameworkCore;
 namespace WebCosmetic.Scaffold
 {
     [Table("THEKHUYENMAI")]
+    [Index(nameof(Makh), Name = "IX_THEKHUYENMAI_makh")]
+    [Index(nameof(Mask), Name = "IX_THEKHUYENMAI_mask")]
     public partial class Thekhuyenmai
     {
         [Key]

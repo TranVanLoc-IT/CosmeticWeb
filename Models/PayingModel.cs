@@ -40,7 +40,6 @@ namespace WebCosmetic.Models
         public KeyValuePair<string, string> _shipId { get; set; }
 
         [Display(Name = "Tổng thanh toán")]
-        [DataType(dataType: DataType.Currency)]
         public double _totalMoney { get; set; }
         public Dictionary<string, int> _sanphamMua { get; set; }
     }

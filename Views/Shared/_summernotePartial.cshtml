@@ -1,0 +1,21 @@
+﻿@using WebCosmetic.Models
+@model SummerNote
+
+@if (Model._loadLib)
+{
+
+    <script src="~/lib/summernote/summernote-bs4.min.js"></script>
+    <link rel="stylesheet" asp-append-version="true" href="~/lib/summernote/summernote-bs4.min.css" />
+}
+
+
+<script>
+    $(document).ready(function () {
+        $('#@Model._name').summernote({
+            placeholder: 'Viết báo cáo của bạn',
+            tabsize: 2,
+            height: @Model.height,
+            toolbar: @Html.Raw(Model._toolBar)
+        });
+    })
+</script>

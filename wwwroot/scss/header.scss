@@ -9,9 +9,11 @@ a{
 .nav-item:hover > .item-header + .hidden-account-box{
     visibility: visible;
 }
+
 .item-header {
     color: white;
     font-weight: bold;
+
     .icon-header {
         width: 25%;
         font-size: 1vw;
@@ -22,6 +24,7 @@ a{
         outline: 2px solid white;
         outline-offset: -5px;
     }
+
     .text-header {
         font-size: 1.1vw;
         margin: 0;

@@ -36,7 +36,6 @@
     <Folder Include="Areas\Staffs\Data\" />
     <Folder Include="Areas\Staffs\Models\" />
     <Folder Include="MailSave\" />
-    <Folder Include="Migrations\" />
     <Folder Include="Views\Shared\Components\" />
   </ItemGroup>
 

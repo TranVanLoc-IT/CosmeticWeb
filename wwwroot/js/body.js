@@ -4,7 +4,7 @@ function responseEachSearch(textSearch, dataServer) {
     var scaleTextSearch = textSearch[0].toUpperCase() + textSearch.substring(1, textSearch.length);
     dataServer.map((data, index) => {
         if (data.tensp.substring(0, scaleTextSearch.length) == scaleTextSearch || data.tensp.includes(scaleTextSearch)) {
-            let toHtml = `<li class='list-item'><a href='${document.getElementById('details_link' + data.masp).href}' class='text-primary p-1 text-decoration-none'>${data.tensp}</a></li>`;
+            let toHtml = `<li class='list-item '><a href='${document.getElementById('details_link' + data.masp).href}' class='text-primary p-1 text-decoration-none'>${data.tensp}</a></li>`;
             results.push(toHtml);
         }
     })
@@ -13,7 +13,7 @@ function responseEachSearch(textSearch, dataServer) {
         elementDisplay += res;
     })
     document.querySelector(".hint_result").innerHTML = `
-        <ul class='list-group-item list-unstyled'>
+        <ul class='list-group-item list-unstyled w-100' style='z-index: 12'>
             ${elementDisplay}
         </ul>
     `;
@@ -31,7 +31,7 @@ window.onload = function () {
     var saleInter = setInterval(run_time_sale, 1000);
 
     const date_now = new Date();
-    const date_end = new Date("2023/09/08, 21:57:00");
+    const date_end = new Date("2023/11/28, 21:57:00");
     const time_to_end = Math.abs(date_now - date_end);// miliseconds
     if (date_now > date_end) {
         $(document).ready(function () {
@@ -40,11 +40,11 @@ window.onload = function () {
         return;
     }
 
-    var getSeconds = time_to_end < 0 ? 0 : Math.floor((time_to_end % (1000 * 60)) / 1000); // -> giây 1000 -> 60 phút, lấy dư vì chỉ có 60s không vượt quá
-    var getMinutes = time_to_end < 0 ? 0 : Math.floor((time_to_end % (1000 * 60 * 60)) / (1000 * 60));// dư của giây *phút * giờ / giây * phút
-    var getHours = time_to_end < 0 ? 0 : Math.floor(time_to_end / (1000 * 60 * 60)); // giây * phút * giờ
+    var getSeconds = Math.floor((time_to_end / 1000) % 60);
+    var getMinutes = Math.floor((time_to_end / (1000 * 60)) % 60);
+    var getHours = Math.floor((time_to_end / (1000 * 60 * 60)) % 24);
+    var getDays = Math.floor(time_to_end / (1000 * 60 * 60 * 24));
 
-    var getDays = time_to_end < 0 ? 0 : Math.floor((time_to_end / 86400000))
 
     function run_time_sale() {
         getSeconds -= 1;
@@ -137,6 +137,26 @@ function fixQuantityOfProduct() {
         editTotal += Number(product.value);
     })
     document.getElementById("totalProduct").innerText = editTotal;
+}
+
+function UpdateQuantity(uid, masp) {
+    fixQuantityOfProduct();
+    var newquantity = document.getElementById("quantity_" + masp).value;
+    alert(newquantity);
+    fetch("http://localhost:3000/_productCart/" + masp + "?_userId=" + uid, {
+        "method": "PATCH",
+        "cache": "no-cache",
+        "headers": {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ "soLuongMua": Number(newquantity) }),
+    })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error('Network response was not ok.');
+        });
 }
 function RemoveFromCart(uid, masp) {
     var accepted = confirm("Chấp nhận xóa");

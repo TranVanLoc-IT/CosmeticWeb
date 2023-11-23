@@ -1,0 +1,82 @@
+﻿
+@page
+@model WebCosmetic.Areas.Staffs.Pages.ManageBill.HandleDeliveryModel
+@{
+    List<HistoryProductBill> productNotConfirmed = ViewData["HistoryProductNotConfirmed"] as List<HistoryProductBill>;
+    List<HistoryProductBill> productConfirmed = ViewData["HistoryProductConfirmed"] as List<HistoryProductBill>;
+}
+<div class="float-end">
+    <a class="btn btn-outline-primary" asp-area="Staffs" asp-page="/ManageBill/StatisticBill">
+        Thống kê đơn hàng
+    </a>
+</div>
+<div class="clearfix">
+
+</div>
+<h2 class="text-danger">Hóa đơn chưa xác nhận</h2>
+<div class="d-flex justify-content-between flex-wrap w-100 p-2" style="height: max-content">
+    @foreach (var his in Model.historyNotConfirmed)
+    {
+        <div class="card my-1 mx-1" style="width: max-content">
+            <div class="card-header text-left bg-warning">
+                <span>Mã hóa đơn: @his._bill._billCode</span>
+            </div>
+            <div class="card-subtitle text-left p-1">
+                <div>Phương thức: @his._bill._methodPayment</div>
+                <div>Mã giao dịch / giao vận: @his._bill._transactionCode</div>
+            </div>
+            <div class="card-body p-2 text-left">
+                <div>Tên khách hàng: @his._clientInfo._clienName</div>
+                @foreach (var product in productNotConfirmed.Where(itm => itm._mahd == his._bill._billCode))
+                {
+                    <div class="p-1">@product._tenSp x @product._soluong - @product._giaban</div>
+                }
+
+            </div>
+            <div class="footer text-muted p-2">
+                Tổng thanh toán: @his._bill._totalMoney
+            </div>
+            <form method="post" asp-page-handler="ConfirmedBill">
+                <input class="d-none" name="_billcode" value="@his._bill._billCode" />
+                <button class="btn btn-danger text-center">
+                    Xác nhận
+                </button>
+            </form>
+        </div>
+    }
+</div>
+
+
+<h2 class="text-success">Hóa đơn đã xác nhận</h2>
+<div class="w-100 d-flex justify-content-between p-2 flex-wrap" style="height: max-content">
+    @foreach (var his in Model.historyConfirmed)
+    {
+        <div class="card my-1 mx-1" style="width: max-content">
+            <div class="card-header text-left bg-info">
+                <span>Mã hóa đơn: @his._bill._billCode</span>
+            </div>
+            <div class="card-subtitle text-left p-1">
+                <div>Phương thức: @his._bill._methodPayment</div>
+                <div>Mã giao dịch / giao vận: @his._bill._transactionCode</div>
+            </div>
+            <div class="card-body p-2 text-center">
+                <div>Tên khách hàng: @his._clientInfo._clienName</div>
+                @foreach (var product in productConfirmed)
+                {
+                    <div class="p-1">@product._tenSp x @product._soluong - @product._giaban</div>
+                }
+
+            </div>
+            <div class="footer text-muted p-2">
+                Tổng thanh toán: @his._bill._totalMoney
+            </div>
+            <div>
+                <input class="d-none" name="_billcode" value="@his._bill._billCode" />
+                <button class="btn btn-success" contenteditable="false">
+                    Đã xác nhận
+                </button>
+            </div>
+        </div>
+
+    }
+</div>

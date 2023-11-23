@@ -1,12 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using WebCosmetic.Models;
-using System.Linq;
+﻿using System;
 using System.Collections.Generic;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.Data.SqlClient;
 using System.Data;
-using System;
+using System.Linq;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
+using WebCosmetic.Models;
+
+#nullable disable
 
 namespace WebCosmetic.Scaffold
 {
@@ -26,9 +28,10 @@ namespace WebCosmetic.Scaffold
         public virtual DbSet<Chitiethoadon> Chitiethoadons { get; set; }
         public virtual DbSet<Congty> Congties { get; set; }
         public virtual DbSet<Cungcap> Cungcaps { get; set; }
-        public virtual DbSet<Danhgia> Danhgia { get; set; }
+        public virtual DbSet<Danhgium> Danhgia { get; set; }
         public virtual DbSet<Dexuatkhuyenmai> Dexuatkhuyenmais { get; set; }
         public virtual DbSet<Dexuatmua> Dexuatmuas { get; set; }
+        public virtual DbSet<GenerateBillCode> GenerateBillCodes { get; set; }
         public virtual DbSet<Hoadon> Hoadons { get; set; }
         public virtual DbSet<Hoadonvanchuyen> Hoadonvanchuyens { get; set; }
         public virtual DbSet<Hotrothanhtoan> Hotrothanhtoans { get; set; }
@@ -36,6 +39,7 @@ namespace WebCosmetic.Scaffold
         public virtual DbSet<Khachhang> Khachhangs { get; set; }
         public virtual DbSet<Kiemke> Kiemkes { get; set; }
         public virtual DbSet<Loaisanpham> Loaisanphams { get; set; }
+        public virtual DbSet<Loaisp> Loaisps { get; set; }
         public virtual DbSet<Nhanthongbao> Nhanthongbaos { get; set; }
         public virtual DbSet<Nhanvien> Nhanviens { get; set; }
         public virtual DbSet<Sanpham> Sanphams { get; set; }
@@ -46,10 +50,11 @@ namespace WebCosmetic.Scaffold
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            // thêm dòng này để tương tác
-            optionsBuilder.UseSqlServer(
-                 "Data Source=MSI;Initial Catalog=QL_COSMETIC;Integrated Security=True; trusted_connection = true; encrypt = false"
-                 ); 
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Data Source=MSI;Initial Catalog=QL_COSMETIC;Integrated Security=True; trusted_connection = true; encrypt = false");
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -67,7 +72,6 @@ namespace WebCosmetic.Scaffold
             {
                 entity.HasNoKey();
             });
-
             modelBuilder.Entity<Chitiethoadon>(entity =>
             {
                 entity.HasKey(e => new { e.Mahd, e.Masp })
@@ -94,7 +98,15 @@ namespace WebCosmetic.Scaffold
                     .HasConstraintName("fk_masp_cthd");
             });
 
-           
+            modelBuilder.Entity<Congty>(entity =>
+            {
+                entity.HasKey(e => e.Macongty)
+                    .HasName("pk_mact");
+
+                entity.Property(e => e.Macongty)
+                    .IsUnicode(false)
+                    .IsFixedLength(true);
+            });
 
             modelBuilder.Entity<Cungcap>(entity =>
             {
@@ -122,7 +134,7 @@ namespace WebCosmetic.Scaffold
                     .HasConstraintName("fk_masp_cc");
             });
 
-            modelBuilder.Entity<Danhgia>(entity =>
+            modelBuilder.Entity<Danhgium>(entity =>
             {
                 entity.HasKey(e => new { e.Masp, e.Maloai })
                     .HasName("pk_danhgia");
@@ -141,7 +153,6 @@ namespace WebCosmetic.Scaffold
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_masp_dg");
             });
-           
 
             modelBuilder.Entity<Dexuatkhuyenmai>(entity =>
             {
@@ -169,37 +180,6 @@ namespace WebCosmetic.Scaffold
                     .HasConstraintName("fk_masp_dxkm");
             });
 
-
-            modelBuilder.Entity<Kiemke>(entity =>
-            {
-                entity.HasKey(e => new { e.Masp, e.Maloai })
-                    .HasName("pk_kiemke");
-
-                entity.Property(e => e.Masp)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.Maloai)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
-
-                entity.Property(e => e.Ngaykiemke).HasDefaultValueSql("(getdate())");
-
-                entity.Property(e => e.Sldaban).HasDefaultValueSql("((0))");
-
-                entity.Property(e => e.Tinhtrang).HasDefaultValueSql("(N'Ổn định')");
-            });
-
-            modelBuilder.Entity<Congty>(entity =>
-            {
-                entity.HasKey(e => e.Macongty)
-                    .HasName("pk_mact");
-
-                entity.Property(e => e.Macongty)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
-            });
-
             modelBuilder.Entity<Dexuatmua>(entity =>
             {
                 entity.HasKey(e => e.Masp)
@@ -214,6 +194,13 @@ namespace WebCosmetic.Scaffold
                     .HasForeignKey<Dexuatmua>(d => d.Masp)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_masp_dxm");
+            });
+
+            modelBuilder.Entity<GenerateBillCode>(entity =>
+            {
+                entity.ToView("generateBillCode");
+
+                entity.Property(e => e.NewId).IsUnicode(false);
             });
 
             modelBuilder.Entity<Hoadon>(entity =>
@@ -233,10 +220,11 @@ namespace WebCosmetic.Scaffold
                     .IsUnicode(false)
                     .IsFixedLength(true);
 
+                entity.Property(e => e.Ngaylap).HasDefaultValueSql("('0001-01-01T00:00:00.0000000')");
+
                 entity.HasOne(d => d.ManvNavigation)
                     .WithMany(p => p.Hoadons)
                     .HasForeignKey(d => d.Manv)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_manv_hd");
             });
 
@@ -256,6 +244,10 @@ namespace WebCosmetic.Scaffold
                 entity.Property(e => e.Mahd)
                     .IsUnicode(false)
                     .IsFixedLength(true);
+
+                entity.Property(e => e.Ngaydathang).HasDefaultValueSql("('0001-01-01T00:00:00.0000000')");
+
+                entity.Property(e => e.Ngaygiaohang).HasDefaultValueSql("('0001-01-01T00:00:00.0000000')");
 
                 entity.HasOne(d => d.MahdNavigation)
                     .WithMany(p => p.Hoadonvanchuyens)
@@ -298,6 +290,26 @@ namespace WebCosmetic.Scaffold
                 entity.Property(e => e.Sdt)
                     .IsUnicode(false)
                     .IsFixedLength(true);
+            });
+
+            modelBuilder.Entity<Kiemke>(entity =>
+            {
+                entity.HasKey(e => new { e.Masp, e.Maloai, e.Ngaykiemke })
+                    .HasName("pk_kiemke");
+
+                entity.Property(e => e.Masp)
+                    .IsUnicode(false)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Maloai)
+                    .IsUnicode(false)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Ngaykiemke).HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.Sldaban).HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.Tinhtrang).HasDefaultValueSql("(N'Ổn định')");
             });
 
             modelBuilder.Entity<Loaisanpham>(entity =>
@@ -395,6 +407,11 @@ namespace WebCosmetic.Scaffold
                     .IsUnicode(false)
                     .IsFixedLength(true);
 
+                entity.Property(e => e.Mahd)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("('')")
+                    .IsFixedLength(true);
+
                 entity.Property(e => e.Makh)
                     .IsUnicode(false)
                     .IsFixedLength(true);
@@ -476,14 +493,14 @@ namespace WebCosmetic.Scaffold
                     .HasConstraintName("fk_mask_tb");
             });
             base.OnModelCreating(modelBuilder); // forgot this cause of error for Identity table structure
-            foreach(var table in modelBuilder.Model.GetEntityTypes())
+            foreach (var table in modelBuilder.Model.GetEntityTypes())
             {
                 // loại bỏ tiền tố AspNet
                 var tableName = table.GetTableName();
-                if(tableName.StartsWith("AspNet"))
+                if (tableName.StartsWith("AspNet"))
                 {
                     table.SetTableName(tableName.Substring(6));
-                }    
+                }
             }
             // fluent API
         }
@@ -506,24 +523,91 @@ namespace WebCosmetic.Scaffold
         }
         public string GenerateBillCode()
         {
-            var billCodeOutput = new SqlParameter("@billcode", SqlDbType.Char, 10)
+            var success = new SqlParameter("@billcode", SqlDbType.Char, 10)
             {
                 Direction = ParameterDirection.Output
             };
 
             string sql = "exec prc_GenerateBillCode 1, @billcode out";
 
-            Database.ExecuteSqlRaw(sql, billCodeOutput);
+            Database.ExecuteSqlRaw(sql, success);
 
-            if (billCodeOutput.Value != DBNull.Value)
+            if (success.Value != DBNull.Value)
             {
-                return billCodeOutput.Value.ToString();
+                return success.Value.ToString();
             }
             else
             {
                 return null;
             }
         }
-    }
+        public string UpdateAccessTimes(string masp)
+        {
+            var success = new SqlParameter("@success", SqlDbType.Bit)
+            {
+                Direction = ParameterDirection.Output
+            };
+            SqlParameter fparam = new SqlParameter();
+            fparam.ParameterName = "@masp";
+            fparam.Value = masp;
+            string sql = "exec prc_UpdateAccessTimes @masp, @success out";
 
+            Database.ExecuteSqlRaw(sql, fparam, success);
+
+            if (success.Value != DBNull.Value)
+            {
+                return success.Value.ToString();
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public string UpdateStaffConfirmed(string _billcode, string _manv)
+        {
+            var success = new SqlParameter("@success", SqlDbType.Bit)
+            {
+                Direction = ParameterDirection.Output
+            };
+            SqlParameter fparam = new SqlParameter("@manv", SqlDbType.Char, 36);
+            fparam.Value = _manv;
+
+            SqlParameter sparam = new SqlParameter("@billcode", SqlDbType.Char, 10);
+            sparam.Value = _billcode;
+            string sql = "exec prc_UpdateStaffConfirm @billcode, @manv,  @success out";
+
+            Database.ExecuteSqlRaw(sql, new SqlParameter[]{ sparam,fparam, success });
+
+            if (success.Value != DBNull.Value)
+            {
+                return "Thành công";
+            }
+            else
+            {
+                return "Thất bại";
+            }
+        }
+        public string GetKhidByUID(string uid)
+        {
+            var makh = new SqlParameter("@makh", SqlDbType.Char, 7)
+            {
+                Direction = ParameterDirection.Output
+            };
+            SqlParameter fparam = new SqlParameter("@uid", SqlDbType.Char, 36);
+            fparam.Value = uid;
+            string sql = "exec prc_GetKhIdByUID @uid, @makh out";
+
+            Database.ExecuteSqlRaw(sql, new SqlParameter[] { fparam, makh });
+
+            if (makh.Value != DBNull.Value)
+            {
+                return makh.Value.ToString();
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+    }
 }

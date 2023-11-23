@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 namespace WebCosmetic.Scaffold
 {
     [Table("SUKIEN")]
+    [Index(nameof(Manv), Name = "IX_SUKIEN_manv")]
     public partial class Sukien
     {
         public Sukien()

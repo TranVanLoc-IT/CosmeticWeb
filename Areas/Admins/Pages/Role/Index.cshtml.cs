@@ -9,7 +9,7 @@ namespace WebCosmetic.Admins.Role
 {
     // nếu nhiều role cùng lúc thì user đó phải đáp ứng đủ tất cả các role, còn nhiều authorize đơn lẻ thì 1 trong số đó
     [Authorize(policy: "AdminTerm")]
-    [Authorize(Roles = "Administrator, Editor")]
+    [Authorize(Roles = "Administrator")]
     [Authorize(Roles = "Administrator, Manager")]
     [Authorize(Roles = "Manager")]
     public class IndexModel : RolePageModel

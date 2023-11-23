@@ -15,6 +15,7 @@ namespace WebCosmetic.Models
         public string tensp { get; set; }
         public int sldaban { get; set; }
         public int slconlai { get; set; }
+        public int solantruycap { get; set; }
         public int sosao { get; set; }
         public int sophanhoi { get; set; }
         public string tencongty { get; set; }

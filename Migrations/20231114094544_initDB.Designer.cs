@@ -10,8 +10,8 @@ using WebCosmetic.Scaffold;
 namespace WebCosmetic.Migrations
 {
     [DbContext(typeof(QL_COSMETICContext))]
-    [Migration("20231105034839_addnewcolumn")]
-    partial class addnewcolumn
+    [Migration("20231114094544_initDB")]
+    partial class initDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -217,60 +217,6 @@ namespace WebCosmetic.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("WebCosmetic.Models.ProductCardModel", b =>
-                {
-                    b.Property<decimal>("giaban")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("giabanmoi")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("masp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("slconlai")
-                        .HasColumnType("int");
-
-                    b.Property<int>("sldaban")
-                        .HasColumnType("int");
-
-                    b.Property<int>("sophanhoi")
-                        .HasColumnType("int");
-
-                    b.Property<int>("sosao")
-                        .HasColumnType("int");
-
-                    b.Property<string>("tencongty")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("tensp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.ToTable("ProductCard");
-                });
-
-            modelBuilder.Entity("WebCosmetic.Models.ProfileRoleClaimResult", b =>
-                {
-                    b.Property<string>("ClaimType")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("ClaimValue")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.ToTable("ProfileClaim");
-                });
-
-            modelBuilder.Entity("WebCosmetic.Models.ProfileRoleResult", b =>
-                {
-                    b.Property<string>("Name")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.ToTable("ProfileRole");
-                });
-
             modelBuilder.Entity("WebCosmetic.Scaffold.Chitiethoadon", b =>
                 {
                     b.Property<string>("Mahd")
@@ -298,7 +244,7 @@ namespace WebCosmetic.Migrations
                     b.HasKey("Mahd", "Masp")
                         .HasName("pk_cthd");
 
-                    b.HasIndex("Masp");
+                    b.HasIndex(new[] { "Masp" }, "IX_CHITIETHOADON_masp");
 
                     b.ToTable("CHITIETHOADON");
                 });
@@ -357,12 +303,12 @@ namespace WebCosmetic.Migrations
                     b.HasKey("Macongty", "Masp", "Ngaynhap")
                         .HasName("pk_cungcap");
 
-                    b.HasIndex("Masp");
+                    b.HasIndex(new[] { "Masp" }, "IX_CUNGCAP_masp");
 
                     b.ToTable("CUNGCAP");
                 });
 
-            modelBuilder.Entity("WebCosmetic.Scaffold.Danhgia", b =>
+            modelBuilder.Entity("WebCosmetic.Scaffold.Danhgium", b =>
                 {
                     b.Property<string>("Masp")
                         .HasMaxLength(10)
@@ -411,7 +357,7 @@ namespace WebCosmetic.Migrations
                     b.HasKey("Masp", "Maloai")
                         .HasName("pk_dexuatkk");
 
-                    b.HasIndex("Maloai");
+                    b.HasIndex(new[] { "Maloai" }, "IX_DEXUATKHUYENMAI_maloai");
 
                     b.ToTable("DEXUATKHUYENMAI");
                 });
@@ -429,6 +375,17 @@ namespace WebCosmetic.Migrations
                         .HasName("pk_dxm");
 
                     b.ToTable("DEXUATMUA");
+                });
+
+            modelBuilder.Entity("WebCosmetic.Scaffold.GenerateBillCode", b =>
+                {
+                    b.Property<string>("NewId")
+                        .HasMaxLength(8)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(8)")
+                        .HasColumnName("new_id");
+
+                    b.ToView("generateBillCode");
                 });
 
             modelBuilder.Entity("WebCosmetic.Scaffold.Hoadon", b =>
@@ -449,12 +406,17 @@ namespace WebCosmetic.Migrations
                         .IsFixedLength(true);
 
                     b.Property<string>("Manv")
-                        .IsRequired()
                         .HasMaxLength(7)
                         .IsUnicode(false)
                         .HasColumnType("char(7)")
                         .HasColumnName("manv")
                         .IsFixedLength(true);
+
+                    b.Property<DateTime>("Ngaylap")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("ngaylap")
+                        .HasDefaultValueSql("('0001-01-01T00:00:00.0000000')");
 
                     b.Property<decimal?>("Tongtien")
                         .HasColumnType("money")
@@ -463,7 +425,7 @@ namespace WebCosmetic.Migrations
                     b.HasKey("Mahd")
                         .HasName("pk_mahd");
 
-                    b.HasIndex("Manv");
+                    b.HasIndex(new[] { "Manv" }, "IX_HOADON_manv");
 
                     b.ToTable("HOADON");
                 });
@@ -497,6 +459,23 @@ namespace WebCosmetic.Migrations
                         .HasColumnName("mahd")
                         .IsFixedLength(true);
 
+                    b.Property<DateTime>("Ngaydathang")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("ngaydathang")
+                        .HasDefaultValueSql("('0001-01-01T00:00:00.0000000')");
+
+                    b.Property<DateTime>("Ngaygiaohang")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("ngaygiaohang")
+                        .HasDefaultValueSql("('0001-01-01T00:00:00.0000000')");
+
+                    b.Property<string>("Tinhtrang")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)")
+                        .HasColumnName("tinhtrang");
+
                     b.Property<decimal?>("Tongthanhtoan")
                         .HasColumnType("money")
                         .HasColumnName("tongthanhtoan");
@@ -504,7 +483,7 @@ namespace WebCosmetic.Migrations
                     b.HasKey("Magiaovan")
                         .HasName("pk_hdvc");
 
-                    b.HasIndex("Mahd");
+                    b.HasIndex(new[] { "Mahd" }, "IX_HOADONVANCHUYEN_mahd");
 
                     b.ToTable("HOADONVANCHUYEN");
                 });
@@ -614,7 +593,7 @@ namespace WebCosmetic.Migrations
                         .HasColumnName("maloai")
                         .IsFixedLength(true);
 
-                    b.Property<DateTime?>("Ngaykiemke")
+                    b.Property<DateTime>("Ngaykiemke")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("date")
                         .HasColumnName("ngaykiemke")
@@ -637,7 +616,7 @@ namespace WebCosmetic.Migrations
                         .HasColumnName("tinhtrang")
                         .HasDefaultValueSql("(N'Ổn định')");
 
-                    b.HasKey("Masp", "Maloai")
+                    b.HasKey("Masp", "Maloai", "Ngaykiemke")
                         .HasName("pk_kiemke");
 
                     b.ToTable("KIEMKE");
@@ -669,9 +648,29 @@ namespace WebCosmetic.Migrations
                     b.HasKey("Maloai")
                         .HasName("pk_maloai");
 
-                    b.HasIndex("Macongty");
+                    b.HasIndex(new[] { "Macongty" }, "IX_LOAISANPHAM_macongty");
 
                     b.ToTable("LOAISANPHAM");
+                });
+
+            modelBuilder.Entity("WebCosmetic.Scaffold.Loaisp", b =>
+                {
+                    b.Property<string>("Macongty")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("macongty");
+
+                    b.Property<string>("Maloai")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("maloai");
+
+                    b.Property<string>("Tenloai")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("tenloai");
+
+                    b.ToTable("LOAISP");
                 });
 
             modelBuilder.Entity("WebCosmetic.Scaffold.Nhanthongbao", b =>
@@ -743,6 +742,10 @@ namespace WebCosmetic.Migrations
                         .HasColumnType("money")
                         .HasColumnName("giaban");
 
+                    b.Property<decimal?>("Giabanmoi")
+                        .HasColumnType("money")
+                        .HasColumnName("giabanmoi");
+
                     b.Property<DateTime?>("Hsd")
                         .HasColumnType("date")
                         .HasColumnName("hsd");
@@ -759,6 +762,10 @@ namespace WebCosmetic.Migrations
                         .HasColumnType("date")
                         .HasColumnName("nsx");
 
+                    b.Property<int>("Solantruycap")
+                        .HasColumnType("int")
+                        .HasColumnName("solantruycap");
+
                     b.Property<string>("Tensp")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -768,7 +775,7 @@ namespace WebCosmetic.Migrations
                     b.HasKey("Masp")
                         .HasName("pk_masp");
 
-                    b.HasIndex("Maloai");
+                    b.HasIndex(new[] { "Maloai" }, "IX_SANPHAM_maloai");
 
                     b.ToTable("SANPHAM");
                 });
@@ -807,7 +814,7 @@ namespace WebCosmetic.Migrations
                     b.HasKey("Mask")
                         .HasName("pk_sukien");
 
-                    b.HasIndex("Manv");
+                    b.HasIndex(new[] { "Manv" }, "IX_SUKIEN_manv");
 
                     b.ToTable("SUKIEN");
                 });
@@ -819,6 +826,16 @@ namespace WebCosmetic.Migrations
                         .IsUnicode(false)
                         .HasColumnType("char(12)")
                         .HasColumnName("magiaodich")
+                        .IsFixedLength(true);
+
+                    b.Property<string>("Mahd")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(10)
+                        .IsUnicode(false)
+                        .HasColumnType("char(10)")
+                        .HasColumnName("mahd")
+                        .HasDefaultValueSql("('')")
                         .IsFixedLength(true);
 
                     b.Property<string>("Makh")
@@ -837,6 +854,10 @@ namespace WebCosmetic.Migrations
                         .HasColumnName("manganhang")
                         .IsFixedLength(true);
 
+                    b.Property<DateTime>("Ngaylap")
+                        .HasColumnType("date")
+                        .HasColumnName("ngaylap");
+
                     b.Property<string>("Trangthai")
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(20)
@@ -844,16 +865,14 @@ namespace WebCosmetic.Migrations
                         .HasColumnName("trangthai")
                         .HasDefaultValueSql("(N'Chưa thanh toán')");
 
-                    b.Property<DateTime>("ngaylap")
-                        .HasColumnType("date")
-                        .HasColumnName("ngaylap");
-
                     b.HasKey("Magiaodich")
                         .HasName("pk_thanhtoan");
 
-                    b.HasIndex("Makh");
+                    b.HasIndex(new[] { "Mahd" }, "IX_THANHTOAN_mahd");
 
-                    b.HasIndex("Manganhang");
+                    b.HasIndex(new[] { "Makh" }, "IX_THANHTOAN_makh");
+
+                    b.HasIndex(new[] { "Manganhang" }, "IX_THANHTOAN_manganhang");
 
                     b.ToTable("THANHTOAN");
                 });
@@ -894,9 +913,9 @@ namespace WebCosmetic.Migrations
                     b.HasKey("Mathe")
                         .HasName("pk_thekm");
 
-                    b.HasIndex("Makh");
+                    b.HasIndex(new[] { "Makh" }, "IX_THEKHUYENMAI_makh");
 
-                    b.HasIndex("Mask");
+                    b.HasIndex(new[] { "Mask" }, "IX_THEKHUYENMAI_mask");
 
                     b.ToTable("THEKHUYENMAI");
                 });
@@ -927,7 +946,7 @@ namespace WebCosmetic.Migrations
                     b.HasKey("Mask", "Makh")
                         .HasName("pk_thongbao");
 
-                    b.HasIndex("Makh");
+                    b.HasIndex(new[] { "Makh" }, "IX_THONGBAO_makh");
 
                     b.ToTable("THONGBAO");
                 });
@@ -1021,7 +1040,7 @@ namespace WebCosmetic.Migrations
                     b.Navigation("MaspNavigation");
                 });
 
-            modelBuilder.Entity("WebCosmetic.Scaffold.Danhgia", b =>
+            modelBuilder.Entity("WebCosmetic.Scaffold.Danhgium", b =>
                 {
                     b.HasOne("WebCosmetic.Scaffold.Sanpham", "MaspNavigation")
                         .WithMany("Danhgia")
@@ -1067,8 +1086,7 @@ namespace WebCosmetic.Migrations
                     b.HasOne("WebCosmetic.Scaffold.Nhanvien", "ManvNavigation")
                         .WithMany("Hoadons")
                         .HasForeignKey("Manv")
-                        .HasConstraintName("fk_manv_hd")
-                        .IsRequired();
+                        .HasConstraintName("fk_manv_hd");
 
                     b.Navigation("ManvNavigation");
                 });
@@ -1130,6 +1148,12 @@ namespace WebCosmetic.Migrations
 
             modelBuilder.Entity("WebCosmetic.Scaffold.Thanhtoan", b =>
                 {
+                    b.HasOne("WebCosmetic.Scaffold.Hoadon", "MahdNavigation")
+                        .WithMany("Thanhtoans")
+                        .HasForeignKey("Mahd")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("WebCosmetic.Scaffold.Khachhang", "MakhNavigation")
                         .WithMany("Thanhtoans")
                         .HasForeignKey("Makh")
@@ -1141,6 +1165,8 @@ namespace WebCosmetic.Migrations
                         .HasForeignKey("Manganhang")
                         .HasConstraintName("fk_nh_thanhtoan")
                         .IsRequired();
+
+                    b.Navigation("MahdNavigation");
 
                     b.Navigation("MakhNavigation");
 
@@ -1195,6 +1221,8 @@ namespace WebCosmetic.Migrations
                     b.Navigation("Chitiethoadons");
 
                     b.Navigation("Hoadonvanchuyens");
+
+                    b.Navigation("Thanhtoans");
                 });
 
             modelBuilder.Entity("WebCosmetic.Scaffold.Hotrothanhtoan", b =>

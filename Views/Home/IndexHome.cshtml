@@ -20,6 +20,7 @@
     List<ProductCardModel> sunscreen = transfer.getProductByType("SPCN");
     List<ProductCardModel> showerGel = transfer.getProductByType("SPST");
     List<ProductCardModel> banChay = transfer.collectRecommendProduct();
+    List<ProductCardModel> toptk = transfer.collectRecommendProduct();
 
     Dictionary<string, List<ProductDataJson>> productData = ViewData["ProductDataJson"] as Dictionary<string, List<ProductDataJson>>;
 }
@@ -230,16 +231,32 @@
             </div>
             <div class="body_inventory">
                 <div class="block_product_list w-100">
-                    <div class="swiper-container rounded-1" id="swiper_sunscreen">
+                    <div class="swiper-container rounded-1" id="swiper_lipstick">
                         <button class="swiper-button-next text-dark border-0"></button>
                         <div class="swiper-wrapper">
-                            
+                            @foreach (var product in toptk)
+                            {
+                                ProductDataJson dataOwn = new ProductDataJson();
+                                foreach (var data in productData[product.masp.Substring(0, 4)].ToList())
+                                {
+                                    if (data.masp == product.masp)
+                                    {
+                                        dataOwn = data;
+                                        break;
+                                    }
+                                }
+                                <div class="swiper-slide">
+                                    <ProductCard product-model="@product" data="dataOwn">
+
+                                    </ProductCard>
+                                </div>
+                            }
+
                         </div>
                         <button class="swiper-button-prev"></button>
                         <div class="swiper-pagination"></div>
                     </div>
                 </div>
-
             </div>
         </div>
         <div class="inventory">

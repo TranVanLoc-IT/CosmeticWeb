@@ -57,7 +57,7 @@ namespace WebCosmetic.Models
             [DataType(dataType: DataType.Text)]
             [Editable(false)]
             public string _methodPayment { get; set; }
-
+            [Display(Name = "Tổng tiền: ")]
             public double _totalMoney { get; set; }
 
         }

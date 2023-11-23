@@ -1,5 +1,71 @@
-﻿@*
+﻿
+@model List<ProductCardModel>
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    Dictionary<string, List<ProductDataJson>> productData = ViewData["ProductDataJson"] as Dictionary<string, List<ProductDataJson>>;
+}
+<div class="container-fluid m-2">
+    <div class="float-start w-25">
+        <div>
+         
+                <label for="filtCost">
+                    Lọc giá:
+                </label>
+                <input name="startPrice" id="startPrice" type="number" style="width: 100px" />
+                <span> - </span>
+                <input name="endPrice" id="endPrice" type="number" style="width: 100px" />
+                <button type="button" onclick="ReloadProduct()" class="btn btn-success">Lọc <i class="fa fa-filter"></i></button>
+        </div>
+    </div>
+    <div class="float-right w-75 d-flex justify-content-start my-1 mx-1 flex-wrap">
+        @foreach (var product in Model)
+                {
+                    ProductDataJson dataOwn = new ProductDataJson();
+                    foreach (var data in productData[product.masp.Substring(0, 4)].ToList())
+                    {
+                        if (data.masp == product.masp)
+                        {
+                            dataOwn = data;
+                            break;
+                        }
+                    }
+            <div class="w-25">
+                <ProductCard product-model="@product" data="dataOwn">
+
+                </ProductCard>
+            </div>
+        }
+    </div>
+    <div class="clearfix">
+
+    </div>
+</div>
+@section Scripts{ 
+    <script>
+        function convertToNumber(input) {
+            // Loại bỏ dấu phẩy và chuyển đổi sang số
+            return parseFloat(input.replace(/,/g, ''));
+        }
+    function ReloadProduct() {
+        const startInp = convertToNumber(document.getElementById("startPrice").value);
+        const endInp = convertToNumber(document.getElementById("endPrice").value);
+
+            const prices = document.querySelectorAll(".current_price");
+            const links = document.querySelectorAll(".details_link");
+
+            prices.forEach((value, index) => {
+                let valueDouble = convertToNumber(value.textContent);
+                if (valueDouble >= startInp && valueDouble <= endInp) {
+                    // Do nothing or handle the case where the price is within the range
+                } else {
+                    // Remove the corresponding link if the price is outside the range
+                    links[index].remove();
+                }
+            });
+
+    }
+
+    </script>
 }

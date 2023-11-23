@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 namespace WebCosmetic.Scaffold
 {
     [Table("CUNGCAP")]
+    [Index(nameof(Masp), Name = "IX_CUNGCAP_masp")]
     public partial class Cungcap
     {
         [Key]

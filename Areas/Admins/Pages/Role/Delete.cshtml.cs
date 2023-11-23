@@ -38,7 +38,7 @@ namespace WebCosmetic.Admins.Role
             if (del.Succeeded)
             {
                 this.statusMessage = "Xoa thanh cong role co ten: " + result.Name;
-                return RedirectToPage("./Index");
+                return RedirectToPage("./Index", new { statusMessage = this.statusMessage});
             }
             del.Errors.ToList().ForEach(x =>
             {

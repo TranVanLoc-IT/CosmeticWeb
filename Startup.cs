@@ -68,6 +68,11 @@ namespace WebCosmetic
             services.AddAuthorization(
                 options =>
                 {
+                    options.AddPolicy("CusTerm", policy =>
+                    {
+                        policy.RequireAuthenticatedUser();
+                        policy.RequireRole("Customer");
+                    });
                    
                     options.AddPolicy("StaffTerm", policy =>
                     {
@@ -81,7 +86,7 @@ namespace WebCosmetic
                     {
                         policy.RequireAuthenticatedUser();
                         policy.RequireRole("Administrator");
-                        policy.RequireClaim("Acknowledge", new string[] { "admin BeautyCosmetic", "tốt nghiệp", "ngành thẩm mĩ" });
+                        //policy.RequireClaim("Acknowledge", new string[] { "admin BeautyCosmetic", "tốt nghiệp", "ngành thẩm mĩ" });
                     });
                 }
                 );

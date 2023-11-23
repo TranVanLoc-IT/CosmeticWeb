@@ -13,10 +13,8 @@ namespace WebCosmetic.Areas_Staffs_Views_CRUD
 {
     // dotnet aspnet-codegenerator razorpage -m namespace.model -dc namespace.contextmodel -outDir dir/folder -udl --referenceScriptLibraries
     // [Authorize(policy:"staffTerm")]
-    [Authorize(policy:"StaffTerm")]
     [Authorize(Roles = "Staff")]
-    [Authorize(Roles = "Saler")]
-    [Route("/edit-product/[action]")]
+    [Authorize(policy:"StaffTerm")]
     public class IndexModel : PageModel
     {
         private readonly WebCosmetic.Scaffold.QL_COSMETICContext _context;
@@ -26,8 +24,6 @@ namespace WebCosmetic.Areas_Staffs_Views_CRUD
             _context = context;
         }
 
-
-        [Route("/xem-danh-sach-san-pham/")]
         public async Task OnGetAsync()
         {
             Sanpham = await _context.Sanphams

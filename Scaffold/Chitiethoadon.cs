@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 namespace WebCosmetic.Scaffold
 {
     [Table("CHITIETHOADON")]
+    [Index(nameof(Masp), Name = "IX_CHITIETHOADON_masp")]
     public partial class Chitiethoadon
     {
         [Key]
