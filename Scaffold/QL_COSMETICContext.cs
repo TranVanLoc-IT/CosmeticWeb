@@ -23,8 +23,7 @@ namespace WebCosmetic.Scaffold
         {
         }
         public virtual DbSet<ProductCardModel> ProductCard { get; set; }
-        public virtual DbSet<ProfileRoleResult> ProfileRole { get; set; }
-        public virtual DbSet<ProfileRoleClaimResult> ProfileClaim { get; set; }
+        public virtual DbSet<UserId> UserId { get; set; }
         public virtual DbSet<Chitiethoadon> Chitiethoadons { get; set; }
         public virtual DbSet<Congty> Congties { get; set; }
         public virtual DbSet<Cungcap> Cungcaps { get; set; }
@@ -63,15 +62,11 @@ namespace WebCosmetic.Scaffold
             {
                 entity.HasNoKey();
             });
-            modelBuilder.Entity<ProfileRoleResult>(entity =>
+            modelBuilder.Entity<UserId>(entity =>
             {
                 entity.HasNoKey();
             });
 
-            modelBuilder.Entity<ProfileRoleClaimResult>(entity =>
-            {
-                entity.HasNoKey();
-            });
             modelBuilder.Entity<Chitiethoadon>(entity =>
             {
                 entity.HasKey(e => new { e.Mahd, e.Masp })
@@ -507,15 +502,11 @@ namespace WebCosmetic.Scaffold
         public Khachhang GetUserInfoProcedure(string makh)
         {
             // gọi storeprocedure
-            return Set<Khachhang>().FromSqlRaw("exec prc_DisplayCustomerInfo {0}", makh).ToList().FirstOrDefault();
+            return Set<Khachhang>().FromSqlRaw("exec prc_DisplayCustomerInfo '{0}'", makh).ToList().FirstOrDefault();
         }
-        public List<ProfileRoleResult> GetProfileRolesProcedure(string manv)
+        public UserId GetUIDProcedure(string manv)
         {
-            return Set<ProfileRoleResult>().FromSqlRaw("exec prc_GetProfileRoles {0}", manv).ToList();
-        }
-        public List<ProfileRoleClaimResult> GetProfileRoleClaimsProcedure(string manv)
-        {
-            return Set<ProfileRoleClaimResult>().FromSqlRaw("exec prc_GetProfileRoleClaims {0}", manv).ToList();
+            return Set<UserId>().FromSqlRaw("exec prc_GetUID {0}", manv).ToList().FirstOrDefault();
         }
         public List<ProductCardModel> GetProductCardData()
         {

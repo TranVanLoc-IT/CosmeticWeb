@@ -76,6 +76,16 @@ namespace WebCosmetic.Models
             return allProduct.Where(product => product.solantruycap > 100).ToList();
         }
 
+        public string GetLoginId(string code)
+        {
+            var res = this._cosmeticContext.GetUIDProcedure(code);
+            if(res == null)
+            {
+                return string.Empty;
+            }
+            return res.Id;
+        }
+
         public bool RegisterAnnoucement(string makh)
         {
             Nhanthongbao add = new Nhanthongbao();

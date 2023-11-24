@@ -14,6 +14,7 @@ namespace WebCosmetic.Admins.claim
 {
     public class CreateUserClaimsModel : PageModel
     {
+        DataTransfer data = new DataTransfer();
         private readonly UserManager<CosmeticModel> _userManager;
         private readonly QL_COSMETICContext _cosmeticContext;
         public CreateUserClaimsModel(UserManager<CosmeticModel> userManager, QL_COSMETICContext cosmeticContext)
@@ -43,7 +44,7 @@ namespace WebCosmetic.Admins.claim
 
             this.dropRoleClaims = new SelectList(roleClaimList, "Value", "Text");
             if (id == null) { return NotFound("Not found this user"); }
-            this.userClaims = await _userManager.FindByIdAsync(id);
+            this.userClaims = await _userManager.FindByIdAsync(data.GetLoginId(id));
 
             if (userClaims == null) { return NotFound("Not found this user"); }
 
@@ -54,7 +55,7 @@ namespace WebCosmetic.Admins.claim
             if (id == null) { return NotFound("Not found this user"); }
             // role -> roleManager
             // user -> userManager
-            this.userClaims = await _userManager.FindByIdAsync(id);
+            this.userClaims = await _userManager.FindByIdAsync(data.GetLoginId(id));
             if (userClaims == null) { return NotFound("Not found this user"); }
             var addClaims = _cosmeticContext.RoleClaims.Find(roleClaimId);
             var newClaim = new Claim(addClaims.ClaimType, addClaims.ClaimValue);

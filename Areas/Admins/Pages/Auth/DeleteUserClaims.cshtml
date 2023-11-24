@@ -1,6 +1,7 @@
 ﻿@page "/delete-user-claim/{id}"
 @model WebCosmetic.Admins.claim.DeleteUserClaimsModel
 @{
+    Layout = "../../../../Views/Shared/_Layout.cshtml";
 }
 <partial name="./_statusMessage.cshtml" model="@Model.statusMessage"></partial>
 <h4>Xác nhận xóa claim @Model.claim.ClaimType của user @Model.user.UserName</h4>

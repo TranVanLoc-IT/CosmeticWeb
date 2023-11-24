@@ -1,0 +1,50 @@
+﻿@page
+@model WebCosmetic.Areas.Admins.Pages.User.ManageAgentModel
+
+@{
+    Layout = "../../../../Views/Shared/_Layout.cshtml";
+}
+
+
+@if (Model._usersProfile != null)
+{
+    <table class="table table-hover p-3" cellpadding="5">
+        <tr>
+            <th>Mã nhân viên</th>
+            <th>Tên nhân viên</th>
+            <th class="text-center">Xác nhận nhân viên</th>
+        </tr>
+        @foreach (var user in Model._usersProfile)
+        {
+            <tr>
+                <td>@user._maNv</td>
+                <td>@user._tenNv</td>
+                <td>
+                    @if (user.Official)
+                    {
+                        <form asp-route-returnUrl="@Model.ReturnUrl" asp-page-handler="DelLogin" method="post">
+                            <div class="">
+                                <input type="text" value="@user._tenNv" name="_tenNv" />
+                            </div>
+                            <button class="btn btn-danger" type="submit">
+                                Xóa nhân viên
+                            </button>
+                        </form>
+                    }
+                    else
+                    {
+                        <form asp-route-returnUrl="@Model.ReturnUrl" asp-page-handler="AddLogin" method="post">
+                            <div class="">
+                                <input type="text" value="@user._maNv" name="_maNv" />
+                                <input type="text" value="@user._tenNv" name="_tenNv" />
+                            </div>
+                            <button class="btn btn-success" type="submit">
+                                Thêm nhân viên
+                            </button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+}

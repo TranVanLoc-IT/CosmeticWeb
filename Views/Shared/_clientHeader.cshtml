@@ -171,7 +171,7 @@
                         @if ((await authService.AuthorizeAsync(this.User, "AdminTerm")).Succeeded)
                         {
                             <li class="nav-item col-1 col-xl-2 d-none d-md-block">
-                                <a class="item-header row" asp-area="Admins" asp-page="/User/UserIndex">
+                                <a class="item-header row" asp-area="Admins" asp-page="/User/ManageAgent">
                                     <div class="icon-header col-xl-4 d-xl-block d-md-none d-none"><i class="fa fa-user float-right"></i></div>
                                     <p class="text-header col-xl-7">Quản lí nhân viên&nbsp;<i class="fa fa-sort-down"></i></p>
                                     <div class="clearfix"></div>
@@ -184,7 +184,7 @@
                                 </a>
                             </li>
                             <li class="nav-item col-1 col-xl-2 d-none d-md-block">
-                                <a class="item-header row" asp-area="Admins" asp-page="/User/IndexClaim">
+                                <a class="item-header row" asp-area="Admins" asp-page="/Auth/IndexClaim">
                                     <div class="icon-header col-xl-4 d-xl-block d-md-none d-none"><i class="fa fa-bullhorn"></i></div>
                                     <p class="text-header col-xl-7">Quản lí Claim user&nbsp;<i class="fa fa-sort-down"></i></p>
                                 </a>

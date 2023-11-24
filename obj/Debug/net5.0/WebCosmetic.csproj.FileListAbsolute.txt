@@ -231,7 +231,6 @@ L:\source\repos\WebCosmetic\bin\Debug\net5.0\runtimes\linux\native\libmongocrypt
 L:\source\repos\WebCosmetic\bin\Debug\net5.0\runtimes\osx\native\libmongocrypt.dylib
 L:\source\repos\WebCosmetic\bin\Debug\net5.0\runtimes\win\native\mongocrypt.dll
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\Role\AddRoleClaims.cshtml.g.cs
-L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\Role\AddUserRoles.cshtml.g.cs
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\Role\Create.cshtml.g.cs
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\Role\Delete.cshtml.g.cs
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\Role\DeleteRoleClaims.cshtml.g.cs
@@ -240,13 +239,6 @@ L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\Role\Index
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\Role\Update.cshtml.g.cs
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\Role\UpdateRoleClaims.cshtml.g.cs
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\Role\_StatusMessage.cshtml.g.cs
-L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\User\CreateUserClaims.cshtml.g.cs
-L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\User\DeleteUserClaims.cshtml.g.cs
-L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\User\UpdateUserClaims.cshtml.g.cs
-L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\User\_StatusMessage.cshtml.g.cs
-L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\User\_ViewImports.cshtml.g.cs
-L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\User\_ViewStart.cshtml.g.cs
-L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\User\IndexClaim.cshtml.g.cs
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Views\ShoppingCart\IndexCart.cshtml.g.cs
 L:\source\repos\WebCosmetic\bin\Debug\net5.0\DataCart.json
 L:\source\repos\WebCosmetic\bin\Debug\net5.0\ProductData.json
@@ -260,3 +252,11 @@ L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Views\Shared\_summernoteParti
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Views\Catalog\PriceFilter.cshtml.g.cs
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Staffs\Pages\ManageBill\HandleDelivery.cshtml.g.cs
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Staffs\Pages\ManageBill\HandleBill.cshtml.g.cs
+L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\User\ManageAgent.cshtml.g.cs
+L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\Auth\AddUserRoles.cshtml.g.cs
+L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\Auth\CreateUserClaims.cshtml.g.cs
+L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\Auth\DeleteUserClaims.cshtml.g.cs
+L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\Auth\DeleteUserRole.cshtml.g.cs
+L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\Auth\IndexClaim.cshtml.g.cs
+L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\Auth\_StatusMessage.cshtml.g.cs
+L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\Auth\_ViewImports.cshtml.g.cs

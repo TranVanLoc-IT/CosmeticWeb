@@ -1,6 +1,7 @@
 ﻿@page
 @model WebCosmetic.Areas.Admins.Pages.User.IndexClaimModel
 @{
+    Layout = "../../../../Views/Shared/_Layout.cshtml";
 }
 <table class="table table-hover p-3" cellpadding="5">
     <tr>
@@ -31,39 +32,14 @@
                     }
                 </ol>
             </td>
-            <td>
-                    @if (user.Official)
-                    {
-                        <form asp-route-returnUrl="@Model.ReturnUrl" asp-page-handler="DelLogin" method="post">
-                            <div class="">
-                                <input type="text" value="@user._tenNv" name="_tenNv" />
-                            </div>
-                                <button class="btn btn-danger" type="submit">
-                                    Xóa nhân viên
-                                </button>
-                        </form>
-                    }
-                    else
-                    {
-                    <form asp-route-returnUrl="@Model.ReturnUrl" asp-page-handler="AddLogin" method="post">
-                        <div class="">
-                            <input type="text" value="@user._maNv" name="_maNv" />
-                            <input type="text" value="@user._tenNv" name="_tenNv" />
-                        </div>
-                        <button class="btn btn-success" type="submit">
-                            Thêm nhân viên
-                        </button>
-                    </form>
-                    }
-            </td>
             <td class="d-flex justify-content-around">
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Chỉnh sửa Role
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item">Thêm Role</a></li>
-                        <li><a class="dropdown-item" asp-page="">Xóa Role</a></li>
+                        <li><a class="dropdown-item" asp-page="./AddUserRoles" asp-route-id="@user._maNv">Thêm Role</a></li>
+                        <li><a class="dropdown-item" asp-page="./DeleteUserRole" asp-route-id="@user._maNv">Xóa Role</a></li>
                     </ul>
                 </div>
                 <div class="dropdown">
@@ -71,8 +47,8 @@
                         Chỉnh sửa Claim
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" asp-page="./CreateUserClaims">Thêm Claim</a></li>
-                        <li><a class="dropdown-item" asp-page="DeleteUserClaims" asp-route-id="">Xóa Claim</a></li>
+                        <li><a class="dropdown-item" asp-page="./CreateUserClaims" asp-route-id="@user._maNv">Thêm Claim</a></li>
+                        <li><a class="dropdown-item" asp-page="./DeleteUserClaims" asp-route-id="@user._maNv">Xóa Claim</a></li>
                     </ul>
                 </div>
             </td>

@@ -14,15 +14,13 @@ using WebCosmetic.Scaffold;
 namespace WebCosmetic.Areas.Admins.Pages.User
 {
     [Authorize(policy: "adminTerm")]
-    [Authorize(Roles = "Administrator, Editor")]
     [Authorize(Roles = "Administrator")]
-    [Authorize(Roles = "Manager")]
-    public class IndexClaimModel : PageModel
+    public class ManageAgentModel : PageModel
     {
         private readonly UserManager<CosmeticModel> _userManager;
         private readonly QL_COSMETICContext _context;
         public string ReturnUrl { get; set; }
-        public IndexClaimModel(UserManager<CosmeticModel> userManager,
+        public ManageAgentModel(UserManager<CosmeticModel> userManager,
         QL_COSMETICContext context)
         {
             this._userManager = userManager;
@@ -34,8 +32,6 @@ namespace WebCosmetic.Areas.Admins.Pages.User
             public string _maNv { get; set; }
             public string _tenNv { get; set; }
             public bool Official { get; set; } = false;
-            public List<string> roles { get; set; } = new List<string>();
-            public List<KeyValuePair<string, string>> roleClaims { get; set; } = new List<KeyValuePair<string, string>>();
 
         }
         public async Task<IActionResult> OngetAsync(string returnUrl = null)
@@ -51,15 +47,6 @@ namespace WebCosmetic.Areas.Admins.Pages.User
                 var result = await _userManager.FindByNameAsync(p._tenNv.Capitalize().VietnameseToEnglishChars());
                 if (result != null)
                     p.Official = true;
-                foreach (var role in _context.GetProfileRolesProcedure(i.Manv))
-                {
-                    p.roles.Add(role.Name);
-                }
-                foreach (var claim in _context.GetProfileRoleClaimsProcedure(i.Manv))
-                {
-                    KeyValuePair<string, string> values = new KeyValuePair<string, string>(claim.ClaimType, claim.ClaimValue);
-                    p.roleClaims.Add(values);
-                }
                 this._usersProfile.Add(p);
             }
             return Page();
@@ -68,7 +55,6 @@ namespace WebCosmetic.Areas.Admins.Pages.User
         public async Task<IActionResult> OnpostAddLoginAsync(string _maNv, string _tenNv, string returnUrl = null)
         {
             _tenNv = _tenNv.Capitalize().VietnameseToEnglishChars();
-            Console.WriteLine(_tenNv);
             string password = _maNv + _tenNv;
             returnUrl ??= Url.Content("~/");
             if (ModelState.IsValid)
@@ -84,13 +70,6 @@ namespace WebCosmetic.Areas.Admins.Pages.User
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
-            }
-            else
-            {
-                var user = await _userManager.FindByNameAsync(_tenNv);
-                var res = await _userManager.DeleteAsync(user);
-                if (!res.Succeeded)
-                    return LocalRedirect(returnUrl);
             }
             return await OngetAsync(returnUrl);
         }

@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 namespace WebCosmetic.Models
 {
-    public class ProfileRoleResult
+    public class UserId
     {
         [StringLength(100)]
-        public string Name { get; set; }
-        public virtual ICollection<ProfileRoleResult> ProfileRoleResults { get; set; }
+        public string Id { get; set; }
+        public virtual ICollection<UserId> UserIdProfile { get; set; }
 
     }
     public class ProfileRoleClaimResult
