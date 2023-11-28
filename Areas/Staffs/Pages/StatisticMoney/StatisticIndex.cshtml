@@ -11,8 +11,8 @@
 
             <label>Pie chart: </label>
             <input type="radio" name="chartOption" onclick="UpdateChart(this.value)" value="pie" />
-            <canvas id="Chart" style="width:100%;max-width:600px"></canvas>
         </div>
+        <canvas id="Chart" style="width:100%;max-width:600px"></canvas>
         <div class="col-12 col-md-8">
             <form method="post">
                 <select id="sl_option" name="option" onclick="optionChanges(this.value)">
@@ -123,7 +123,10 @@
             "#e8c3b9",
             "#1e7145"
         ];
+        const canvas = document.getElementById("Chart");
+
         function UpdateChart(value) {
+            canvas.innerHTML = "";
             if (value == "bar") {
 
                 new Chart("Chart", {

@@ -1,12 +1,11 @@
 ﻿@page "/add-user-roles/{id}" 
 @*them id param, onget van giu lai*@
-@model WebCosmetic.Admins.Role.AddUserRolesModel
+@model WebCosmetic.Admins.Auth.AddUserRolesModel
 @{
     Layout = "../../../../Views/Shared/_Layout.cshtml";
 }
 
 <h1>Thêm role cho mã nhân viên @Model.user.UserName</h1>
-<partial name="./_StatusMessage.cshtml" model="@Model.statusMessage"></partial>
 <form method="post">
     <div class="form-group">
         <label asp-for="@Model.RolesName"></label>
@@ -16,6 +15,6 @@
         })
     </div>
     <div class="form-group">
-        <button class="btn btn-success" type="submit">Submit</button>
+        <button class="btn btn-success" type="submit">Đồng ý</button>
     </div>
 </form>

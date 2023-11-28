@@ -1,5 +1,8 @@
 ﻿@model string
 
+@{
+    Layout = "../../../../Views/Shared/_Layout.cshtml";
+}
 @if (!String.IsNullOrEmpty(Model))
 {
     var statusMessageClass = Model.StartsWith("Error") ? "danger" : "success";

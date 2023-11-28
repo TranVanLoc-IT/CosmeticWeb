@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using WebCosmetic.Models;
 namespace WebCosmetic.Areas.Staffs.Pages.ManageBill
 {
+    [Authorize(Policy = "StaffTerm")]
+    [Authorize(Roles = "Staff")]
     [Authorize(Roles = "Sales")]
     public class HandleBillModel : PageModel
     {

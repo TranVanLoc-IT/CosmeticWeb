@@ -2,13 +2,12 @@ using WebCosmetic.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.FileProviders;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using WebCosmetic.Scaffold;
 using System.Linq;
 
-namespace WebCosmetic.Admins.claim
+namespace WebCosmetic.Admins.Auth
 {
     public class DeleteUserClaimsModel : PageModel
     {

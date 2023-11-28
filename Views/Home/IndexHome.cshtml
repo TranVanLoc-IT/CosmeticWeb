@@ -26,6 +26,21 @@
 }
 
 
+<div class="position-absolute w-100" style="width: 25%" ;>
+
+    <div class="w-50 h-50 position-relative advert_box mx-auto text-center" style="z-index: 20;">
+        <a style="position:relative;float: right;right: -50px" onclick="closeAdBox()"><i class="fa fa-close fa-2x text-white"></i></a>
+        <img src="~/images/Long_ad/for-girl-l-a.jpg" class="h-100 w-100" />
+    </div>
+    <script>
+        const maskMenu = document.getElementById("mask_menu");
+        maskMenu.style.display = 'block';
+        function closeAdBox() {
+            document.querySelector(".advert_box").style.display = "none";
+            maskMenu.style.display = 'none';
+        }
+    </script>
+</div>
 <div class="row bg-info hot-sell shadow p-3 rounded ps-5 pe-5">
     <div class="container-fluid mx-auto">
         <div class="float-start w-50">
@@ -40,7 +55,7 @@
                         <li><a class="dropdown-item" href="#">Chăm sóc da mặt</a></li>
                     </ul>
                 </div>
-                | 
+                |
                 <div><a>Săn Deals Hời</a></div>
                 <div><a>Seabeauty Spa</a></div>
                 <div><a>Hàng mới về</a></div>
@@ -55,7 +70,7 @@
     </div>
 
 </div>
-<div class="shadow p-3 mb-5 rounded">
+<div class="shadow p-3 mb-5 rounded" >
     <div class="container-fluid mx-auto ps-5 pe-5">
         <div class="row advert_inventory">
             <div class="col-12 col-md-8 h-100">
@@ -76,28 +91,28 @@
                     <div class="swiper-pagination"></div>
                 </div>
             </div>
-            <div class="col-12 col-md-4" style="height: 300px">
-                <a href="" class="my-3" >
-                    <img class="h-50 w-100 mb-5" src="./images/SubBanner/sub-banner-1.jpg" />
+            <div class="col-12 col-md-4 h-50">
+                <a href="" class="my-3">
+                    <img class="h-50 w-100 mb-md-4 mb-5 mb-sm-5 mb-2" src="./images/SubBanner/sub-banner-1.jpg" />
                 </a>
                 <a href="">
-                    <img class="h-50 w-100" src="./images/SubBanner/sub-banner-2.jpg" />
+                    <img class="h-50 w-100 mt-md-1 mt-sm-5 mt-0" src="./images/SubBanner/sub-banner-2.jpg" />
                 </a>
             </div>
         </div>
-        <div class="d-flex justify-content-around ps-5 pe-5">
+        <div class="d-flex row justify-content-around ps-5 pe-5 align-items-md-center" style="width: 100%; max-height: 400px">
             @foreach (var img in getSmallPortfolioImg)
             {
-                <div>
+                <div class="w-auto h-auto mb-1">
                     <a>
-                        <img src="./images/Small_portfolio/@img" />
+                        <img src="./images/Small_portfolio/@img" class="w-100 h-100" />
                     </a>
                 </div>
             }
 
         </div>
     </div>
- </div>
+</div>
 
 <div class="container">
     <div class="container-fluid mx-auto">
@@ -131,7 +146,7 @@
                             @foreach (var product in cleanser)
                             {
                                 ProductDataJson dataOwn = new ProductDataJson();
-                                foreach (var data in productData[product.masp.Substring(0,4)].ToList())
+                                foreach (var data in productData[product.masp.Substring(0, 4)].ToList())
                                 {
                                     if (data.masp == product.masp)
                                     {
@@ -163,23 +178,23 @@
                     <div class="swiper-container rounded-1" id="swiper_hotsale">
                         <button class="swiper-button-next text-dark border-0"></button>
                         <div class="swiper-wrapper">
-                                @foreach (var product in banChay)
+                            @foreach (var product in banChay)
+                            {
+                                ProductDataJson dataOwn = new ProductDataJson();
+                                foreach (var data in productData[product.masp.Substring(0, 4)].ToList())
                                 {
-                                    ProductDataJson dataOwn = new ProductDataJson();
-                                    foreach (var data in productData[product.masp.Substring(0, 4)].ToList())
+                                    if (data.masp == product.masp)
                                     {
-                                        if (data.masp == product.masp)
-                                        {
-                                            dataOwn = data;
-                                            break;
-                                        }
+                                        dataOwn = data;
+                                        break;
                                     }
-                                    <div class="swiper-slide">
-                                        <ProductCard product-model="@product" data="dataOwn">
-
-                                        </ProductCard>
-                                    </div>
                                 }
+                                <div class="swiper-slide">
+                                    <ProductCard product-model="@product" data="dataOwn">
+
+                                    </ProductCard>
+                                </div>
+                            }
                             <!-- Thêm các slide khác nếu cần -->
                         </div>
                         <button class="swiper-button-prev"></button>
@@ -268,23 +283,23 @@
                     <div class="swiper-container rounded-1" id="swiper_general_sunscreen">
                         <button class="swiper-button-next text-dark border-0"></button>
                         <div class="swiper-wrapper">
-                                @foreach (var product in sunscreen)
+                            @foreach (var product in sunscreen)
+                            {
+                                ProductDataJson dataOwn = new ProductDataJson();
+                                foreach (var data in productData[product.masp.Substring(0, 4)].ToList())
                                 {
-                                    ProductDataJson dataOwn = new ProductDataJson();
-                                    foreach (var data in productData[product.masp.Substring(0, 4)].ToList())
+                                    if (data.masp == product.masp)
                                     {
-                                        if (data.masp == product.masp)
-                                        {
-                                            dataOwn = data;
-                                            break;
-                                        }
+                                        dataOwn = data;
+                                        break;
                                     }
-                                    <div class="swiper-slide">
-                                        <ProductCard product-model="@product" data="dataOwn">
-
-                                        </ProductCard>
-                                    </div>
                                 }
+                                <div class="swiper-slide">
+                                    <ProductCard product-model="@product" data="dataOwn">
+
+                                    </ProductCard>
+                                </div>
+                            }
                             <!-- Thêm các slide khác nếu cần -->
                         </div>
                         <button class="swiper-button-prev"></button>
@@ -296,23 +311,23 @@
                     <div class="swiper-container rounded-1" id="swiper_general_showergel">
                         <button class="swiper-button-next text-dark border-0"></button>
                         <div class="swiper-wrapper">
-                                @foreach (var product in showerGel)
+                            @foreach (var product in showerGel)
+                            {
+                                ProductDataJson dataOwn = new ProductDataJson();
+                                foreach (var data in productData[product.masp.Substring(0, 4)].ToList())
                                 {
-                                    ProductDataJson dataOwn = new ProductDataJson();
-                                    foreach (var data in productData[product.masp.Substring(0, 4)].ToList())
+                                    if (data.masp == product.masp)
                                     {
-                                        if (data.masp == product.masp)
-                                        {
-                                            dataOwn = data;
-                                            break;
-                                        }
+                                        dataOwn = data;
+                                        break;
                                     }
-                                    <div class="swiper-slide">
-                                        <ProductCard product-model="@product" data="dataOwn">
-
-                                        </ProductCard>
-                                    </div>
                                 }
+                                <div class="swiper-slide">
+                                    <ProductCard product-model="@product" data="dataOwn">
+
+                                    </ProductCard>
+                                </div>
+                            }
                             <!-- Thêm các slide khác nếu cần -->
                         </div>
                         <button class="swiper-button-prev"></button>
@@ -341,15 +356,15 @@
     </div>
     <div id="chat_content">
         <div class="chat_line">
-                <div class="reciever float-start">
-                    <span><img src="~/images/logo/logo_header.png" style="width: 20px; height: 20px"/>SeaBeauty</span>
-                    <p class="text-replied p-1 rounded-1 bg-info">Chào bạn, nếu có thắc mắc hãy hỏi tôi nhé !</p>
-                </div>
-                <div class="clearfix">
-                </div>
+            <div class="reciever float-start">
+                <span><img src="~/images/logo/logo_header.png" style="width: 20px; height: 20px" />SeaBeauty</span>
+                <p class="text-replied p-1 rounded-1 bg-info">Chào bạn, nếu có thắc mắc hãy hỏi tôi nhé !</p>
+            </div>
+            <div class="clearfix">
+            </div>
 
         </div>
-        
+
     </div>
     <div id="chat_input">
         <form class="d-flex" id="chatForm">

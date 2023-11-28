@@ -5,15 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Areas\Admins\Pages\Authorization\AddUserRoles.cshtml" />
-    <Content Remove="Areas\Admins\Pages\Authorization\CreateUserClaims.cshtml" />
-    <Content Remove="Areas\Admins\Pages\Authorization\DeleteUserClaims.cshtml" />
-    <Content Remove="Areas\Admins\Pages\Authorization\_StatusMessage.cshtml" />
-    <Content Remove="Areas\Admins\Pages\Authorization\_ViewImports.cshtml" />
-    <Content Remove="Areas\Admins\Pages\Authorization\_ViewStart.cshtml" />
     <Content Remove="Areas\Admins\Pages\User\_StatusMessage.cshtml" />
     <Content Remove="Areas\Admins\Pages\User\_ViewImports.cshtml" />
-    <Content Remove="Areas\Admins\Pages\User\_ViewStart.cshtml" />
     <Content Remove="Areas\Admins\Pages\Role\_ViewImports.cshtml" />
     <Content Remove="Areas\Admins\Pages\_ViewImports.cshtml" />
     <Content Remove="Areas\Admins\Pages\_ViewStart.cshtml" />
@@ -49,15 +42,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Areas\Admins\Pages\Authorization\AddUserRoles.cshtml" />
-    <None Include="Areas\Admins\Pages\Authorization\CreateUserClaims.cshtml" />
-    <None Include="Areas\Admins\Pages\Authorization\DeleteUserClaims.cshtml" />
-    <None Include="Areas\Admins\Pages\Authorization\_StatusMessage.cshtml" />
-    <None Include="Areas\Admins\Pages\Authorization\_ViewImports.cshtml" />
-    <None Include="Areas\Admins\Pages\Authorization\_ViewStart.cshtml" />
+	<None Include="Areas\Admins\Pages\Auth\AddUserRoles.cshtml" />
+	<None Include="Areas\Admins\Pages\Auth\CreateUserClaims.cshtml" />
+	<None Include="Areas\Admins\Pages\Auth\DeleteUserClaims.cshtml" />
+	<None Include="Areas\Admins\Pages\Auth\_ViewImports.cshtml" />
+    <None Include="Areas\Admins\Pages\Auth\AddUserRoles.cshtml" />
+    <None Include="Areas\Admins\Pages\Auth\CreateUserClaims.cshtml" />
+    <None Include="Areas\Admins\Pages\Auth\DeleteUserClaims.cshtml" />
+    <None Include="Areas\Admins\Pages\Auth\_ViewImports.cshtml" />
     <None Include="Areas\Admins\Pages\User\_StatusMessage.cshtml" />
     <None Include="Areas\Admins\Pages\User\_ViewImports.cshtml" />
-    <None Include="Areas\Admins\Pages\User\_ViewStart.cshtml" />
     <None Include="Areas\Admins\Pages\Role\AddRoleClaims.cshtml" />
     <None Include="Areas\Admins\Pages\Role\Create.cshtml" />
     <None Include="Areas\Admins\Pages\Role\Delete.cshtml" />

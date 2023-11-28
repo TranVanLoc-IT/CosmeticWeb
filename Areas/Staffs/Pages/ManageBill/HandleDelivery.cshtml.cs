@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using WebCosmetic.Models;
 namespace WebCosmetic.Areas.Staffs.Pages.ManageBill
 {
+    [Authorize(Policy = "DeliveryTerm")]
     [Authorize(Roles = "Shipper")]
     [Authorize(Roles = "Delivery")]
     public class HandleDeliveryModel : PageModel

@@ -191,7 +191,6 @@ L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.c
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Views\Pay\IndexPay.cshtml.g.cs
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Views\Shared\_accountFormPartial.cshtml.g.cs
-L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Views\Shared\_clientHeader.cshtml.g.cs
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Views\Shared\_DetailsLayout.cshtml.g.cs
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Views\Shared\_flexBrandPartial.cshtml.g.cs
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Views\Shared\_footerPartial.cshtml.g.cs
@@ -253,10 +252,11 @@ L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Views\Catalog\PriceFilter.csh
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Staffs\Pages\ManageBill\HandleDelivery.cshtml.g.cs
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Staffs\Pages\ManageBill\HandleBill.cshtml.g.cs
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\User\ManageAgent.cshtml.g.cs
+L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\Auth\DeleteUserRole.cshtml.g.cs
+L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\Auth\IndexClaim.cshtml.g.cs
+L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Views\Shared\_headerPage.cshtml.g.cs
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\Auth\AddUserRoles.cshtml.g.cs
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\Auth\CreateUserClaims.cshtml.g.cs
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\Auth\DeleteUserClaims.cshtml.g.cs
-L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\Auth\DeleteUserRole.cshtml.g.cs
-L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\Auth\IndexClaim.cshtml.g.cs
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\Auth\_StatusMessage.cshtml.g.cs
 L:\source\repos\WebCosmetic\obj\Debug\net5.0\Razor\Areas\Admins\Pages\Auth\_ViewImports.cshtml.g.cs

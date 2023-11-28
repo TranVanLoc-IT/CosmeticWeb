@@ -1,0 +1,260 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using WebCosmetic.Models
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Http
+@using Newtonsoft.Json
+@using System.Text
+@inject IAuthorizationService authService
+@inject SignInManager<CosmeticModel> signIn
+@inject UserManager<CosmeticModel> userManager
+@{
+    ImagePath imgOnTop = new ImagePath();
+    imgOnTop._folder = "wwwroot/images/TopHeaderSale/";
+    var getImgOnTop = imgOnTop.collectAllImagePath();
+    Random randIndex = new Random();
+    string topImg = getImgOnTop[randIndex.Next(0, getImgOnTop.Count())];
+    DataTransfer transfer = new DataTransfer();
+    string dataServer = JsonConvert.SerializeObject(transfer.claimProductSearchCatalog());
+}
+
+<header>
+    <div class="header-hot-deal bg-success">
+        <img src="~/images/TopHeaderSale/@topImg" class="w-100 h-100" />
+    </div>
+    <nav class="navbar navbar-expand-md navbar-toggleable-sm py-3 navbar-light border-bottom box-shadow">
+        <div class="container-fluid">
+            <div class="px-5">
+                <i class="fa fa-bars fw-bold fs-3 text-white" id="menu-bar"></i>
+                <div id="wrapper-menu" class="bg-white">
+                    <div id="main_menu">
+                        <a class="close-menu fw-bold text-white" onclick="closeMenuBar()">
+                            <i class="fa fa-close fa-2x"></i>
+                        </a>
+                        <div class="info_login p-3 bg-info">
+                            <i class="fa fa-circle-user text-white fs-3"></i>&nbsp;
+                            @if (signIn.IsSignedIn(this.User))
+                            {
+                                Context.Session.SetString("user", JsonConvert.SerializeObject((await userManager.GetUserAsync(this.User))));
+                                <span class="fw-bold fs-5">
+                                    <a asp-page="/Account/Manage/Index" asp-area="Identity">@userManager.GetUserName(this.User)</a>
+                                </span>
+                                <span class="fw-bold fs-5">
+                                    <a asp-area="Identity" asp-page="/Account/Logout">Đăng xuất <i class="fa fa-sign-out text-white fs-3"></i></a>
+                                </span>
+                            }
+                            else
+                            {
+
+                                <span class="fw-bold fs-5">
+                                    <a asp-area="Identity" asp-page="/Account/Login"> Đăng nhập / Đăng ký</a>
+                                </span>
+                            }
+                        </div>
+                        <div class="block_ct_menu">
+                            <div class="menu_list">
+                                <div class="menu-item">
+                                    <a href="" class="fw-bold">Sức khỏe, làm đẹp </a>
+                                </div>
+                                <div class="menu-item">
+                                    @Html.ActionLink("Mĩ phẩm High-End", "IndexCatalog", "Catalog", new { @catalog = "highend" })">
+                                </div>
+                                <div class="menu-item">
+                                    @Html.ActionLink("Chăm sóc da mặt", "IndexCatalog", "Catalog", new { @catalog = "face" })">
+                                </div>
+                                <div class="menu-item">
+                                    @Html.ActionLink("Chăm dưỡng môi", "IndexCatalog", "Catalog", new { @catalog = "lip" })">
+                                </div>
+                                <div class="menu-item">
+                                    <a href="">Thực phẩm chức năng</a>
+                                </div>
+                                <div class="menu-item">
+                                    <a href="">Chăm sóc cá nhân</a>
+                                </div>
+                                <div class="menu-item">
+                                    <a href="">Nước hoa</a>
+                                </div>
+                                <div class="menu-item">
+                                    <a href="" class="fw-bold">Sea Beauty Clinic & Spa</a>
+                                </div>
+                                <div class="menu-item">
+                                    <a href="./Catalog/IndexCatalog?catalog=showergel"></a>
+                                    @Html.ActionLink("Sữa tắm cho da", "IndexCatalog", "Catalog", new { @catalog = "showergel" })">
+
+                                </div>
+                                <div class="menu-item">
+                                    <a href="">Giảm béo</a>
+                                </div>
+                                <div class="menu-item">
+                                    <a href="">Thư giãn & massage</a>
+                                </div>
+                                <div class="menu-item">
+                                    <a href="">Combo trị mụn</a>
+                                </div>
+                                <div class="menu-item">
+                                    <a href="">Phòng khám</a>
+                                </div>
+                                <div class="menu-item">
+                                    <a href="" class="fw-bold">Tin nổi bật</a>
+                                </div>
+                                <div class="menu-item">
+                                    <a href="">Deals Hot</a>
+                                </div>
+                                <div class="menu-item">
+                                    @Html.ActionLink("Sản phẩm bán chạy", "IndexCatalog", "Catalog", new { @catalog = "fastsale" })">
+                                </div>
+                                <div class="menu-item">
+                                    <a href="">Thương hiệu</a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="block_ct_menu">
+                            <div class="menu_list">
+
+                                <div class="menu-item">
+                                    <a href="" class="fw-bold"><i class="fa fa-options"></i>Cài đặt</a>
+                                </div>
+                                <div class="menu-item">
+                                    <a href="@Url.Action("HistoryBill", "HistoryBill", new { @khId = @userManager.GetUserId(this.User) })">Lịch sử đơn hàng</a>
+                                </div>
+                                <div class="menu-item">
+                                    <a href="">Phương thức thanh toán</a>
+                                </div>
+                                <div class="menu-item">
+                                    <a href="">Danh sách yêu thích</a>
+                                </div>
+                                <div class="menu-item">
+                                    <a href="">Đổi màu nền</a>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="block_ct_site">
+                            <div class="menu_list">
+                                <div class="menu-item">
+                                    <a href="">Trang tuyển dụng</a>
+                                </div>
+                            </div>
+                            <div class="menu_list">
+                                <div class="menu-item">
+                                    <a href=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div id="mask_menu" onclick="closeMenuBar()"></div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="btn btn-success"><i class="fa fa-search text-white"></i></span>
+            </button>
+            <div class="navbar-collapse collapse row">
+                <ul class="navbar-nav flex-grow-1 d-flex align-items-center">
+                    <li class="nav-item col-sm-2 col-xl-1">
+                        <a class="nav-link text-white fw-bold" asp-area="" asp-controller="Home" asp-action="IndexHome">
+                            <img src="~/images/logo/logo_header.png" class="h-100" width="120" />
+                        </a>
+                    </li>
+                    <li class="nav-item col-8 col-sm-5 col-xl-5 mx-3">
+                        <form class="d-flex">
+                            <input type="search" onkeyup="responseEachSearch(this.value,@dataServer)" class="form-control" placeholder="Sản phẩm sắc đẹp bán chạy, chính hãng" />
+                            <button class="btn btn-warning"><i class="fa fa-search"></i></button>
+                        </form>
+                        <div class="position-absolute my-1 p-2 hint_result fit-size">
+
+                        </div>
+                    </li>
+                    @if ((await authService.AuthorizeAsync(this.User, "AdminTerm")).Succeeded)
+                    {
+                        <li class="nav-item col-1 col-xl-2 d-none d-md-block">
+                            <a class="item-header row" asp-area="Admins" asp-page="/User/ManageAgent">
+                                <div class="icon-header col-xl-4 d-xl-block d-md-none d-none"><i class="fa fa-user float-right"></i></div>
+                                <p class="text-header col-xl-7">Quản lí nhân viên&nbsp;<i class="fa fa-sort-down"></i></p>
+                                <div class="clearfix"></div>
+                            </a>
+                        </li>
+                        <li class="nav-item mx-sm-5 mx-xl-0 col-1 col-xl-2 d-none d-md-block">
+                            <a class="item-header row" asp-area="Admins" asp-page="/Role/Index">
+                                <div class="icon-header col-xl-4 d-xl-block d-md-none d-none"><i class="fa fa-shopping-cart"></i></div>
+                                <p class="text-header col-xl-7">Quản lí Role &nbsp;<i class="fa fa-sort-down"></i></p>
+                            </a>
+                        </li>
+                        <li class="nav-item col-1 col-xl-2 d-none d-md-block">
+                            <a class="item-header row" asp-area="Admins" asp-page="/Auth/IndexClaim">
+                                <div class="icon-header col-xl-4 d-xl-block d-md-none d-none"><i class="fa fa-bullhorn"></i></div>
+                                <p class="text-header col-xl-7">Quản lí Claim user&nbsp;<i class="fa fa-sort-down"></i></p>
+                            </a>
+                        </li>
+                    }
+                    else if ((await authService.AuthorizeAsync(this.User, "StaffTerm")).Succeeded)
+                    {
+                        <li class="nav-item col-1 col-xl-2 d-none d-md-block">
+                            <a class="item-header row" asp-area="Staffs" asp-page="/CRUD/Index">
+                                <div class="icon-header col-xl-4 d-xl-block d-md-none d-none"><i class="fa fa-user float-right"></i></div>
+                                <p class="text-header col-xl-7">Quản lí sản phẩm &nbsp;<i class="fa fa-sort-down"></i></p>
+                                <div class="clearfix"></div>
+                            </a>
+                        </li>
+                        <li class="nav-item mx-sm-5 mx-xl-0 col-1 col-xl-2 d-none d-md-block">
+                            <div class="item-header row">
+                                <div class="icon-header col-xl-4 d-xl-block d-md-none d-none"><i class="fa fa-shopping-cart"></i></div>
+                                <div class="dropdown col-xl-7">
+
+                                    <p class="text-header" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Quản lí hóa đơn &nbsp;<i class="fa fa-sort-down"></i>
+
+                                    </p>
+                                    <div class="dropdown-menu" id="dropdownMenuButton1">
+                                        <ul class="list-unstyled p-1">
+                                            <li><a class="dropdown-item text-decoration-none" asp-area="Staffs" asp-page="/ManageBill/HandleBill">Hóa đơn Sales</a></li>
+                                            <li><a class="dropdown-item text-decoration-none" asp-area="Staffs" asp-page="/ManageBill/HandleDelivery">Hóa đơn Delivery</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <!-- Example split danger button -->
+
+                        </li>
+                        <li class="nav-item col-1 col-xl-2 d-none d-md-block">
+                            <a class="item-header row" asp-area="Staffs" asp-page="/StatisticMoney/StatisticIndex">
+                                <div class="icon-header col-xl-4 d-xl-block d-md-none d-none"><i class="fa fa-bullhorn"></i></div>
+                                <p class="text-header col-xl-7">Thống kê doanh thu &nbsp;<i class="fa fa-sort-down"></i></p>
+                            </a>
+                        </li>
+
+                    }
+                    else
+                    {
+                        <li class="nav-item col-1 col-xl-2 d-none d-md-block">
+                            <a class="item-header row">
+                                <div class="icon-header col-xl-4 d-xl-block d-md-none d-none"><i class="fa fa-user float-right"></i></div>
+                                <p class="text-header col-xl-7">Đăng nhập/Đăng kí &nbsp;<i class="fa fa-sort-down"></i></p>
+                                <div class="clearfix"></div>
+                                <partial name="_accountFormPartial"></partial>
+                            </a>
+                        </li>
+                        <li class="nav-item mx-sm-5 mx-xl-0 col-1 col-xl-2 d-none d-md-block">
+                            <a class="item-header row" asp-area="Staffs" asp-page="/CRUD/Index">
+                                <div class="icon-header col-xl-4 d-xl-block d-md-none d-none"><i class="fa fa-shopping-cart"></i></div>
+                                <p class="text-header col-xl-7">Giỏ Hàng của bạn &nbsp;<i class="fa fa-sort-down"></i></p>
+                            </a>
+                        </li>
+                        <li class="nav-item col-1 col-xl-2 d-none d-md-block">
+                            <a class="item-header row">
+                                <div class="icon-header col-xl-4 d-xl-block d-md-none d-none"><i class="fa fa-bullhorn"></i></div>
+                                <p class="text-header col-xl-7">Hỗ trợ/báo cáo sự cố &nbsp;<i class="fa fa-sort-down"></i></p>
+                            </a>
+                        </li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

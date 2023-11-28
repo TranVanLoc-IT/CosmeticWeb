@@ -5,15 +5,21 @@
                 <h6 class="fw-bold">Hỗ trợ khách hàng</h6>
                 <ul class="list-unstyled text-left footer-list">
                     <a href="tel:19001600">
-                        <li>Hotline: <span class="text-warning">1900 1600</span>
+                    <li>
+                        Hotline: <span class="text-warning">1900 1600</span>
                         (miễn phí, từ 8-22h T2 - CN)
                     </li>
                     </a>
-                    <a href=""><li>Các câu hỏi thường gặp</li></a>
-                    <a href=""><li>Gửi yêu cầu hỗ trợ</li></a>
-                    <a href=""><li>Phương thức thanh toán</li></a>
-                    <a href=""><li>Phương thức vận chuyển</li></a>
-                    <a href=""><li>Hỗ trợ đổi trả</li></a>
+                    <a href="">
+                    <li>Các câu hỏi thường gặp</li></a>
+                    <a href="">
+                    <li>Gửi yêu cầu hỗ trợ</li></a>
+                    <a href="">
+                    <li>Phương thức thanh toán</li></a>
+                    <a href="">
+                    <li>Phương thức vận chuyển</li></a>
+                    <a href="">
+                    <li>Hỗ trợ đổi trả</li></a>
                 </ul>
             </div>
         </div>
@@ -41,7 +47,8 @@
                     <li>
                         Kênh thương hiệu
                     </li>
-                    <a href=""><li>https://seabeauty.vn</li></a>
+                    <a href="">
+                    <li>https://seabeauty.vn</li></a>
                     <li>
                         Thanh toán
                     </li>
@@ -58,19 +65,19 @@
                         <img src="~/images/footer/ft-img2.png" alt="Chứng nhận" />
                         <img src="~/images/footer/ft-img5.png" alt="Chứng nhận" />
                     </li>
-                    
+
                 </ul>
             </div>
         </div>
         <div class="col-md-3 col-sm-6">
             <h6>Cập nhật thông tin từ SeaBeauty</h6>
             <div class="footer-section">
-                <form>
-                    <input placeholder="Nhập email" class="h-50" type="email" name="email-followed" id="email-followed"/>
+                <form action="@Url.Action("ResgisterAnnoucement", "Home")" method="post">
+                    <input placeholder="Nhập email" class="h-50" type="email" name="email" id="email" />
                     <br />
-                    <input type="radio" value="Nam" name="sex" id="sex"/>
+                    <input type="radio" value="Nam" name="sex" id="sex" />
                     <span>Nam</span>
-                    <input type="radio" value="Nữ" name="sex" id="sex"/><span>Nữ</span><br />
+                    <input type="radio" value="Nữ" name="sex" id="sex" /><span>Nữ</span><br />
                     <button class="btn btn-info fw-bold text-white">Đăng ký</button>
                 </form>
                 <p>Nhận ưu đãi sớm nhất, có quyền lợi giảm giá riêng biệt</p>
@@ -81,7 +88,7 @@
         <div class="col-8 ft-df">
             <h6>Đẹp đi đôi với chất lượng</h6>
             <p>
-                Đẹp - Là một từ mà mọi người đều khát khao cả nam lẫn nữ. Đẹp đi đôi với khỏe mạnh, đẹp đi đôi với sự lựa chọn thông minh. Đẹp toát ra từ vẻ ngoài tươi tắn tràn đầy năng lượng sống. Chính vì vậy sức khỏe và làm đẹp ngày càng được nhiều người quan để hướng đến cuộc sống tươi vui, hạnh phúc hơn. Sức khỏe tốt được biểu hiện qua làn da hồng hào,mịn màng, vóc dáng cân đối, mái tóc bồng bềnh và hàm răng chắc khỏe. Thấu hiểu nhu cầu đó, các hãng mỹ phẩm không 
+                Đẹp - Là một từ mà mọi người đều khát khao cả nam lẫn nữ. Đẹp đi đôi với khỏe mạnh, đẹp đi đôi với sự lựa chọn thông minh. Đẹp toát ra từ vẻ ngoài tươi tắn tràn đầy năng lượng sống. Chính vì vậy sức khỏe và làm đẹp ngày càng được nhiều người quan để hướng đến cuộc sống tươi vui, hạnh phúc hơn. Sức khỏe tốt được biểu hiện qua làn da hồng hào,mịn màng, vóc dáng cân đối, mái tóc bồng bềnh và hàm răng chắc khỏe. Thấu hiểu nhu cầu đó, các hãng mỹ phẩm không
                 ngừng nghiên cứu và cho ra đời hàng nghìn loại mỹ phẩm làm đẹp đa dạng chủng loại. Nhiều nhóm hàng mỹ phẩm bao gồm chăm sóc da, chăm sóc tóc, chăm sóc toàn thân, chăm sóc cá nhân, nước hoa lần lượt ra đời và đa dạng hóa để đáp ứng nhu cầu làm đẹp của con người.
             </p>
             <p>
@@ -143,4 +150,28 @@
         </p>
     </div>
 </div>
-   
+
+<!-- Modal Toast Bootstrap 5 -->
+<div id="myToast" class="toast position-absolute" style="top: 30px;" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <strong class="me-auto fw-bold text-danger">Thông báo</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+        @if (ViewData["result"] != null)
+        {
+            @ViewData["result"]
+        }
+    </div>
+</div>
+
+@section Scripts{
+    @if (ViewData["result"] != null)
+    {
+        <script>
+            // Kích hoạt Toast khi có ViewData
+            var toast = new bootstrap.Toast(document.getElementById('myToast'));
+            toast.show();
+        </script>
+        }
+    }

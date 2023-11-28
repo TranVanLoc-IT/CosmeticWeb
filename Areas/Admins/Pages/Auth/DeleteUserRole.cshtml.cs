@@ -8,7 +8,7 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Linq;
 
-namespace WebCosmetic.Admins.Role
+namespace WebCosmetic.Admins.Auth
 {
     public class DeleteUserRoleModel : PageModel
     {

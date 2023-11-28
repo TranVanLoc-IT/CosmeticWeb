@@ -10,7 +10,7 @@
     {
         foreach (var img in Model)
         {
-            <div style="width: 47%; height: 15vw" class="mx-1">
+            <div style="width: 47%; height: 20vw" class="mx-1">
                 <img src="~/images/Long_ad/@img" class="h-100 w-100" />
             </div>
         }
@@ -22,7 +22,7 @@
             index = randIndex.Next(0, Model.Count - 1);
             if (!indexed.Contains(index))
             {
-                <div style="width: 30%; height: 15vw" class="mx-1">
+                <div style="width: 30%;height: 15vw" class="mx-1">
                     <img src="~/images/Short_ad/@Model[i]" class="h-100 w-100" />
                 </div>
                 indexed.Add(index);

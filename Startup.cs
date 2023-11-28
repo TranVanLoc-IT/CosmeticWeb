@@ -82,6 +82,14 @@ namespace WebCosmetic
                         //policy.RequireClaim("Acknowledge", new string[] { "nhân viên BeautyCosmetic", "tốt nghiệp" });
 
                     });
+                    options.AddPolicy("DeliveryTerm", policy =>
+                    {
+                        policy.RequireAuthenticatedUser();
+                        policy.RequireRole("Delivery");
+                        // claim là các thông tin mô tả của role
+                        //policy.RequireClaim("Acknowledge", new string[] { "nhân viên BeautyCosmetic", "tốt nghiệp" });
+
+                    });
                     options.AddPolicy("AdminTerm", policy =>
                     {
                         policy.RequireAuthenticatedUser();

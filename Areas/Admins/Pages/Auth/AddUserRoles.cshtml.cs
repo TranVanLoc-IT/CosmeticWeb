@@ -3,13 +3,12 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;// dotnet add package Microsoft.AspNetCore.Mvc.ViewFeatures --version 2.0.0
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Linq;
 using System;
 
-namespace WebCosmetic.Admins.Role
+namespace WebCosmetic.Admins.Auth
 {
     public class AddUserRolesModel : PageModel
     {
@@ -28,7 +27,7 @@ namespace WebCosmetic.Admins.Role
         public SelectList _listRoles { get; set; }
         [TempData]
         public string statusMessage { get; set; }
-        public async Task<IActionResult> OnGet([FromRoute]string id)
+        public async Task<IActionResult> OnGetAsync([FromRoute]string id)
         {
             if (id == null) return NotFound("Not found id user");
             this.user = await this._userManager.FindByIdAsync(data.GetLoginId(id));
@@ -37,7 +36,7 @@ namespace WebCosmetic.Admins.Role
             this._listRoles=new SelectList(items);
             return Page();
         }
-        public async Task<IActionResult> OnPost([FromRoute]string id)
+        public async Task<IActionResult> OnPostAsync([FromRoute]string id)
         {
             if (id == null) return NotFound("Not found id user");
             this.user = await this._userManager.FindByIdAsync(data.GetLoginId(id));
@@ -45,7 +44,7 @@ namespace WebCosmetic.Admins.Role
             if (this.user == null)
             {
                 statusMessage = "Error: Người này hiện chưa là nhân viên";
-                return await OnGet(id);
+                return await OnGetAsync(id);
             }
             // xác định các tùy chọn trong RolesName
             // OldRoleName: phân quyền cũ trước đó
@@ -60,7 +59,7 @@ namespace WebCosmetic.Admins.Role
             if(resDel.Succeeded && resAdd.Succeeded)
             {
                 this.statusMessage = $"Update {this.user.UserName} roles successfully";
-                return await OnGet(id);
+                return await OnGetAsync(id);
             }
             else
             {
@@ -69,7 +68,7 @@ namespace WebCosmetic.Admins.Role
                         this.statusMessage = err.Description;
                     });
             }
-            return await OnGet(id);
+            return await OnGetAsync(id);
         }
     }
 }

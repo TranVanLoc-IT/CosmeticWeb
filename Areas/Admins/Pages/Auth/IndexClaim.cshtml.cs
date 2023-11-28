@@ -13,7 +13,7 @@ using WebCosmetic.Scaffold;
 
 namespace WebCosmetic.Areas.Admins.Pages.User
 {
-    [Authorize(policy: "adminTerm")]
+    [Authorize(policy: "AdminTerm")]
     [Authorize(Roles = "Administrator")]
     public class IndexClaimModel : PageModel
     {

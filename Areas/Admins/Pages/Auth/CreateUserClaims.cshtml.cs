@@ -10,7 +10,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using WebCosmetic.Scaffold;
 
-namespace WebCosmetic.Admins.claim
+namespace WebCosmetic.Admins.Auth
 {
     public class CreateUserClaimsModel : PageModel
     {

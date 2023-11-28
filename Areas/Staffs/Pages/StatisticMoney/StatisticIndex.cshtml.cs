@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using WebCosmetic.Models;
 namespace WebCosmetic.Areas.Staffs.Pages.StatisticMoney
 {
+    [Authorize(Policy = "StaffTerm")]
     [Authorize(Roles = "Sales")]
     public class StatisticIndexModel : PageModel
     {

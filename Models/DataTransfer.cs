@@ -86,11 +86,12 @@ namespace WebCosmetic.Models
             return res.Id;
         }
 
-        public bool RegisterAnnoucement(string makh)
+        public bool RegisterAnnoucement(string email)
         {
             Nhanthongbao add = new Nhanthongbao();
-            add.Makh = makh;
+            add.Makh = this._cosmeticContext.Khachhangs.Where(itm => itm.Email == email).Select(i => i.Makh).FirstOrDefault();
             add.Ngaydk = DateTime.Now;
+            if (add == null) return false;
             try
             {
                 var register = this._cosmeticContext.Nhanthongbaos.Add(add);
