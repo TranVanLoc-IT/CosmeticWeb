@@ -10,7 +10,8 @@ using WebCosmetic.Models;
 namespace WebCosmetic.Areas.Staffs.Pages.StatisticMoney
 {
     [Authorize(Policy = "StaffTerm")]
-    [Authorize(Roles = "Sales")]
+    [Authorize(Roles = "Saler")]
+    [Authorize(Roles = "Staff")]
     public class StatisticIndexModel : PageModel
     {
         private DataTransfer db = new DataTransfer();

@@ -1,82 +1,179 @@
-﻿
-@page
-@model WebCosmetic.Areas.Staffs.Pages.ManageBill.HandleBillModel
+﻿@page "/thongke-hoadon/"
+@using Newtonsoft.Json;
+@model WebCosmetic.Areas.Staffs.Pages.ManageBill.StatisticBillModel
 @{
-    List<HistoryProductBill> productNotConfirmed = ViewData["HistoryProductNotConfirmed"] as List<HistoryProductBill>;
-    List<HistoryProductBill> productConfirmed = ViewData["HistoryProductConfirmed"] as List<HistoryProductBill>;
 }
-<div class="float-end">
-    <a class="btn btn-outline-primary" asp-area="Staffs" asp-page="/ManageBill/StatisticBill">
-        Thống kê đơn hàng
-    </a>
-</div>
-<div class="clearfix">
+<div class="container-fluid p-2">
+    <div class="row">
+        <div class="col-12 col-md-8">
+            <label>Line chart: </label>
+            <input type="radio" name="chartOption" onclick="UpdateChart(this.value)" value="bar" />
 
-</div>
-<h2 class="text-danger">Hóa đơn chưa xác nhận</h2>
-<div class="d-flex justify-content-between flex-wrap w-100 p-2" style="height: max-content">
-    @foreach (var his in Model.historyNotConfirmed)
-    {
-        <div class="card my-1 mx-1" style="width: max-content">
-            <div class="card-header text-left bg-warning">
-                <span>Mã hóa đơn: @his._bill._billCode</span>
-            </div>
-            <div class="card-subtitle text-left p-1">
-                <div>Phương thức: @his._bill._methodPayment</div>
-                <div>Mã giao dịch / giao vận: @his._bill._transactionCode</div>
-            </div>
-            <div class="card-body p-2 text-left">
-                <div>Tên khách hàng: @his._clientInfo._clienName</div>
-                @foreach (var product in productNotConfirmed.Where(itm => itm._mahd == his._bill._billCode))
-                {
-                    <div class="p-1">@product._tenSp x @product._soluong - @product._giaban</div>
-                }
-
-            </div>
-            <div class="footer text-muted p-2">
-                Tổng thanh toán: @his._bill._totalMoney
-            </div>
-            <form method="post" asp-page-handler="ConfirmedBill">
-                <input class="d-none" name="_billcode" value="@his._bill._billCode" />
-                <button class="btn btn-danger text-center">
-                    Xác nhận
-                </button>
+            <label>Pie chart: </label>
+            <input type="radio" name="chartOption" onclick="UpdateChart(this.value)" value="pie" />
+        </div>
+        <div id="chart-container">
+            <canvas id="ChartBill" style="width:100%;max-width:600px"></canvas>
+        </div>
+        <div class="col-12 col-md-8">
+            <form method="post">
+                <select id="sl_option" name="option" onclick="optionChanges(this.value)">
+                    <option value="1">
+                        Theo tháng
+                    </option>
+                    <option value="2">
+                        Theo năm
+                    </option>
+                </select>
+                <div id="expand_options" class="my-2 mx-2">
+                    <div class="w-50">
+                        <div class="month_items float-start">
+                            <label for="month">Chọn tháng: </label>
+                            <select name="month">
+                                @foreach (var i in Model.monthlabel)
+                                {
+                                    <option value="@i">Tháng @i</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="year_items float-end">
+                            <label for="year">Chọn năm: </label>
+                            <select name="year">
+                                @foreach (var i in Model.yearlabel)
+                                {
+                                    <option value="@i">Năm @i</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <button class="btn btn-outline-info" type="submit">Chọn</button>
             </form>
+
         </div>
-    }
+    </div>
+
+    <div class="row container mx-auto w-75">
+        <form method="post" asp-page-handler="SendReport">
+            <textarea id="reportMoneyFigure" name="reportContent"></textarea>
+            @Html.EditorFor(model => model._report)
+            <button>Gửi báo cáo</button>
+        </form>
+    </div>
+</div>
+<partial name="~/Views/Shared/_summernotePartial.cshtml" model="@(new SummerNote("reportMoneyFigure",170,true))"></partial>
+
+
+<!-- Modal Toast Bootstrap 5 -->
+<div id="myToast" class="toast position-absolute" style="top: 30px;" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <strong class="me-auto fw-bold text-danger">Thông báo</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+        @if (ViewData["reportState"] != null)
+        {
+            @ViewData["reportState"]
+        }
+    </div>
 </div>
 
-
-<h2 class="text-success">Hóa đơn đã xác nhận</h2>
-<div class="w-100 d-flex justify-content-between p-2 flex-wrap" style="height: max-content">
-    @foreach (var his in Model.historyConfirmed)
+@section Scripts{
+    @if (ViewData["reportState"] != null)
     {
-        <div class="card my-1 mx-1" style="width: max-content">
-            <div class="card-header text-left bg-info">
-                <span>Mã hóa đơn: @his._bill._billCode</span>
-            </div>
-            <div class="card-subtitle text-left p-1">
-                <div>Phương thức: @his._bill._methodPayment</div>
-                <div>Mã giao dịch / giao vận: @his._bill._transactionCode</div>
-            </div>
-            <div class="card-body p-2 text-center">
-                <div>Tên khách hàng: @his._clientInfo._clienName</div>
-                @foreach (var product in productConfirmed)
-                {
-                    <div class="p-1">@product._tenSp x @product._soluong - @product._giaban</div>
-                }
-
-            </div>
-            <div class="footer text-muted p-2">
-                Tổng thanh toán: @his._bill._totalMoney
-            </div>
-            <div>
-                <input class="d-none" name="_billcode" value="@his._bill._billCode" />
-                <button class="btn btn-success" contenteditable="false">
-                    Đã xác nhận
-                </button>
-            </div>
-        </div>
-
+        <script>
+            // Kích hoạt Toast khi có ViewData
+            var toast = new bootstrap.Toast(document.getElementById('myToast'));
+            toast.show();
+        </script>
     }
-</div>
+    <script>
+        const xValues = @Html.Raw(Json.Serialize(Model.xlabel.ToArray()));
+        const yValues = @Html.Raw(Json.Serialize(Model.ylabel.ToArray()));
+        const expandOptions = document.getElementById("expand_options");
+        const monthOptions = document.querySelector(".month_items");
+        const yearOptions = document.querySelector(".year_items");
+        const optionChanges = (value) => {
+            if (value == 1) {
+                expandOptions.innerHTML = monthOptions.innerHTML;
+            }
+            if (value == 2) {
+                expandOptions.innerHTML = yearOptions.innerHTML;
+            }
+
+        }
+        const barColors = [
+            "#b91d47",
+            "#00aba9",
+            "#2b5797",
+            "#e8c3b9",
+            "#1e7145"
+        ];
+        // giải quyết khi dữ liệu nhiều hơn số màu => lặp lại random
+        if (xValues.length > barColors.length) {
+            let loopIndex = barColors.length;
+            while (xValues.length > barColors.length) {
+                barColors.push(barColors[xValues.length % loopIndex])
+            }
+        }
+        function UpdateChart(value) {
+            var canvas = document.getElementById("ChartBill");
+            var canvasContainer = document.getElementById("chart-container");
+            if (canvas.innerHTML != null) {
+                canvas.remove();
+                let create = document.createElement("canvas")
+                create.id = "ChartBill";
+                create.style = "width: 100%; max-width: 600px";
+                canvasContainer.appendChild(create);
+            }
+            canvas = document.getElementById("Chart");
+            if (value == "bar") {
+
+                new Chart("ChartBill", {
+                    type: value,
+                    data: {
+                        labels: xValues,
+                        datasets: [{
+                            fill: false,
+                            lineTension: 0,
+                            backgroundColor: barColors,
+                            borderColor: "rgba(0,0,255,0.1)",
+                            data: yValues
+                        }]
+                    },
+                    options: {
+                        title: {
+                            display: true,
+                            text: "@Html.Raw(ViewData["ChartTitle"])",
+                        },
+                        legend: { display: false },
+                        scales: {
+                            yAxes: [{ ticks: { min: 6, max: 16 } }],
+                        },
+
+
+                    }
+                });
+            }
+            if (value == "pie") {
+                new Chart("ChartBill", {
+                    type: value,
+                    data: {
+                        labels: xValues,
+                        datasets: [{
+                            backgroundColor: barColors,
+                            data: [55, 49, 44, 24, 15]
+                        }]
+                    },
+                    options: {
+                        title: {
+                            display: true,
+                            text: yValues,
+                        }
+                    }
+                });
+            }
+        }
+    </script>
+}

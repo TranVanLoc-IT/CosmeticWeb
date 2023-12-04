@@ -1,33 +1,52 @@
-﻿@model List<SuccessPayingModel>
-
+﻿@using Newtonsoft.Json
 @{
     List<HistoryProductBill> products = ViewData["HistoryProduct"] as List<HistoryProductBill>;
 }
-<div class="row container-fluid mx-2 my-2 d-flex justify-content-between flex-wrap">
-        @foreach (var bill in Model)
-        {
-            <div class="card my-1 mx-1 my-1" style="width: max-content">
-                <div class="card-header text-left bg-success">
-                    <span>Mã hóa đơn: @bill._bill._billCode</span>
-                </div>
-                <div class="card-subtitle text-left p-1">
-                    <div>Phương thức: @bill._bill._methodPayment</div>
-                    <div>Mã giao dịch / giao vận: @bill._bill._transactionCode</div>
-                </div>
-                <div class="card-body p-2 text-left">
-                    <div>Tên khách hàng: @bill._clientInfo._clienName</div>
-                   @foreach(var product in products)
-                   {
-                       if(product._mahd == bill._bill._billCode)
-                    {
-                        <div class="p-1">@product._tenSp x @product._soluong - @product._giaban</div>
+<div class="row container-fluid mx-2 my-2 d-flex justify-content-between flex-wrap" id="billBox">
+    
+</div>
+<div>
+</div>
+<script>
+    const get = document.getElementById("billBox");
+    $.ajax({
+        url: '/api/HistoryAPI/',
+        type: 'GET',
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        success: function (resdata) {
+            var getProducts = @Html.Raw(JsonConvert.SerializeObject(products));
+            var text = "";
+            for (let i = 0; i < resdata.length; i++) {
+                var productText = "";
+                for (let j = 0; j < getProducts.length; j++) {
+                    if (getProducts[j]._mahd == resdata[i]._bill._billCode) {
+                        productText += `
+                        <div class="p-1">${getProducts[j]._tenSp} x ${getProducts[j]._soluong} - ${getProducts[j]._giaban}</div>`
                     }
                 }
-
-                </div>
-                <div class="footer text-muted">
-                    Tổng thanh toán: @bill._bill._totalMoney
-                </div>
+                text += `<div class="card my-1 mx-1 my-1" style="width: max-content">
+            <div class="card-header text-left bg-success">
+                <span>Mã hóa đơn: ${resdata[i]._bill._billCode}</span>
             </div>
+            <div class="card-subtitle text-left p-1">
+                <div>Phương thức: ${resdata[i]._bill._methodPayment}</div>
+                <div>Mã giao dịch / giao vận: ${resdata[i]._bill._transactionCode}</div>
+            </div>
+            <div class="card-body p-2 text-left">
+                <div>Tên khách hàng: ${resdata[i]._clientInfo._clienName}</div>
+                ${productText}
+
+            </div>
+            <div class="footer text-muted">
+                Tổng thanh toán: ${resdata[i]._bill._totalMoney}
+            </div>
+        </div>`
+            }
+            get.innerHTML = text;
+        },
+        error: function () {
+            alert("Some error have occur");
         }
-</div>
+    });
+</script>

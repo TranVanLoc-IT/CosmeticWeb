@@ -17,7 +17,7 @@
 
 </div>
 <h2 class="text-danger">Hóa đơn chưa xác nhận</h2>
-<div class="d-flex justify-content-between flex-wrap w-100 p-2" style="height: max-content">
+<div class="d-flex justify-content-between flex-wrap w-100 p-2" id="billNot" style="height: max-content">
     @foreach (var his in Model.historyNotConfirmed)
     {
         <div class="card my-1 mx-1" style="width: max-content">
@@ -38,6 +38,7 @@
             </div>
             <div class="footer text-muted p-2">
                 Tổng thanh toán: @his._bill._totalMoney
+                Ngày lập: @his._bill._dateSet
             </div>
             <form method="post" asp-page-handler="ConfirmedBill">
                 <input class="d-none" name="_billcode" value="@his._bill._billCode" />

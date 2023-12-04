@@ -12,7 +12,9 @@
             <label>Pie chart: </label>
             <input type="radio" name="chartOption" onclick="UpdateChart(this.value)" value="pie" />
         </div>
-        <canvas id="Chart" style="width:100%;max-width:600px"></canvas>
+        <div id="chart-container">
+            <canvas id="Chart" style="width:100%;max-width:600px"></canvas>
+        </div>
         <div class="col-12 col-md-8">
             <form method="post">
                 <select id="sl_option" name="option" onclick="optionChanges(this.value)">
@@ -102,17 +104,15 @@
     <script>
         const xValues = @Html.Raw(Json.Serialize(Model.xlabel.ToArray()));
         const yValues = @Html.Raw(Json.Serialize(Model.ylabel.ToArray()));
+        const expandOptions = document.getElementById("expand_options");
+        const monthOptions = document.querySelector(".month_items");
+        const yearOptions = document.querySelector(".year_items");
         const optionChanges = (value) => {
-            if (value == 2) {
-                $(document).ready(function () {
-                    $("#expand_options").html($(".month_items").html())
-
-                })
+            if (value == 1) {
+                expandOptions.innerHTML = monthOptions.innerHTML;
             }
-            if (value == 3) {
-                $(document).ready(function () {
-                    $("#expand_options").html($(".year_items").html())
-                })
+            if (value == 2) {
+                expandOptions.innerHTML = yearOptions.innerHTML;
             }
 
         }
@@ -123,10 +123,24 @@
             "#e8c3b9",
             "#1e7145"
         ];
-        const canvas = document.getElementById("Chart");
-
+        // giải quyết khi dữ liệu nhiều hơn số màu => lặp lại random
+        if (xValues.length > barColors.length) {
+            let loopIndex = barColors.length;
+            while (xValues.length > barColors.length) {
+                barColors.push(barColors[xValues.length % loopIndex])
+            }
+        }
         function UpdateChart(value) {
-            canvas.innerHTML = "";
+            var canvas = document.getElementById("Chart");
+            var canvasContainer = document.getElementById("chart-container");
+            if (canvas.innerHTML != null) {
+                canvas.remove();
+                let create = document.createElement("canvas")
+                create.id = "Chart";
+                create.style = "width: 100%; max-width: 600px";
+                canvasContainer.appendChild(create);
+            }
+            canvas = document.getElementById("Chart");
             if (value == "bar") {
 
                 new Chart("Chart", {
@@ -159,7 +173,7 @@
                 new Chart("Chart", {
                     type: value,
                     data: {
-                        labels: ["Italy", "France", "Spain", "USA", "Argentina"],
+                        labels: xValues,
                         datasets: [{
                             backgroundColor: barColors,
                             data: [55, 49, 44, 24, 15]
@@ -168,7 +182,7 @@
                     options: {
                         title: {
                             display: true,
-                            text: "@Html.Raw(ViewData["ChartTitle"])",
+                            text: yValues,
                         }
                     }
                 });

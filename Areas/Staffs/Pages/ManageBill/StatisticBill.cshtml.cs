@@ -12,7 +12,7 @@ namespace WebCosmetic.Areas.Staffs.Pages.ManageBill
 {
     [Authorize(Policy = "StaffTerm")]
     [Authorize(Roles = "Staff")]
-    [Authorize(Roles = "Sales")]
+    [Authorize(Roles = "Saler")]
     public class StatisticBillModel : PageModel
     {
         private readonly IEmailSender _mail;
@@ -41,7 +41,21 @@ namespace WebCosmetic.Areas.Staffs.Pages.ManageBill
             yearlabel = new List<int>(getProduct.Count);
             monthlabel.AddRange(getBill.Select(itm => itm.Ngaylap.Month).Distinct().ToList());
             yearlabel.AddRange(getBill.Select(itm => itm.Ngaylap.Year).Distinct().ToList());
-
+            var collect = db.GetAllBills();
+            xlabel = new List<DateTime>(collect.Count());
+            ylabel = new List<int>(collect.Count());
+            foreach (var i in collect)
+            {
+                if (xlabel.Contains(i.Ngaylap))
+                {
+                    ylabel[xlabel.IndexOf(i.Ngaylap)]++;
+                }
+                else
+                {   
+                    xlabel.Add(i.Ngaylap);
+                    ylabel.Add(1);
+                }
+            }
             return Page();
         }
         public async Task<ActionResult> OnPostAsync(string? month, string? year)
@@ -58,7 +72,6 @@ namespace WebCosmetic.Areas.Staffs.Pages.ManageBill
                 }
                 else
                 {
-
                     xlabel.Add(i.Ngaylap);
                     ylabel.Add(1);
                 }

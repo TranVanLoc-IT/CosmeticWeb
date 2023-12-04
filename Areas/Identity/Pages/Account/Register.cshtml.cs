@@ -80,6 +80,12 @@ namespace WebCosmetic.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = new CosmeticModel { UserName = Input.UserName??"Cosmetic Customer", Email = Input.Email };
+                var isExists = await _userManager.FindByNameAsync(Input.UserName);
+                if(isExists != null)
+                {
+                    ModelState.AddModelError("Đã tồn tại", "Đã tồn tại tên đăng nhập này, hãy chọn tên khác");
+                    return Page();
+                }    
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

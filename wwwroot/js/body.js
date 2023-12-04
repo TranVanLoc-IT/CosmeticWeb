@@ -142,7 +142,6 @@ function fixQuantityOfProduct() {
 function UpdateQuantity(uid, masp) {
     fixQuantityOfProduct();
     var newquantity = document.getElementById("quantity_" + masp).value;
-    alert(newquantity);
     fetch("http://localhost:3000/_productCart/" + masp + "?_userId=" + uid, {
         "method": "PATCH",
         "cache": "no-cache",
